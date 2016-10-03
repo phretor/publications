@@ -1,6 +1,9 @@
 #! /bin/bash
 
 MAIN="src/main.bib"
+CLEANED="src/.main.bib"
+
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@InProceedings}' $MAIN > $CLEANED
 
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@InProceedings}' $MAIN > .papers
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{keywords "workshop"}' .papers > .workshops
@@ -21,7 +24,7 @@ echo "  * $(grep '^@' .dissertations | wc -l | tr -d '[:space:]') dissertations"
 echo "" >> README.md
 echo "Updated on $(date)" >> README.md
 
-bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/papers.rsc .papers > papers.bib
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/papers.rsc '--select.non{keywords "workshop"}' .papers > papers.bib
 rm .papers
 
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/journals.rsc .journals > journals.bib
@@ -39,5 +42,23 @@ rm .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/dissertations.rsc .dissertations > dissertations.bib
 rm .dissertations
 
-# check files
-cat *.bib | grep file | grep -oE '\{[^}]+\}' | tr -d '[{}]' | while read f; do if [[ ! -x $f ]]; then echo '[ERROR] File not found:' $f; fi; done
+echo '[INFO] Checking for missing files'
+cat *.bib | grep file | grep -oE '\{[^}]+\}' | tr -d '[{}]' | \
+  while read f
+  do
+    if [[ ! -e "$f" ]]
+    then
+      echo '-------------------------------------------------------------------------------'
+      echo "[ERROR] File not found: $f"
+      echo '-------------------------------------------------------------------------------'
+      grep -B 10 $f *.bib
+      echo '-------------------------------------------------------------------------------'
+    fi
+  done
+
+echo '[INFO] Checking for unused files'
+find files -type f -iname '*.pdf' | \
+  while read f
+  do
+    grep -q $f *.bib || echo "[WARNING] $f not used"
+  done

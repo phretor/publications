@@ -1,1498 +1,1341 @@
-
-@InProceedings{	  zheng_openst_2016,
-  shorttitle	= {OpenST},
-  author	= {Zheng, Chenghyu and Dalla Preda, Mila and Granjal, Jorge
-		  and Zanero, Stefano and Maggi, Federico},
-  title		= {On-{{Chip System Call Tracing}}: {{A Feasibility Study}}
-		  and {{Open Prototype}}},
-  booktitle	= {{{IEEE Conference}} on {{Communications}} and {{Network
-		  Security}} ({{CNS}})},
-  volume	= {(to appear)},
-  location	= {{Philadelphia, US}},
-  abstract	= {Several tools for program tracing and introspection exist.
-		  These tools can be used to analyze potentially malicious or
-		  untrusted programs. In this setting, it is important to
-		  prevent that the target program determines whether it is
-		  being traced or not. This is typically achieved by
-		  minimizing the code of the introspection routines and any
-		  artifact or side-effect that the program can leverage.
-		  Indeed, the most recent approaches consist of lightly
-		  instrumented operating systems or thin hypervisors running
-		  directly on bare metal.
-		  
-		  Following this research trend, we investigate the
-		  feasibility of transparently tracing a Linux/ARM program
-		  without modifying the software stack, while keeping the
-		  analysis cost and flexibility compatible with state of the
-		  art emulation- or bare-metal-based approaches. As for the
-		  typical program tracing task, our goal is to reconstruct
-		  the stream of system call invocations along with the
-		  respective un-marshalled arguments.
-		  
-		  We propose to leverage the availability of on-chip
-		  debugging interfaces of modern ARM systems, which are
-		  accessible via JTAG. More precisely, we developed OpenST,
-		  an open-source prototype tracer that allowed us to analyze
-		  the performance overhead and to assess the transparency
-		  with respect to evasive, real-world malicious programs.
-		  OpenST has two tracing modes: In-kernel dynamic tracing and
-		  external tracing. The in-kernel dynamic tracing mode uses
-		  the JTAG interface to ``hot-patch'' the system calls at
-		  runtime, injecting introspection code. This mode is more
-		  transparent than emulator based approaches, but assumes
-		  that the traced program does not have access to the kernel
-		  memory where the introspection code is loaded. The external
-		  tracing mode removes this assumption by using the JTAG
-		  interface to manage hardware breakpoints.
-		  
-		  Our tests show that OpenST's greater transparency comes at
-		  the price of a steep performance penalty. However, with a
-		  cost model, we show that OpenST scales better than the
-		  state of the art, bare-metal-based approach, while
-		  remaining equally stealthy to evasive malware.},
-  date		= {2016-10},
-  file		= {files/papers/conference-papers/zheng_openst_2016.pdf}
+@InProceedings{   zheng_openst_2016,
+  shorttitle    = {OpenST},
+  author        = {Zheng, Chenghyu and Dalla Preda, Mila and Granjal, Jorge and
+                  Zanero, Stefano and Maggi, Federico},
+  title         = {On-{{Chip System Call Tracing}}: {{A Feasibility Study}} and
+                  {{Open Prototype}}},
+  booktitle     = {{{IEEE Conference}} on {{Communications}} and {{Network
+                  Security}} ({{CNS}})},
+  volume        = {(to appear)},
+  location      = {{Philadelphia, US}},
+  abstract      = {Several tools for program tracing and introspection exist.
+                  These tools can be used to analyze potentially malicious or
+                  untrusted programs. In this setting, it is important to
+                  prevent that the target program determines whether it is
+                  being traced or not. This is typically achieved by minimizing
+                  the code of the introspection routines and any artifact or
+                  side-effect that the program can leverage. Indeed, the most
+                  recent approaches consist of lightly instrumented operating
+                  systems or thin hypervisors running directly on bare metal.
+                  
+                  Following this research trend, we investigate the feasibility
+                  of transparently tracing a Linux/ARM program without
+                  modifying the software stack, while keeping the analysis cost
+                  and flexibility compatible with state of the art emulation-
+                  or bare-metal-based approaches. As for the typical program
+                  tracing task, our goal is to reconstruct the stream of system
+                  call invocations along with the respective un-marshalled
+                  arguments.
+                  
+                  We propose to leverage the availability of on-chip debugging
+                  interfaces of modern ARM systems, which are accessible via
+                  JTAG. More precisely, we developed OpenST, an open-source
+                  prototype tracer that allowed us to analyze the performance
+                  overhead and to assess the transparency with respect to
+                  evasive, real-world malicious programs. OpenST has two
+                  tracing modes: In-kernel dynamic tracing and external
+                  tracing. The in-kernel dynamic tracing mode uses the JTAG
+                  interface to ``hot-patch'' the system calls at runtime,
+                  injecting introspection code. This mode is more transparent
+                  than emulator based approaches, but assumes that the traced
+                  program does not have access to the kernel memory where the
+                  introspection code is loaded. The external tracing mode
+                  removes this assumption by using the JTAG interface to manage
+                  hardware breakpoints.
+                  
+                  Our tests show that OpenST's greater transparency comes at
+                  the price of a steep performance penalty. However, with a
+                  cost model, we show that OpenST scales better than the state
+                  of the art, bare-metal-based approach, while remaining
+                  equally stealthy to evasive malware.},
+  date          = {2016-10},
+  file          = {files/papers/conference-papers/zheng_openst_2016.pdf}
 }
 
-@InProceedings{	  mambretti_trellis_2016,
-  shorttitle	= {Trellis},
-  author	= {Mambretti, Andrea and Onarlioglu, Kaan and Mulliner,
-		  Collin and Robertson, William and Kirda, Engin and Maggi,
-		  Federico and Zanero, Stefano},
-  title		= {Trellis: {{Privilege Separation}} for {{Multi-User
-		  Applications Made Easy}}},
-  booktitle	= {International {{Symposium}} on {{Research}} in
-		  {{Attacks}}, {{Intrusions}} and {{Defenses}} ({{RAID}})},
-  volume	= {(to appear)},
-  location	= {{Paris, France}},
-  abstract	= {Operating systems provide a wide variety of resource
-		  isolation and access control mechanisms, ranging from
-		  traditional user-based security models to fine-grained
-		  permission systems as found in modern mobile operating
-		  systems. However, comparatively little assistance is
-		  available for defining and enforcing access control
-		  policies within multiuser applications. These applications,
-		  often found in enterprise environments, allow multiple
-		  users to operate at different privilege levels in terms of
-		  exercising application functionality and accessing data.
-		  Developers of such applications bear a heavy burden in
-		  ensuring that security policies over code and data in this
-		  setting are properly expressed and enforced. We present
-		  Trellis, an approach for expressing hierarchical access
-		  control policies in applications and enforcing these
-		  policies during execution. The approach enhances the
-		  development toolchain to allow programmers to partially
-		  annotate code and data with simple privilege level tags,
-		  and uses a static analysis to infer suitable tags for the
-		  entire application. At runtime, policies are extracted from
-		  the resulting binaries and are enforced by a modified
-		  operating system kernel. Our evaluation demonstrates that
-		  this approach effectively supports the development of
-		  secure multi-user applications with modest runtime
-		  performance overhead.},
-  date		= {2016-09},
-  file		= {files/papers/conference-papers/mambretti_trellis_2016.pdf}
+@InProceedings{   mambretti_trellis_2016,
+  shorttitle    = {Trellis},
+  author        = {Mambretti, Andrea and Onarlioglu, Kaan and Mulliner, Collin
+                  and Robertson, William and Kirda, Engin and Maggi, Federico
+                  and Zanero, Stefano},
+  title         = {Trellis: {{Privilege Separation}} for {{Multi-User
+                  Applications Made Easy}}},
+  booktitle     = {International {{Symposium}} on {{Research}} in {{Attacks}},
+                  {{Intrusions}} and {{Defenses}} ({{RAID}})},
+  volume        = {(to appear)},
+  location      = {{Paris, France}},
+  abstract      = {Operating systems provide a wide variety of resource
+                  isolation and access control mechanisms, ranging from
+                  traditional user-based security models to fine-grained
+                  permission systems as found in modern mobile operating
+                  systems. However, comparatively little assistance is
+                  available for defining and enforcing access control policies
+                  within multiuser applications. These applications, often
+                  found in enterprise environments, allow multiple users to
+                  operate at different privilege levels in terms of exercising
+                  application functionality and accessing data. Developers of
+                  such applications bear a heavy burden in ensuring that
+                  security policies over code and data in this setting are
+                  properly expressed and enforced. We present Trellis, an
+                  approach for expressing hierarchical access control policies
+                  in applications and enforcing these policies during
+                  execution. The approach enhances the development toolchain to
+                  allow programmers to partially annotate code and data with
+                  simple privilege level tags, and uses a static analysis to
+                  infer suitable tags for the entire application. At runtime,
+                  policies are extracted from the resulting binaries and are
+                  enforced by a modified operating system kernel. Our
+                  evaluation demonstrates that this approach effectively
+                  supports the development of secure multi-user applications
+                  with modest runtime performance overhead.},
+  date          = {2016-09},
+  file          = {files/papers/conference-papers/mambretti_trellis_2016.pdf}
 }
 
-@InProceedings{	  coletta_droydseuss_2016,
-  shorttitle	= {DroydSeuss},
-  author	= {Coletta, Alberto and Van der Veen, Victor and Maggi,
-		  Federico},
-  title		= {{{DroydSeuss}}: {{A Mobile Banking Trojan Tracker}} -
-		  {{Short Paper}}},
-  publisher	= {{Springer Berlin Heidelberg}},
-  booktitle	= {Financial {{Cryptography}} and {{Data Security}}},
-  series	= {Lecture Notes in Computer Science (LNCS)},
-  abstract	= {After analyzing several Android mobile banking trojans, we
-		  observed the presence of repetitive artifacts that describe
-		  valuable information about the distribution of this class
-		  of malicious apps. Motivated by the high threat level posed
-		  by mobile banking trojans and by the lack of publicly
-		  available analysis and intelligence tools, we automated the
-		  extraction of such artifacts and created a malware tracker
-		  named DroydSeuss. DroydSeuss first processes applications
-		  both statically and dynamically, extracting relevant
-		  strings that contain traces of communication endpoints.
-		  Second, it prioritizes the extracted strings based on the
-		  APIs that manipulate them. Finally, DroydSeuss correlates
-		  the endpoints with descriptive metadata from the samples,
-		  providing aggregated statistics, raw data, and cross-sample
-		  information that allow researchers to pinpoint relevant
-		  groups of applications. We connected DroydSeuss to the
-		  VirusTotal daily feed, consuming Android samples that
-		  perform banking-trojan activity. We manually analyzed its
-		  output and found supporting evidence to confirm its
-		  correctness. Remarkably, the most frequent itemset unveiled
-		  a campaign currently spreading against Chinese and Korean
-		  bank customers.
-		  
-		  Although motivated by mobile banking trojans, DroydSeuss
-		  can be used to analyze the communication behavior of any
-		  suspicious application.},
-  date		= {2016-02},
-  file		= {files/papers/conference-papers/coletta_droydseuss_2016.pdf}
+@InProceedings{   coletta_droydseuss_2016,
+  shorttitle    = {DroydSeuss},
+  author        = {Coletta, Alberto and Van der Veen, Victor and Maggi,
+                  Federico},
+  title         = {{{DroydSeuss}}: {{A Mobile Banking Trojan Tracker}} -
+                  {{Short Paper}}},
+  publisher     = {{Springer Berlin Heidelberg}},
+  booktitle     = {Financial {{Cryptography}} and {{Data Security}}},
+  series        = {Lecture Notes in Computer Science (LNCS)},
+  abstract      = {After analyzing several Android mobile banking trojans, we
+                  observed the presence of repetitive artifacts that describe
+                  valuable information about the distribution of this class of
+                  malicious apps. Motivated by the high threat level posed by
+                  mobile banking trojans and by the lack of publicly available
+                  analysis and intelligence tools, we automated the extraction
+                  of such artifacts and created a malware tracker named
+                  DroydSeuss. DroydSeuss first processes applications both
+                  statically and dynamically, extracting relevant strings that
+                  contain traces of communication endpoints. Second, it
+                  prioritizes the extracted strings based on the APIs that
+                  manipulate them. Finally, DroydSeuss correlates the endpoints
+                  with descriptive metadata from the samples, providing
+                  aggregated statistics, raw data, and cross-sample information
+                  that allow researchers to pinpoint relevant groups of
+                  applications. We connected DroydSeuss to the VirusTotal daily
+                  feed, consuming Android samples that perform banking-trojan
+                  activity. We manually analyzed its output and found
+                  supporting evidence to confirm its correctness. Remarkably,
+                  the most frequent itemset unveiled a campaign currently
+                  spreading against Chinese and Korean bank customers.
+                  
+                  Although motivated by mobile banking trojans, DroydSeuss can
+                  be used to analyze the communication behavior of any
+                  suspicious application.},
+  date          = {2016-02},
+  file          = {files/papers/conference-papers/coletta_droydseuss_2016.pdf}
 }
 
-@InProceedings{	  falsina_grabnrun_2015,
-  shorttitle	= {GrabNRun},
-  author	= {Falsina, Luca and Fratantonio, Yanick and Zanero, Stefano
-		  and Kruegel, Christopher and Vigna, Giovanni and Maggi,
-		  Federico},
-  title		= {Grab 'n {{Run}}: {{Secure}} and {{Practical Dynamic Code
-		  Loading}} for {{Android Applications}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the 31st {{Annual Computer Security
-		  Applications Conference}}},
-  volume	= {(to appear)},
-  series	= {ACSAC '15},
-  location	= {{Los Angeles, USA}},
-  abstract	= {Android introduced the dynamic code loading (DCL)
-		  mechanism to allow for code reuse, to achieve
-		  extensibility, to enable updating functionalities or to
-		  boost application start- up performance. In spite of its
-		  wide adoption by developers, implementing DCL in a secure
-		  way is challenging, leading to serious vulnerabilities such
-		  as remote code injection. Previous academic and community
-		  attempts at solving this problem are unfortunately either
-		  impractical or incomplete, or in some cases exhibit
-		  vulnerabilities. In this paper, we propose, design,
-		  implement and test Grab 'n Run, a novel code verification
-		  protocol and a series of supporting libraries, APIs, and
-		  components, that address the problem by abstracting away
-		  from the developer challenging implementation details. Grab
-		  'n Run is designed to be practical: among its tools, it
-		  provides a drop-in library, which requires no modifications
-		  to the Android framework or the underlying Dalvik/ART
-		  runtime, is very similar to the native API, and most code
-		  can be automatically rewritten to use it. Grab 'n Run also
-		  contains an application rewriting tool, which allows easy
-		  porting of existing applications to use the secure API of
-		  its library. We evaluate Grab 'n Run library with a user
-		  study, obtaining impressive results in vulnerability
-		  reduction, ease of use and speed of development. We also
-		  show that the performance overhead introduced by our
-		  library is negligible. The library is released as free
-		  software.},
-  doi		= {10.1145/2818000.2818042},
-  date		= {2015-12},
-  file		= {files/papers/conference-papers/falsina_grabnrun_2015.pdf}
+@InProceedings{   falsina_grabnrun_2015,
+  shorttitle    = {GrabNRun},
+  author        = {Falsina, Luca and Fratantonio, Yanick and Zanero, Stefano
+                  and Kruegel, Christopher and Vigna, Giovanni and Maggi,
+                  Federico},
+  title         = {Grab 'n {{Run}}: {{Secure}} and {{Practical Dynamic Code
+                  Loading}} for {{Android Applications}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the 31st {{Annual Computer Security
+                  Applications Conference}}},
+  volume        = {(to appear)},
+  series        = {ACSAC '15},
+  location      = {{Los Angeles, USA}},
+  abstract      = {Android introduced the dynamic code loading (DCL) mechanism
+                  to allow for code reuse, to achieve extensibility, to enable
+                  updating functionalities or to boost application start- up
+                  performance. In spite of its wide adoption by developers,
+                  implementing DCL in a secure way is challenging, leading to
+                  serious vulnerabilities such as remote code injection.
+                  Previous academic and community attempts at solving this
+                  problem are unfortunately either impractical or incomplete,
+                  or in some cases exhibit vulnerabilities. In this paper, we
+                  propose, design, implement and test Grab 'n Run, a novel code
+                  verification protocol and a series of supporting libraries,
+                  APIs, and components, that address the problem by abstracting
+                  away from the developer challenging implementation details.
+                  Grab 'n Run is designed to be practical: among its tools, it
+                  provides a drop-in library, which requires no modifications
+                  to the Android framework or the underlying Dalvik/ART
+                  runtime, is very similar to the native API, and most code can
+                  be automatically rewritten to use it. Grab 'n Run also
+                  contains an application rewriting tool, which allows easy
+                  porting of existing applications to use the secure API of its
+                  library. We evaluate Grab 'n Run library with a user study,
+                  obtaining impressive results in vulnerability reduction, ease
+                  of use and speed of development. We also show that the
+                  performance overhead introduced by our library is negligible.
+                  The library is released as free software.},
+  doi           = {10.1145/2818000.2818042},
+  date          = {2015-12},
+  file          = {files/papers/conference-papers/falsina_grabnrun_2015.pdf}
 }
 
-@InProceedings{	  polino_jackdaw_2015,
-  shorttitle	= {Jackdaw},
-  author	= {Polino, Mario and Scorti, Andrea and Maggi, Federico and
-		  Zanero, Stefano},
-  title		= {Jackdaw: {{Towards Automatic Reverse Engineering}} of
-		  {{Large Datasets}} of {{Binaries}}},
-  publisher	= {{Springer International Publishing}},
-  editor	= {Almgren, Magnus and Gulisano, Vincenzo and Maggi,
-		  Federico},
-  booktitle	= {Detection of {{Intrusions}} and {{Malware}}, and
-		  {{Vulnerability Assessment}}},
-  series	= {Lecture Notes in Computer Science},
-  pages		= {121--143},
-  abstract	= {When analyzing an untrusted binary, reverse engineers
-		  usually rely on ad-hoc collections of interesting dynamic
-		  patterns known as behaviors in the malware-analysis
-		  community and static patterns known as signatures in the
-		  antivirus community. Such patterns are often part of the
-		  skill set of the analyst, sometimes implemented in
-		  manually-created post-processing scripts. It would be
-		  desirable to be able to automatically find such behaviors,
-		  present them to analysts, and create a systematic catalog
-		  of matching rules and relevant implementations. We propose
-		  Jackdaw, a system that finds interesting dynamic patterns,
-		  and ranks them to unveil potentially interesting behaviors.
-		  Then, it annotates them with static information, capturing
-		  the distinct implementations of each across different
-		  malware families. Finally, Jackdaw associates semantic
-		  information to the behaviors, so as to create a descriptive
-		  summary that helps the analysts in querying the catalog of
-		  behaviors by type. To do this, it leverages the dynamic
-		  information and an indexed Web-based knowledge databases.
-		  We implement and demonstrate Jackdaw on the Win32 API (even
-		  if the technique can be generalized to any OS). On a
-		  dataset of 2,136 distinct binaries, including both
-		  malicious and benign libraries and executables, we compared
-		  the behaviors extracted automatically against a ground
-		  truth of 44 behaviors created manually by expert analysts.
-		  Jackdaw found 77.3\% of them and was able to exclude
-		  spurious behaviors in 99.6\% cases. We also discovered 466
-		  novel behaviors, among which manual exploration and review
-		  by expert reverse engineers revealed interesting findings
-		  and confirmed the correctness of the semantic tagging.},
-  doi		= {10.1007/978-3-319-20550-2_7},
-  isbn		= {978-3-319-20549-6 978-3-319-20550-2},
-  date		= {2015-07-09},
-  url		= {http://link.springer.com/chapter/10.1007/978-3-319-20550-2_7},
-  file		= {files/papers/conference-papers/polino_jackdaw_2015.pdf}
+@InProceedings{   andronio_heldroid_2015,
+  shorttitle    = {HelDroid},
+  author        = {Andronio, Niccolò and Zanero, Stefano and Maggi, Federico},
+  title         = {{HelDroid}: Dissecting and Detecting Mobile Ransomware},
+  booktitle     = {International {{Symposium}} on {{Research}} in {{Attacks}},
+                  {{Intrusions}} and {{Defenses}} ({{RAID}})},
+  volume        = {9404},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {382--404},
+  location      = {Kyoto, Japan},
+  abstract      = {In ransomware attacks, the actual target is the human, as
+                  opposed to the classic attacks that abuse the infected
+                  devices (e.g., botnet renting, information stealing). Mobile
+                  devices are by no means immune to ransomware attacks.
+                  However, there is little research work on this matter and
+                  only traditional protections are available. Even
+                  state-of-the-art mobile malware detection approaches are
+                  ineffective against ransomware apps because of the subtle
+                  attack scheme. As a consequence, the ample attack surface
+                  formed by the billion mobile devices is left unprotected.
+                  First, in this work we summarize the results of our analysis
+                  of the existing mobile ransomware families, describing their
+                  common characteristics. Second, we present HelDroid, a fast,
+                  efficient and fully automated approach that recognizes known
+                  and unknown scareware and ransomware samples from goodware.
+                  Our approach is based on detecting the ``build- ing blocks''
+                  that are typically needed to implement a mobile ransomware
+                  application. Specifically, HelDroid detects, in a generic
+                  way, if an app is attempting to lock or encrypt the device
+                  without the user’s consent, and if ransom requests are
+                  displayed on the screen. Our technique works without
+                  requiring that a sample of a certain family is available
+                  beforehand. We implemented HelDroid and tested it on
+                  real-world Android ransomware samples. On a large dataset
+                  comprising hundreds of thousands of APKs including goodware,
+                  malware, scareware, and ransomware, HelDroid exhibited nearly
+                  zero false positives and the capability of recognizing
+                  unknown ransomware samples. },
+  doi           = {10.1007/978-3-319-26362-5_18},
+  date          = {2015-10},
+  file          = {files/papers/conference-papers/andronio_heldroid_2015.pdf}
 }
 
-@InProceedings{	  ilia_faceoff_2015,
-  shorttitle	= {FaceOff},
-  author	= {Ilia, Panagiotis and Polakis, Iasonas and Athanasopoulos,
-		  Elias and Maggi, Federico and Ioannidis, Sotiris},
-  title		= {Face/{{Off}}: {{Preventing Privacy Leakage From Photos}}
-		  in {{Social Networks}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the {{22Nd ACM SIGSAC Conference}} on
-		  {{Computer}} and {{Communications Security}}},
-  series	= {CCS '15},
-  pages		= {781--792},
-  location	= {{New York, NY, USA}},
-  abstract	= {The capabilities of modern devices, coupled with the
-		  almost ubiquitous availability of Internet connectivity,
-		  have resulted in photos being shared online at an
-		  unprecedented scale. This is further amplified by the
-		  popularity of social networks and the immediacy they offer
-		  in content sharing. Existing access control mechanisms are
-		  too coarse-grained to handle cases of conflicting interests
-		  between the users associated with a photo; stories of
-		  embarrassing or inappropriate photos being widely
-		  accessible have become quite common. In this paper, we
-		  propose to rethink access control when applied to photos,
-		  in a way that allows us to effectively prevent unwanted
-		  individuals from recognizing users in a photo. The core
-		  concept behind our approach is to change the granularity of
-		  access control from the level of the photo to that of a
-		  user's personally identifiable information (PII). In this
-		  work, we consider the face as the PII. When another user
-		  attempts to access a photo, the system determines which
-		  faces the user does not have the permission to view, and
-		  presents the photo with the restricted faces blurred out.
-		  Our system takes advantage of the existing face recognition
-		  functionality of social networks, and can interoperate with
-		  the current photo-level access control mechanisms. We
-		  implement a proof-of-concept application for Facebook, and
-		  demonstrate that the performance overhead of our approach
-		  is minimal. We also conduct a user study to evaluate the
-		  privacy offered by our approach, and find that it
-		  effectively prevents users from identifying their contacts
-		  in 87.35\% of the restricted photos. Finally, our study
-		  reveals the misconceptions about the privacy offered by
-		  existing mechanisms, and demonstrates that users are
-		  positive towards the adoption of an intuitive,
-		  straightforward access control mechanism that allows them
-		  to manage the visibility of their face in published
-		  photos.},
-  doi		= {10.1145/2810103.2813603},
-  isbn		= {978-1-4503-3832-5},
-  date		= {2015},
-  url		= {http://doi.acm.org/10.1145/2810103.2813603},
-  file		= {files/papers/conference-papers/ilia_faceoff_2015.pdf}
+@InProceedings{   polino_jackdaw_2015,
+  shorttitle    = {Jackdaw},
+  author        = {Polino, Mario and Scorti, Andrea and Maggi, Federico and
+                  Zanero, Stefano},
+  title         = {Jackdaw: {{Towards Automatic Reverse Engineering}} of
+                  {{Large Datasets}} of {{Binaries}}},
+  publisher     = {{Springer International Publishing}},
+  editor        = {Almgren, Magnus and Gulisano, Vincenzo and Maggi, Federico},
+  booktitle     = {Detection of {{Intrusions}} and {{Malware}}, and
+                  {{Vulnerability Assessment}}},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {121--143},
+  abstract      = {When analyzing an untrusted binary, reverse engineers
+                  usually rely on ad-hoc collections of interesting dynamic
+                  patterns known as behaviors in the malware-analysis community
+                  and static patterns known as signatures in the antivirus
+                  community. Such patterns are often part of the skill set of
+                  the analyst, sometimes implemented in manually-created
+                  post-processing scripts. It would be desirable to be able to
+                  automatically find such behaviors, present them to analysts,
+                  and create a systematic catalog of matching rules and
+                  relevant implementations. We propose Jackdaw, a system that
+                  finds interesting dynamic patterns, and ranks them to unveil
+                  potentially interesting behaviors. Then, it annotates them
+                  with static information, capturing the distinct
+                  implementations of each across different malware families.
+                  Finally, Jackdaw associates semantic information to the
+                  behaviors, so as to create a descriptive summary that helps
+                  the analysts in querying the catalog of behaviors by type. To
+                  do this, it leverages the dynamic information and an indexed
+                  Web-based knowledge databases. We implement and demonstrate
+                  Jackdaw on the Win32 API (even if the technique can be
+                  generalized to any OS). On a dataset of 2,136 distinct
+                  binaries, including both malicious and benign libraries and
+                  executables, we compared the behaviors extracted
+                  automatically against a ground truth of 44 behaviors created
+                  manually by expert analysts. Jackdaw found 77.3\% of them and
+                  was able to exclude spurious behaviors in 99.6\% cases. We
+                  also discovered 466 novel behaviors, among which manual
+                  exploration and review by expert reverse engineers revealed
+                  interesting findings and confirmed the correctness of the
+                  semantic tagging.},
+  doi           = {10.1007/978-3-319-20550-2_7},
+  isbn          = {978-3-319-20549-6 978-3-319-20550-2},
+  date          = {2015-07-09},
+  url           = {http://link.springer.com/chapter/10.1007/978-3-319-20550-2_7},
+  file          = {files/papers/conference-papers/polino_jackdaw_2015.pdf}
 }
 
-@InProceedings{	  polakis_resoauth_2014,
-  shorttitle	= {ReSoAuth},
-  author	= {Polakis, Iasonas and Ilia, Panagiotis and Maggi, Federico
-		  and Lancini, Marco and Kontaxis, Georgios and Zanero,
-		  Stefano and Ioannidis, Sotiris and Keromytis, Angelos D.},
-  title		= {Faces in the {{Distorting Mirror}}: {{Revisiting
-		  Photo}}-based {{Social Authentication}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the 2014 {{ACM SIGSAC Conference}} on
-		  {{Computer}} and {{Communications Security}}},
-  series	= {CCS '14},
-  pages		= {501--512},
-  location	= {{New York, NY, USA}},
-  abstract	= {In an effort to hinder attackers from compromising user
-		  accounts, Facebook launched a form of two-factor
-		  authentication called social authentication (SA), where
-		  users are required to identify photos of their friends to
-		  complete a log-in attempt. Recent research, however,
-		  demonstrated that attackers can bypass the mechanism by
-		  employing face recognition software. Here we demonstrate an
-		  alternative attack. that employs image comparison
-		  techniques to identify the SA photos within an offline
-		  collection of the users' photos. In this paper, we revisit
-		  the concept of SA and design a system with a novel photo
-		  selection and transformation process, which generates
-		  challenges that are robust against these attacks. The
-		  intuition behind our photo selection is to use photos. that
-		  fail software-based face recognition, while remaining
-		  recognizable to humans who are familiar with the depicted
-		  people. The photo transformation process. creates
-		  challenges in the form of photo collages, where faces are
-		  transformed so as to render image matching techniques
-		  ineffective. We experimentally confirm the robustness of
-		  our approach against three template. matching algorithms
-		  that solve 0.4 percent of the challenges, while requiring
-		  four orders of magnitude more processing effort.
-		  Furthermore, when the transformations are applied, face
-		  detection software fails to detect even a single face. Our
-		  user studies confirm that users are able to identify their
-		  friends in over 99\% of the photos with faces
-		  unrecognizable by software, and can solve over 94 percent
-		  of the challenges with transformed photos.},
-  doi		= {10.1145/2660267.2660317},
-  isbn		= {978-1-4503-2957-6},
-  date		= {2014-11},
-  url		= {http://doi.acm.org/10.1145/2660267.2660317},
-  file		= {files/papers/conference-papers/polakis_resoauth_2014.pdf}
+@InProceedings{   ilia_faceoff_2015,
+  shorttitle    = {FaceOff},
+  author        = {Ilia, Panagiotis and Polakis, Iasonas and Athanasopoulos,
+                  Elias and Maggi, Federico and Ioannidis, Sotiris},
+  title         = {Face/{{Off}}: {{Preventing Privacy Leakage From Photos}} in
+                  {{Social Networks}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the {{22Nd ACM SIGSAC Conference}} on
+                  {{Computer}} and {{Communications Security}}},
+  series        = {CCS '15},
+  pages         = {781--792},
+  location      = {{New York, NY, USA}},
+  abstract      = {The capabilities of modern devices, coupled with the almost
+                  ubiquitous availability of Internet connectivity, have
+                  resulted in photos being shared online at an unprecedented
+                  scale. This is further amplified by the popularity of social
+                  networks and the immediacy they offer in content sharing.
+                  Existing access control mechanisms are too coarse-grained to
+                  handle cases of conflicting interests between the users
+                  associated with a photo; stories of embarrassing or
+                  inappropriate photos being widely accessible have become
+                  quite common. In this paper, we propose to rethink access
+                  control when applied to photos, in a way that allows us to
+                  effectively prevent unwanted individuals from recognizing
+                  users in a photo. The core concept behind our approach is to
+                  change the granularity of access control from the level of
+                  the photo to that of a user's personally identifiable
+                  information (PII). In this work, we consider the face as the
+                  PII. When another user attempts to access a photo, the system
+                  determines which faces the user does not have the permission
+                  to view, and presents the photo with the restricted faces
+                  blurred out. Our system takes advantage of the existing face
+                  recognition functionality of social networks, and can
+                  interoperate with the current photo-level access control
+                  mechanisms. We implement a proof-of-concept application for
+                  Facebook, and demonstrate that the performance overhead of
+                  our approach is minimal. We also conduct a user study to
+                  evaluate the privacy offered by our approach, and find that
+                  it effectively prevents users from identifying their contacts
+                  in 87.35\% of the restricted photos. Finally, our study
+                  reveals the misconceptions about the privacy offered by
+                  existing mechanisms, and demonstrates that users are positive
+                  towards the adoption of an intuitive, straightforward access
+                  control mechanism that allows them to manage the visibility
+                  of their face in published photos.},
+  doi           = {10.1145/2810103.2813603},
+  isbn          = {978-1-4503-3832-5},
+  date          = {2015},
+  url           = {http://doi.acm.org/10.1145/2810103.2813603},
+  file          = {files/papers/conference-papers/ilia_faceoff_2015.pdf}
 }
 
-@InProceedings{	  antonini_knxmalware_2014,
-  shorttitle	= {KNXMalware},
-  author	= {Antonini, Alessio and Maggi, Federico and Zanero,
-		  Stefano},
-  title		= {A {{Practical Attack Against}} a {{KNX}}-based {{Building
-		  Automation System}}},
-  publisher	= {{BCS}},
-  booktitle	= {Proceedings of the {{2Nd International Symposium}} on
-		  {{ICS}} \& {{SCADA Cyber Security Research}} 2014},
-  series	= {ICS-CSR 2014},
-  pages		= {53--60},
-  location	= {{UK}},
-  abstract	= {Building automation systems rely heavily on
-		  general-purpose computers and communication protocols,
-		  which are often affected by security vulnerabilities. In
-		  this paper, we first analyze the attack surface of a real
-		  building automation system - based on the widely used KNX
-		  protocol-connected to a general-purpose IP network. To this
-		  end, we analyze the vulnerabilities of KNX-based networks
-		  highlighted by previous research work, which, however, did
-		  not corroborate their findings with experimental results.
-		  To verify the practical exploitability of these
-		  vulnerabilities and their potential impact, we implement a
-		  full-fledged testbed infrastructure that reproduces the
-		  typical deployment of a building automation system. On this
-		  testbed, we show the feasibility of a practical attack that
-		  leverages and combines the aforementioned vulnerabilities.
-		  We show the ease of reverse engineering the vendor-specific
-		  components of the KNX protocol. Our attack leverages the
-		  IP-to-KNX connectivity to send arbitrary commands which are
-		  executed by the actuators. We conclude that the
-		  vulnerabilities highlighted by previous work are
-		  effectively exploitable in practice, with severe results.
-		  Although we use KNX as a target, our work can be
-		  generalized to other communication protocols, often
-		  characterized by similar issues. Finally, we analyze the
-		  countermeasures proposed in previous literature and reveal
-		  the limitations that prevent their adoption in practice. We
-		  suggest a practical stopgap measure to protect real
-		  KNX-based BASs from our attack.},
-  doi		= {10.14236/ewic/ics-csr2014.7},
-  isbn		= {978-1-78017-286-6},
-  date		= {2014-09},
-  url		= {http://dx.doi.org/10.14236/ewic/ics-csr2014.7},
-  file		= {files/papers/conference-papers/antonini_knxmalware_2014.pdf}
+@InProceedings{   polakis_resoauth_2014,
+  shorttitle    = {ReSoAuth},
+  author        = {Polakis, Iasonas and Ilia, Panagiotis and Maggi, Federico
+                  and Lancini, Marco and Kontaxis, Georgios and Zanero, Stefano
+                  and Ioannidis, Sotiris and Keromytis, Angelos D.},
+  title         = {Faces in the {{Distorting Mirror}}: {{Revisiting
+                  Photo}}-based {{Social Authentication}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the 2014 {{ACM SIGSAC Conference}} on
+                  {{Computer}} and {{Communications Security}}},
+  series        = {CCS '14},
+  pages         = {501--512},
+  location      = {{New York, NY, USA}},
+  abstract      = {In an effort to hinder attackers from compromising user
+                  accounts, Facebook launched a form of two-factor
+                  authentication called social authentication (SA), where users
+                  are required to identify photos of their friends to complete
+                  a log-in attempt. Recent research, however, demonstrated that
+                  attackers can bypass the mechanism by employing face
+                  recognition software. Here we demonstrate an alternative
+                  attack. that employs image comparison techniques to identify
+                  the SA photos within an offline collection of the users'
+                  photos. In this paper, we revisit the concept of SA and
+                  design a system with a novel photo selection and
+                  transformation process, which generates challenges that are
+                  robust against these attacks. The intuition behind our photo
+                  selection is to use photos. that fail software-based face
+                  recognition, while remaining recognizable to humans who are
+                  familiar with the depicted people. The photo transformation
+                  process. creates challenges in the form of photo collages,
+                  where faces are transformed so as to render image matching
+                  techniques ineffective. We experimentally confirm the
+                  robustness of our approach against three template. matching
+                  algorithms that solve 0.4 percent of the challenges, while
+                  requiring four orders of magnitude more processing effort.
+                  Furthermore, when the transformations are applied, face
+                  detection software fails to detect even a single face. Our
+                  user studies confirm that users are able to identify their
+                  friends in over 99\% of the photos with faces unrecognizable
+                  by software, and can solve over 94 percent of the challenges
+                  with transformed photos.},
+  doi           = {10.1145/2660267.2660317},
+  isbn          = {978-1-4503-2957-6},
+  date          = {2014-11},
+  url           = {http://doi.acm.org/10.1145/2660267.2660317},
+  file          = {files/papers/conference-papers/polakis_resoauth_2014.pdf}
 }
 
-@InProceedings{	  polakis_osnresearch_2014,
-  shorttitle	= {OSNResearch},
-  author	= {Polakis, Iasonas and Maggi, Federico and Zanero, Stefano
-		  and Keromytis, Angelos D.},
-  title		= {Security and {{Privacy Measurements}} on {{Social
-		  Networks}}: {{Experiences}} and {{Lessons Learned}}},
-  booktitle	= {2014 Third International Workshop on Building Analysis
-		  Datasets and Gathering Experience Returns for Security
-		  (BADGERS)},
-  pages		= {18-29},
-  location	= {{Wroclaw, Poland}},
-  abstract	= {We describe our experience gained while exploring
-		  practical security and privacy problems in a real-world,
-		  large- scale social network (i.e., Facebook), and summarize
-		  our conclusions in a series of "lessons learned". We first
-		  conclude that it is better to adequately describe the
-		  potential ethical concerns from the very beginning and plan
-		  ahead the institutional review board (IRB) request. Even
-		  though sometimes optional, the IRB approval is a valuable
-		  point from the reviewer's perspective. Another aspect that
-		  needs planning is getting in touch with the online social
-		  network security team, which takes a substantial amount of
-		  time. With their support, "bending the rules" (e.g., using
-		  scrapers) when the experimental goals require so, is
-		  easier. Clearly, in cases where critical technical
-		  vulnerabilities are found during the research, the general
-		  recommendations for responsible disclosure should be
-		  followed. Gaining the audience's engagement and trust was
-		  essential to the success of our user study. Participants
-		  felt more comfortable when subscribing to our experiments,
-		  and also responsibly reported bugs and glitches. We did not
-		  observe the same behavior in crowd-sourcing workers, who
-		  were instead more interested in obtaining their rewards. On
-		  a related point, our experience suggests that crowd
-		  sourcing should not be used alone: Setting up tasks is more
-		  time consuming than it seems, and researchers must insert
-		  some sentinel checks to ensure that workers are not
-		  submitting random answers.From a logistics point of view,
-		  we learned that having at least a high-level plan of the
-		  experiments pays back, especially when the IRB requires a
-		  detailed description of the work and the data to be
-		  collected. However, over planning can be dangerous because
-		  the measurement goals can change dynamically. From a
-		  technical point of view, partially connected to the
-		  logistics remarks, having a complex and large
-		  data-gathering and analysis framework may be
-		  counterproductive in terms of set-up a- d management
-		  overhead. From our experience we suggest to choose simple
-		  technologies that scale up if needed but, more importantly,
-		  can scale down. For example, launching a quick query should
-		  be straightforward, and the frameworks should not impose
-		  too much overhead for formulating it. We conclude with a
-		  series of practical recommendations on how to successfully
-		  collect data from online social networks (e.g., using
-		  techniques for network multipresence, mimicking user
-		  behavior, and other crawling "tricks"') and avoid abusing
-		  the online service, while gathering the data required by
-		  the experiments.},
-  doi		= {10.1109/BADGERS.2014.9},
-  date		= {2014-09},
-  keywords	= {workshop},
-  file		= {files/papers/conference-papers/polakis_osnresearch_2014.pdf}
+@InProceedings{   antonini_knxmalware_2014,
+  shorttitle    = {KNXMalware},
+  author        = {Antonini, Alessio and Maggi, Federico and Zanero, Stefano},
+  title         = {A {{Practical Attack Against}} a {{KNX}}-based {{Building
+                  Automation System}}},
+  publisher     = {{BCS}},
+  booktitle     = {Proceedings of the {{2Nd International Symposium}} on
+                  {{ICS}} \& {{SCADA Cyber Security Research}} 2014},
+  series        = {ICS-CSR 2014},
+  pages         = {53--60},
+  location      = {{UK}},
+  abstract      = {Building automation systems rely heavily on general-purpose
+                  computers and communication protocols, which are often
+                  affected by security vulnerabilities. In this paper, we first
+                  analyze the attack surface of a real building automation
+                  system - based on the widely used KNX protocol-connected to a
+                  general-purpose IP network. To this end, we analyze the
+                  vulnerabilities of KNX-based networks highlighted by previous
+                  research work, which, however, did not corroborate their
+                  findings with experimental results. To verify the practical
+                  exploitability of these vulnerabilities and their potential
+                  impact, we implement a full-fledged testbed infrastructure
+                  that reproduces the typical deployment of a building
+                  automation system. On this testbed, we show the feasibility
+                  of a practical attack that leverages and combines the
+                  aforementioned vulnerabilities. We show the ease of reverse
+                  engineering the vendor-specific components of the KNX
+                  protocol. Our attack leverages the IP-to-KNX connectivity to
+                  send arbitrary commands which are executed by the actuators.
+                  We conclude that the vulnerabilities highlighted by previous
+                  work are effectively exploitable in practice, with severe
+                  results. Although we use KNX as a target, our work can be
+                  generalized to other communication protocols, often
+                  characterized by similar issues. Finally, we analyze the
+                  countermeasures proposed in previous literature and reveal
+                  the limitations that prevent their adoption in practice. We
+                  suggest a practical stopgap measure to protect real KNX-based
+                  BASs from our attack.},
+  doi           = {10.14236/ewic/ics-csr2014.7},
+  isbn          = {978-1-78017-286-6},
+  date          = {2014-09},
+  url           = {http://dx.doi.org/10.14236/ewic/ics-csr2014.7},
+  file          = {files/papers/conference-papers/antonini_knxmalware_2014.pdf}
 }
 
-@InProceedings{	  criscione_zarathustra_2014,
-  shorttitle	= {Zarathustra},
-  author	= {Criscione, Claudio and Bosatelli, Fabio and Zanero,
-		  Stefano and Maggi, Federico},
-  title		= {Zarathustra: {{Extracting WebInject Signatures}} from
-		  {{Banking Trojans}}},
-  publisher	= {{IEEE Computer Society}},
-  booktitle	= {Proceedings of the {{Twelfth Annual International
-		  Conference}} on {{Privacy}}, {{Security}} and {{Trust}}
-		  ({{PST}})},
-  pages		= {139--148},
-  location	= {{Toronto, Canada}},
-  abstract	= {Modern trojans are equipped with a functionality, called
-		  WebInject, that can be used to silently modify a web page
-		  on the infected end host. Given its flexibility,
-		  WebInject-based malware is becoming a popular
-		  information-stealing mechanism. In addition, the structured
-		  and well-organized malware-as-a-service model makes revenue
-		  out of customization kits, which in turns leads to high
-		  volumes of binary variants. Analysis approaches based on
-		  memory carving to extract the decrypted webinject.txt and
-		  config.bin files at runtime make the strong assumption that
-		  the malware will never change the way such files are
-		  handled internally, and therefore are not future proof by
-		  design. In addition, developers of sensitive web
-		  applications (e.g., online banking) have no tools that they
-		  can possibly use to even mitigate the effect of
-		  WebInjects.},
-  doi		= {10.1109/PST.2014.6890933},
-  isbn		= {978-1-4799-3502-4},
-  date		= {2014-07},
-  file		= {files/papers/conference-papers/criscione_zarathustra_2014.pdf}
+@InProceedings{   criscione_zarathustra_2014,
+  shorttitle    = {Zarathustra},
+  author        = {Criscione, Claudio and Bosatelli, Fabio and Zanero, Stefano
+                  and Maggi, Federico},
+  title         = {Zarathustra: {{Extracting WebInject Signatures}} from
+                  {{Banking Trojans}}},
+  publisher     = {{IEEE Computer Society}},
+  booktitle     = {Proceedings of the {{Twelfth Annual International
+                  Conference}} on {{Privacy}}, {{Security}} and {{Trust}}
+                  ({{PST}})},
+  pages         = {139--148},
+  location      = {{Toronto, Canada}},
+  abstract      = {Modern trojans are equipped with a functionality, called
+                  WebInject, that can be used to silently modify a web page on
+                  the infected end host. Given its flexibility, WebInject-based
+                  malware is becoming a popular information-stealing mechanism.
+                  In addition, the structured and well-organized
+                  malware-as-a-service model makes revenue out of customization
+                  kits, which in turns leads to high volumes of binary
+                  variants. Analysis approaches based on memory carving to
+                  extract the decrypted webinject.txt and config.bin files at
+                  runtime make the strong assumption that the malware will
+                  never change the way such files are handled internally, and
+                  therefore are not future proof by design. In addition,
+                  developers of sensitive web applications (e.g., online
+                  banking) have no tools that they can possibly use to even
+                  mitigate the effect of WebInjects.},
+  doi           = {10.1109/PST.2014.6890933},
+  isbn          = {978-1-4799-3502-4},
+  date          = {2014-07},
+  file          = {files/papers/conference-papers/criscione_zarathustra_2014.pdf}
 }
 
-@InProceedings{	  lindorfer_andradar_2014,
-  shorttitle	= {AndRadar},
-  author	= {Lindorfer, Martina and Volanis, Stamatis and Sisto,
-		  Alessandro and Neugschwandtner, Matthias and
-		  Athanasopoulos, Elias and Maggi, Federico and Platzer,
-		  Christian and Zanero, Stefano and Ioannidis, Sotiris},
-  title		= {{{AndRadar}}: {{Fast Discovery}} of {{Android
-		  Applications}} in {{Alternative Markets}}},
-  publisher	= {{Springer International Publishing}},
-  editor	= {Dietrich, Sven},
-  booktitle	= {Detection of {{Intrusions}} and {{Malware}}, and
-		  {{Vulnerability Assessment}}},
-  series	= {Lecture Notes in Computer Science},
-  pages		= {51--71},
-  abstract	= {Compared to traditional desktop software, Android
-		  applications are delivered through software repositories,
-		  commonly known as application markets. Other mobile
-		  platforms, such as Apple iOS and BlackBerry OS also use the
-		  marketplace model, but what is unique to Android is the
-		  existence of a plethora of alternative application markets.
-		  This complicates the task of detecting and tracking Android
-		  malware. Identifying a malicious application in one
-		  particular market is simply not enough, as many instances
-		  of this application may exist in other markets. To quantify
-		  this phenomenon, we exhaustively crawled 8 markets between
-		  June and November 2013. Our findings indicate that
-		  alternative markets host a large number of ad-aggressive
-		  apps, a non-negligible amount of malware, and some markets
-		  even allow authors to publish known malicious apps without
-		  prompt action. Motivated by these findings, we present
-		  AndRadar, a framework for discovering multiple instances of
-		  a malicious Android application in a set of alternative
-		  application markets. AndRadar scans a set of markets in
-		  parallel to discover similar applications. Each lookup
-		  takes no more than a few seconds, regardless of the size of
-		  the marketplace. Moreover, it is modular, and new markets
-		  can be transparently added once the search and download
-		  URLs are known. Using AndRadar we are able to achieve three
-		  goals. First, we can discover malicious applications in
-		  alternative markets, second, we can expose app distribution
-		  strategies used by malware developers, and third, we can
-		  monitor how different markets react to new malware. During
-		  a three-month evaluation period, AndRadar tracked over
-		  20,000 apps and recorded more than 1,500 app deletions in
-		  16 markets. Nearly 8\% of those deletions were related to
-		  apps that were hopping from market to market. The most
-		  established markets were able to react and delete new
-		  malware within tens of days from the malicious app
-		  publication date while other markets did not react at all.},
-  doi		= {10.1007/978-3-319-08509-8_4},
-  isbn		= {978-3-319-08508-1 978-3-319-08509-8},
-  date		= {2014-07},
-  url		= {http://link.springer.com/chapter/10.1007/978-3-319-08509-8_4},
-  file		= {files/papers/conference-papers/lindorfer_andradar_2014.pdf}
+@InProceedings{   lindorfer_andradar_2014,
+  shorttitle    = {AndRadar},
+  author        = {Lindorfer, Martina and Volanis, Stamatis and Sisto,
+                  Alessandro and Neugschwandtner, Matthias and Athanasopoulos,
+                  Elias and Maggi, Federico and Platzer, Christian and Zanero,
+                  Stefano and Ioannidis, Sotiris},
+  title         = {{{AndRadar}}: {{Fast Discovery}} of {{Android Applications}}
+                  in {{Alternative Markets}}},
+  publisher     = {{Springer International Publishing}},
+  editor        = {Dietrich, Sven},
+  booktitle     = {Detection of {{Intrusions}} and {{Malware}}, and
+                  {{Vulnerability Assessment}}},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {51--71},
+  abstract      = {Compared to traditional desktop software, Android
+                  applications are delivered through software repositories,
+                  commonly known as application markets. Other mobile
+                  platforms, such as Apple iOS and BlackBerry OS also use the
+                  marketplace model, but what is unique to Android is the
+                  existence of a plethora of alternative application markets.
+                  This complicates the task of detecting and tracking Android
+                  malware. Identifying a malicious application in one
+                  particular market is simply not enough, as many instances of
+                  this application may exist in other markets. To quantify this
+                  phenomenon, we exhaustively crawled 8 markets between June
+                  and November 2013. Our findings indicate that alternative
+                  markets host a large number of ad-aggressive apps, a
+                  non-negligible amount of malware, and some markets even allow
+                  authors to publish known malicious apps without prompt
+                  action. Motivated by these findings, we present AndRadar, a
+                  framework for discovering multiple instances of a malicious
+                  Android application in a set of alternative application
+                  markets. AndRadar scans a set of markets in parallel to
+                  discover similar applications. Each lookup takes no more than
+                  a few seconds, regardless of the size of the marketplace.
+                  Moreover, it is modular, and new markets can be transparently
+                  added once the search and download URLs are known. Using
+                  AndRadar we are able to achieve three goals. First, we can
+                  discover malicious applications in alternative markets,
+                  second, we can expose app distribution strategies used by
+                  malware developers, and third, we can monitor how different
+                  markets react to new malware. During a three-month evaluation
+                  period, AndRadar tracked over 20,000 apps and recorded more
+                  than 1,500 app deletions in 16 markets. Nearly 8\% of those
+                  deletions were related to apps that were hopping from market
+                  to market. The most established markets were able to react
+                  and delete new malware within tens of days from the malicious
+                  app publication date while other markets did not react at
+                  all.},
+  doi           = {10.1007/978-3-319-08509-8_4},
+  isbn          = {978-3-319-08508-1 978-3-319-08509-8},
+  date          = {2014-07},
+  url           = {http://link.springer.com/chapter/10.1007/978-3-319-08509-8_4},
+  file          = {files/papers/conference-papers/lindorfer_andradar_2014.pdf}
 }
 
-@InProceedings{	  schiavoni_phoenix_2014,
-  shorttitle	= {Phoenix},
-  author	= {Schiavoni, Stefano and Maggi, Federico and Cavallaro,
-		  Lorenzo and Zanero, Stefano},
-  title		= {Phoenix: {{DGA-Based Botnet Tracking}} and
-		  {{Intelligence}}},
-  publisher	= {{Springer International Publishing}},
-  editor	= {Dietrich, Sven},
-  booktitle	= {Proceedings of the {{International Conference}} on
-		  {{Detection}} of {{Intrusions}} and {{Malware}}, and
-		  {{Vulnerability Assessment}} ({{DIMVA}})},
-  series	= {Lecture Notes in Computer Science},
-  pages		= {192--211},
-  abstract	= {Modern botnets rely on domain-generation algorithms (DGAs)
-		  to build resilient command-and-control infrastructures.
-		  Given the prevalence of this mechanism, recent work has
-		  focused on the analysis of DNS traffic to recognize botnets
-		  based on their DGAs. While previous work has concentrated
-		  on detection, we focus on supporting intelligence
-		  operations. We propose Phoenix, a mechanism that, in
-		  addition to telling DGA- and non-DGA-generated domains
-		  apart using a combination of string and IP-based features,
-		  characterizes the DGAs behind them, and, most importantly,
-		  finds groups of DGA-generated domains that are
-		  representative of the respective botnets. As a result,
-		  Phoenix can associate previously unknown DGA-generated
-		  domains to these groups, and produce novel knowledge about
-		  the evolving behavior of each tracked botnet. We evaluated
-		  Phoenix on 1,153,516 domains, including DGA-generated
-		  domains from modern, well-known botnets: without
-		  supervision, it correctly distinguished DGA- vs.
-		  non-DGA-generated domains in 94.8 percent of the cases,
-		  characterized families of domains that belonged to distinct
-		  DGAs, and helped researchers ``on the field'' in gathering
-		  intelligence on suspicious domains to identify the correct
-		  botnet.},
-  doi		= {10.1007/978-3-319-08509-8_11},
-  isbn		= {978-3-319-08508-1 978-3-319-08509-8},
-  date		= {2014-07},
-  url		= {http://link.springer.com/chapter/10.1007/978-3-319-08509-8_11},
-  file		= {files/papers/conference-papers/schiavoni_phoenix_2014.pdf}
+@InProceedings{   schiavoni_phoenix_2014,
+  shorttitle    = {Phoenix},
+  author        = {Schiavoni, Stefano and Maggi, Federico and Cavallaro,
+                  Lorenzo and Zanero, Stefano},
+  title         = {Phoenix: {{DGA-Based Botnet Tracking}} and
+                  {{Intelligence}}},
+  publisher     = {{Springer International Publishing}},
+  editor        = {Dietrich, Sven},
+  booktitle     = {Proceedings of the {{International Conference}} on
+                  {{Detection}} of {{Intrusions}} and {{Malware}}, and
+                  {{Vulnerability Assessment}} ({{DIMVA}})},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {192--211},
+  abstract      = {Modern botnets rely on domain-generation algorithms (DGAs)
+                  to build resilient command-and-control infrastructures. Given
+                  the prevalence of this mechanism, recent work has focused on
+                  the analysis of DNS traffic to recognize botnets based on
+                  their DGAs. While previous work has concentrated on
+                  detection, we focus on supporting intelligence operations. We
+                  propose Phoenix, a mechanism that, in addition to telling
+                  DGA- and non-DGA-generated domains apart using a combination
+                  of string and IP-based features, characterizes the DGAs
+                  behind them, and, most importantly, finds groups of
+                  DGA-generated domains that are representative of the
+                  respective botnets. As a result, Phoenix can associate
+                  previously unknown DGA-generated domains to these groups, and
+                  produce novel knowledge about the evolving behavior of each
+                  tracked botnet. We evaluated Phoenix on 1,153,516 domains,
+                  including DGA-generated domains from modern, well-known
+                  botnets: without supervision, it correctly distinguished DGA-
+                  vs. non-DGA-generated domains in 94.8 percent of the cases,
+                  characterized families of domains that belonged to distinct
+                  DGAs, and helped researchers ``on the field'' in gathering
+                  intelligence on suspicious domains to identify the correct
+                  botnet.},
+  doi           = {10.1007/978-3-319-08509-8_11},
+  isbn          = {978-3-319-08508-1 978-3-319-08509-8},
+  date          = {2014-07},
+  url           = {http://link.springer.com/chapter/10.1007/978-3-319-08509-8_11},
+  file          = {files/papers/conference-papers/schiavoni_phoenix_2014.pdf}
 }
 
-@InProceedings{	  carminati_banksealer_2014,
-  shorttitle	= {BankSealer},
-  author	= {Carminati, Michele and Caron, Roberto and Maggi, Federico
-		  and Epifani, Ilenia and Zanero, Stefano},
-  title		= {{{BankSealer}}: {{An Online Banking Fraud Analysis}} and
-		  {{Decision Support System}}},
-  publisher	= {{Springer Berlin Heidelberg}},
-  editor	= {Cuppens-Boulahia, Nora and Cuppens, Fr{\'e}d{\'e}ric and
-		  Jajodia, Sushil and Kalam, Anas Abou El and Sans, Thierry},
-  booktitle	= {{{ICT Systems Security}} and {{Privacy Protection}}},
-  series	= {IFIP Advances in Information and Communication
-		  Technology},
-  pages		= {380--394},
-  abstract	= {We propose a semi-supervised online banking fraud analysis
-		  and decision support approach. During a training phase, it
-		  builds a profile for each customer based on past
-		  transactions. At runtime, it supports the analyst by
-		  ranking unforeseen transactions that deviate from the
-		  learned profiles. It uses methods whose output has a
-		  immediate statistical meaning that provide the analyst with
-		  an easy-to-understand model of each customer's spending
-		  habits. First, we quantify the anomaly of each transaction
-		  with respect to the customer historical profile. Second, we
-		  find global clusters of customers with similar spending
-		  habits. Third, we use a temporal threshold system that
-		  measures the anomaly of the current spending pattern of
-		  each customer, with respect to his or her past spending
-		  behavior. As a result, we mitigate the undertraining due to
-		  the lack of historical data for building of well-trained
-		  profiles (of fresh users), and the users that change their
-		  (spending) habits over time. Our evaluation on real-world
-		  data shows that our approach correctly ranks complex frauds
-		  as ``top priority''.},
-  doi		= {10.1007/978-3-642-55415-5_32},
-  isbn		= {978-3-642-55414-8 978-3-642-55415-5},
-  date		= {2014-06-02},
-  url		= {http://link.springer.com/chapter/10.1007/978-3-642-55415-5_32},
-  file		= {files/papers/conference-papers/carminati_banksealer_2014.pdf}
+@InProceedings{   carminati_banksealer_2014,
+  shorttitle    = {BankSealer},
+  author        = {Carminati, Michele and Caron, Roberto and Maggi, Federico
+                  and Epifani, Ilenia and Zanero, Stefano},
+  title         = {{{BankSealer}}: {{An Online Banking Fraud Analysis}} and
+                  {{Decision Support System}}},
+  publisher     = {{Springer Berlin Heidelberg}},
+  editor        = {Cuppens-Boulahia, Nora and Cuppens, Fr{\'e}d{\'e}ric and
+                  Jajodia, Sushil and Kalam, Anas Abou El and Sans, Thierry},
+  booktitle     = {{{ICT Systems Security}} and {{Privacy Protection}}},
+  series        = {IFIP Advances in Information and Communication Technology},
+  pages         = {380--394},
+  abstract      = {We propose a semi-supervised online banking fraud analysis
+                  and decision support approach. During a training phase, it
+                  builds a profile for each customer based on past
+                  transactions. At runtime, it supports the analyst by ranking
+                  unforeseen transactions that deviate from the learned
+                  profiles. It uses methods whose output has a immediate
+                  statistical meaning that provide the analyst with an
+                  easy-to-understand model of each customer's spending habits.
+                  First, we quantify the anomaly of each transaction with
+                  respect to the customer historical profile. Second, we find
+                  global clusters of customers with similar spending habits.
+                  Third, we use a temporal threshold system that measures the
+                  anomaly of the current spending pattern of each customer,
+                  with respect to his or her past spending behavior. As a
+                  result, we mitigate the undertraining due to the lack of
+                  historical data for building of well-trained profiles (of
+                  fresh users), and the users that change their (spending)
+                  habits over time. Our evaluation on real-world data shows
+                  that our approach correctly ranks complex frauds as ``top
+                  priority''.},
+  doi           = {10.1007/978-3-642-55415-5_32},
+  isbn          = {978-3-642-55414-8 978-3-642-55415-5},
+  date          = {2014-06-02},
+  url           = {http://link.springer.com/chapter/10.1007/978-3-642-55415-5_32},
+  file          = {files/papers/conference-papers/carminati_banksealer_2014.pdf}
 }
 
-@InProceedings{	  nikiforakis_strangerdanger_2014,
-  shorttitle	= {StrangerDanger},
-  author	= {Nikiforakis, Nick and Maggi, Federico and Stringhini,
-		  Gianluca and Rafique, M. Zubair and Joosen, Wouter and
-		  Kruegel, Christopher and Piessens, Frank and Vigna,
-		  Giovanni and Zanero, Stefano},
-  title		= {Stranger {{Danger}}: {{Exploring}} the {{Ecosystem}} of
-		  {{Ad}}-based {{URL Shortening Services}}},
-  publisher	= {{International World Wide Web Conferences Steering
-		  Committee}},
-  booktitle	= {Proceedings of the 23rd {{International Conference}} on
-		  {{World Wide Web}}},
-  series	= {WWW '14},
-  pages		= {51--62},
-  location	= {{Seoul, Korea}},
-  abstract	= {URL shortening services facilitate the need of exchanging
-		  long URLs using limited space, by creating compact URL
-		  aliases that redirect users to the original URLs when
-		  followed. Some of these services show advertisements (ads)
-		  to link-clicking users and pay a commission of their
-		  advertising earnings to link-shortening users. In this
-		  paper, we investigate the ecosystem of these increasingly
-		  popular ad-based URL shortening services. Even though
-		  traditional URL shortening services have been thoroughly
-		  investigated in previous research, we argue that, due to
-		  the monetary incentives and the presence of third-party
-		  advertising networks, ad-based URL shortening services and
-		  their users are exposed to more hazards than traditional
-		  shortening services. By analyzing the services themselves,
-		  the advertisers involved, and their users, we uncover a
-		  series of issues that are actively exploited by malicious
-		  advertisers and endanger the users. Moreover, next to
-		  documenting the ongoing abuse, we suggest a series of
-		  defense mechanisms that services and users can adopt to
-		  protect themselves.},
-  doi		= {10.1145/2566486.2567983},
-  isbn		= {978-1-4503-2744-2},
-  date		= {2014-04},
-  url		= {http://dx.doi.org/10.1145/2566486.2567983},
-  file		= {files/papers/conference-papers/nikiforakis_strangerdanger_2014.pdf}
+@InProceedings{   nikiforakis_strangerdanger_2014,
+  shorttitle    = {StrangerDanger},
+  author        = {Nikiforakis, Nick and Maggi, Federico and Stringhini,
+                  Gianluca and Rafique, M. Zubair and Joosen, Wouter and
+                  Kruegel, Christopher and Piessens, Frank and Vigna, Giovanni
+                  and Zanero, Stefano},
+  title         = {Stranger {{Danger}}: {{Exploring}} the {{Ecosystem}} of
+                  {{Ad}}-based {{URL Shortening Services}}},
+  publisher     = {{International World Wide Web Conferences Steering
+                  Committee}},
+  booktitle     = {Proceedings of the 23rd {{International Conference}} on
+                  {{World Wide Web}}},
+  series        = {WWW '14},
+  pages         = {51--62},
+  location      = {{Seoul, Korea}},
+  abstract      = {URL shortening services facilitate the need of exchanging
+                  long URLs using limited space, by creating compact URL
+                  aliases that redirect users to the original URLs when
+                  followed. Some of these services show advertisements (ads) to
+                  link-clicking users and pay a commission of their advertising
+                  earnings to link-shortening users. In this paper, we
+                  investigate the ecosystem of these increasingly popular
+                  ad-based URL shortening services. Even though traditional URL
+                  shortening services have been thoroughly investigated in
+                  previous research, we argue that, due to the monetary
+                  incentives and the presence of third-party advertising
+                  networks, ad-based URL shortening services and their users
+                  are exposed to more hazards than traditional shortening
+                  services. By analyzing the services themselves, the
+                  advertisers involved, and their users, we uncover a series of
+                  issues that are actively exploited by malicious advertisers
+                  and endanger the users. Moreover, next to documenting the
+                  ongoing abuse, we suggest a series of defense mechanisms that
+                  services and users can adopt to protect themselves.},
+  doi           = {10.1145/2566486.2567983},
+  isbn          = {978-1-4503-2744-2},
+  date          = {2014-04},
+  url           = {http://dx.doi.org/10.1145/2566486.2567983},
+  file          = {files/papers/conference-papers/nikiforakis_strangerdanger_2014.pdf}
 }
 
-@InProceedings{	  spagnuolo_bitiodine_2014,
-  shorttitle	= {BitIodine},
-  author	= {Spagnuolo, Michele and Maggi, Federico and Zanero,
-		  Stefano},
-  title		= {{{BitIodine}}: {{Extracting Intelligence}} from the
-		  {{Bitcoin Network}}},
-  publisher	= {{Springer Berlin Heidelberg}},
-  booktitle	= {Financial {{Cryptography}} and {{Data Security}}},
-  series	= {Lecture Notes in Computer Science (LNCS)},
-  pages		= {457--468},
-  location	= {{Barbados}},
-  abstract	= {Bitcoin, the famous peer-to-peer, decentralized electronic
-		  currency system, allows users to benefit from pseudonymity,
-		  by generating an arbitrary number of aliases (or addresses)
-		  to move funds. However, the complete history of all
-		  transactions ever performed, called "blockchain", is public
-		  and replicated on each node. The data it contains is
-		  difficult to analyze manually, but can yield a high number
-		  of relevant information.
-		  
-		  In this paper we present a modular framework, BitIodine,
-		  which parses the blockchain, clusters addresses that are
-		  likely to belong to a same user or group of users,
-		  classifies such users and labels them, and finally
-		  visualizes complex information extracted from the Bitcoin
-		  network.
-		  
-		  BitIodine labels users (semi-)automatically with
-		  information on their identity and actions which is
-		  automatically scraped from openly available information
-		  sources. BitIodine also supports manual investigation by
-		  finding paths and reverse paths between addresses or users.
-		  
-		  We tested BitIodine on several real-world use cases,
-		  identified an address likely to belong to the encrypted
-		  Silk Road cold wallet, or investigated the CryptoLocker
-		  ransomware and accurately quantified the number of ransoms
-		  paid, as well as information about the victims.
-		  
-		  We release an early prototype of BitIodine as a library for
-		  building more complex Bitcoin forensic analysis tools.},
-  doi		= {10.1007/978-3-662-45472-5_29},
-  isbn		= {978-3-662-45471-8},
-  date		= {2014-03-03},
-  file		= {files/papers/conference-papers/spagnuolo_bitiodine_2014.pdf}
+@InProceedings{   spagnuolo_bitiodine_2014,
+  shorttitle    = {BitIodine},
+  author        = {Spagnuolo, Michele and Maggi, Federico and Zanero, Stefano},
+  title         = {{{BitIodine}}: {{Extracting Intelligence}} from the
+                  {{Bitcoin Network}}},
+  publisher     = {{Springer Berlin Heidelberg}},
+  booktitle     = {Financial {{Cryptography}} and {{Data Security}}},
+  series        = {Lecture Notes in Computer Science (LNCS)},
+  pages         = {457--468},
+  location      = {{Barbados}},
+  abstract      = {Bitcoin, the famous peer-to-peer, decentralized electronic
+                  currency system, allows users to benefit from pseudonymity,
+                  by generating an arbitrary number of aliases (or addresses)
+                  to move funds. However, the complete history of all
+                  transactions ever performed, called "blockchain", is public
+                  and replicated on each node. The data it contains is
+                  difficult to analyze manually, but can yield a high number of
+                  relevant information.
+                  
+                  In this paper we present a modular framework, BitIodine,
+                  which parses the blockchain, clusters addresses that are
+                  likely to belong to a same user or group of users, classifies
+                  such users and labels them, and finally visualizes complex
+                  information extracted from the Bitcoin network.
+                  
+                  BitIodine labels users (semi-)automatically with information
+                  on their identity and actions which is automatically scraped
+                  from openly available information sources. BitIodine also
+                  supports manual investigation by finding paths and reverse
+                  paths between addresses or users.
+                  
+                  We tested BitIodine on several real-world use cases,
+                  identified an address likely to belong to the encrypted Silk
+                  Road cold wallet, or investigated the CryptoLocker ransomware
+                  and accurately quantified the number of ransoms paid, as well
+                  as information about the victims.
+                  
+                  We release an early prototype of BitIodine as a library for
+                  building more complex Bitcoin forensic analysis tools.},
+  doi           = {10.1007/978-3-662-45472-5_29},
+  isbn          = {978-3-662-45471-8},
+  date          = {2014-03-03},
+  file          = {files/papers/conference-papers/spagnuolo_bitiodine_2014.pdf}
 }
 
-@InProceedings{	  bonetti_ssdforensics_2013,
-  shorttitle	= {SSDForensics},
-  author	= {Bonetti, Gabriele and Viglione, Marco and Frossi,
-		  Alessandro and Maggi, Federico and Zanero, Stefano},
-  title		= {A {{Comprehensive Black}}-box {{Methodology}} for
-		  {{Testing}} the {{Forensic Characteristics}} of
-		  {{Solid}}-state {{Drives}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the 29th {{Annual Computer Security
-		  Applications Conference}}},
-  series	= {ACSAC '13},
-  pages		= {269--278},
-  location	= {{New York, NY, USA}},
-  abstract	= {Solid-state drives (SSDs) are inherently different from
-		  traditional drives, as they incorporate data-optimization
-		  mechanisms to overcome their limitations (such as a limited
-		  number of program-erase cycles, or the need of blanking a
-		  block before writing). The most common optimizations are
-		  wear leveling, trimming, compression, and garbage
-		  collection, which operate transparently to the host OS and,
-		  in certain cases, even when the disks are disconnected from
-		  a computer (but still powered up). In simple words, SSD
-		  controllers are designed to hide these internals
-		  completely, rendering them inaccessible if not through
-		  direct acquisition of the memory cells. These optimizations
-		  have a significant impact on the forensic analysis of SSDs.
-		  The main cause is that memory cells could be pre-emptively
-		  blanked, whereas a traditional drive sector would need to
-		  be explicitly rewritten to physically wipe off the data.
-		  Unfortunately, the existing literature on this subject is
-		  sparse and the conclusions are seemingly contradictory. In
-		  this paper we propose a generic, practical, test-driven
-		  methodology that guides researchers and forensics analysts
-		  through a series of steps that assess the "forensic
-		  friendliness" of a SSD. Given a drive of the same brand and
-		  model of the one under analysis, our methodology produces a
-		  decision that helps an analyst to determine whether or not
-		  an expensive direct acquisition of the memory cells is
-		  worth the effort, because the extreme optimizations may
-		  have rendered the data unreadable or useless. We apply our
-		  methodology to three SSDs produced by top vendors (Samsung,
-		  Corsair, and Crucial), and provide a detailed description
-		  of how each step should be conducted.},
-  doi		= {10.1145/2523649.2523660},
-  isbn		= {978-1-4503-2015-3},
-  date		= {2013-12},
-  url		= {http://doi.acm.org/10.1145/2523649.2523660},
-  file		= {files/papers/conference-papers/bonetti_ssdforensics_2013.pdf}
+@InProceedings{   bonetti_ssdforensics_2013,
+  shorttitle    = {SSDForensics},
+  author        = {Bonetti, Gabriele and Viglione, Marco and Frossi, Alessandro
+                  and Maggi, Federico and Zanero, Stefano},
+  title         = {A {{Comprehensive Black}}-box {{Methodology}} for
+                  {{Testing}} the {{Forensic Characteristics}} of
+                  {{Solid}}-state {{Drives}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the 29th {{Annual Computer Security
+                  Applications Conference}}},
+  series        = {ACSAC '13},
+  pages         = {269--278},
+  location      = {{New York, NY, USA}},
+  abstract      = {Solid-state drives (SSDs) are inherently different from
+                  traditional drives, as they incorporate data-optimization
+                  mechanisms to overcome their limitations (such as a limited
+                  number of program-erase cycles, or the need of blanking a
+                  block before writing). The most common optimizations are wear
+                  leveling, trimming, compression, and garbage collection,
+                  which operate transparently to the host OS and, in certain
+                  cases, even when the disks are disconnected from a computer
+                  (but still powered up). In simple words, SSD controllers are
+                  designed to hide these internals completely, rendering them
+                  inaccessible if not through direct acquisition of the memory
+                  cells. These optimizations have a significant impact on the
+                  forensic analysis of SSDs. The main cause is that memory
+                  cells could be pre-emptively blanked, whereas a traditional
+                  drive sector would need to be explicitly rewritten to
+                  physically wipe off the data. Unfortunately, the existing
+                  literature on this subject is sparse and the conclusions are
+                  seemingly contradictory. In this paper we propose a generic,
+                  practical, test-driven methodology that guides researchers
+                  and forensics analysts through a series of steps that assess
+                  the "forensic friendliness" of a SSD. Given a drive of the
+                  same brand and model of the one under analysis, our
+                  methodology produces a decision that helps an analyst to
+                  determine whether or not an expensive direct acquisition of
+                  the memory cells is worth the effort, because the extreme
+                  optimizations may have rendered the data unreadable or
+                  useless. We apply our methodology to three SSDs produced by
+                  top vendors (Samsung, Corsair, and Crucial), and provide a
+                  detailed description of how each step should be conducted.},
+  doi           = {10.1145/2523649.2523660},
+  isbn          = {978-1-4503-2015-3},
+  date          = {2013-12},
+  url           = {http://doi.acm.org/10.1145/2523649.2523660},
+  file          = {files/papers/conference-papers/bonetti_ssdforensics_2013.pdf}
 }
 
-@InProceedings{	  maggi_longshore_2013,
-  shorttitle	= {LongShore},
-  author	= {Maggi, Federico and Frossi, Alessandro and Zanero, Stefano
-		  and Stringhini, Gianluca and Stone-Gross, Brett and
-		  Kruegel, Christopher and Vigna, Giovanni},
-  title		= {Two years of short {{URLs}} internet measurement: security
-		  threats and countermeasures},
-  publisher	= {{International World Wide Web Conferences Steering
-		  Committee}},
-  booktitle	= {Proceedings of the 22nd international conference on
-		  {{World Wide Web}} ({{WWW}})},
-  pages		= {861--872},
-  location	= {{Republic and Canton of Geneva, Switzerland}},
-  abstract	= {URL shortening services have become extremely popular.
-		  However, it is still unclear whether they are an effective
-		  and reliable tool that can be leveraged to hide malicious
-		  URLs, and to what extent these abuses can impact the end
-		  users. With these questions in mind, we first analyzed
-		  existing countermeasures adopted by popular shortening
-		  services. Surprisingly, we found such countermeasures to be
-		  ineffective and trivial to bypass. This first measurement
-		  motivated us to proceed further with a large-scale
-		  collection of the HTTP interactions that originate when web
-		  users access live pages that contain short URLs. To this
-		  end, we monitored 622 distinct URL shortening services
-		  between March 2010 and April 2012, and collected 24,953,881
-		  distinct short URLs. With this large dataset, we studied
-		  the abuse of short URLs. Despite short URLs are a
-		  significant, new security risk, in accordance with the
-		  reports resulting from the observation of the overall
-		  phishing and spamming activity, we found that only a
-		  relatively small fraction of users ever encountered
-		  malicious short URLs. Interestingly, during the second year
-		  of measurement, we noticed an increased percentage of short
-		  URLs being abused for drive-by download campaigns and a
-		  decreased percentage of short URLs being abused for spam
-		  campaigns. In addition to these security-related findings,
-		  our unique monitoring infrastructure and large dataset
-		  allowed us to complement previous research on short URLs
-		  and analyze these web services from the user's
-		  perspective.},
-  isbn		= {978-1-4503-2035-1},
-  date		= {2013-05},
-  file		= {files/papers/conference-papers/maggi_longshore_2013.pdf}
+@InProceedings{   maggi_longshore_2013,
+  shorttitle    = {LongShore},
+  author        = {Maggi, Federico and Frossi, Alessandro and Zanero, Stefano
+                  and Stringhini, Gianluca and Stone-Gross, Brett and Kruegel,
+                  Christopher and Vigna, Giovanni},
+  title         = {Two years of short {{URLs}} internet measurement: security
+                  threats and countermeasures},
+  publisher     = {{International World Wide Web Conferences Steering
+                  Committee}},
+  booktitle     = {Proceedings of the 22nd international conference on {{World
+                  Wide Web}} ({{WWW}})},
+  pages         = {861--872},
+  location      = {{Republic and Canton of Geneva, Switzerland}},
+  abstract      = {URL shortening services have become extremely popular.
+                  However, it is still unclear whether they are an effective
+                  and reliable tool that can be leveraged to hide malicious
+                  URLs, and to what extent these abuses can impact the end
+                  users. With these questions in mind, we first analyzed
+                  existing countermeasures adopted by popular shortening
+                  services. Surprisingly, we found such countermeasures to be
+                  ineffective and trivial to bypass. This first measurement
+                  motivated us to proceed further with a large-scale collection
+                  of the HTTP interactions that originate when web users access
+                  live pages that contain short URLs. To this end, we monitored
+                  622 distinct URL shortening services between March 2010 and
+                  April 2012, and collected 24,953,881 distinct short URLs.
+                  With this large dataset, we studied the abuse of short URLs.
+                  Despite short URLs are a significant, new security risk, in
+                  accordance with the reports resulting from the observation of
+                  the overall phishing and spamming activity, we found that
+                  only a relatively small fraction of users ever encountered
+                  malicious short URLs. Interestingly, during the second year
+                  of measurement, we noticed an increased percentage of short
+                  URLs being abused for drive-by download campaigns and a
+                  decreased percentage of short URLs being abused for spam
+                  campaigns. In addition to these security-related findings,
+                  our unique monitoring infrastructure and large dataset
+                  allowed us to complement previous research on short URLs and
+                  analyze these web services from the user's perspective.},
+  isbn          = {978-1-4503-2035-1},
+  date          = {2013-05},
+  file          = {files/papers/conference-papers/maggi_longshore_2013.pdf}
 }
 
-@InProceedings{	  maggi_andrototal_2013,
-  shorttitle	= {AndroTotal},
-  author	= {Maggi, Federico and Valdi, Andrea and Zanero, Stefano},
-  title		= {{{AndroTotal}}: {{A Flexible}}, {{Scalable Toolbox}} and
-		  {{Service}} for {{Testing Mobile Malware Detectors}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the {{Third ACM Workshop}} on {{Security}}
-		  and {{Privacy}} in {{Smartphones}} \& {{Mobile Devices}}},
-  series	= {SPSM '13},
-  pages		= {49--54},
-  location	= {{New York, NY, USA}},
-  abstract	= {Although there are controversial opinions regarding how
-		  large the mobile malware phenomenon is in terms of absolute
-		  numbers, hype aside, the amount of new Android malware
-		  variants is increasing. This trend is mainly due to the
-		  fact that, as it happened with traditional malware, the
-		  authors are striving to repackage, obfuscate, or otherwise
-		  transform the executable code of their malicious apps in
-		  order to evade mobile security apps. There are about 85 of
-		  these apps only on the official marketplace. However, it is
-		  not clear how effective they are. Indeed, the sandboxing
-		  mechanism of Android does not allow (security) apps to
-		  audit other apps. We present AndroTotal, a publicly
-		  available tool, malware repository and research framework
-		  that aims at mitigating the above challenges, and allow
-		  researchers to automatically scan Android apps against an
-		  arbitrary set of malware detectors. We implemented
-		  AndroTotal and released it to the research community in
-		  April 2013. So far, we collected 18,758 distinct submitted
-		  samples and received the attention of several research
-		  groups (1,000 distinct accounts), who integrated their
-		  malware-analysis services with ours.},
-  doi		= {10.1145/2516760.2516768},
-  isbn		= {978-1-4503-2491-5},
-  date		= {2013},
-  url		= {http://doi.acm.org/10.1145/2516760.2516768},
-  keywords	= {workshop},
-  file		= {files/papers/conference-papers/maggi_andrototal_2013.pdf}
+@InProceedings{   lindorfer_beagle_2012,
+  shorttitle    = {Beagle},
+  author        = {Lindorfer, Martina and Federico, Alessandro Di and Maggi,
+                  Federico and Comparetti, Paolo Milani and Zanero, Stefano},
+  title         = {Lines of {{Malicious Code}}: {{Insights Into}} the
+                  {{Malicious Software Industry}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the {{Annual Computer Security Applications
+                  Conference}} ({{ACSAC}})},
+  pages         = {349--358},
+  location      = {{New York, NY, USA}},
+  abstract      = {Malicious software installed on infected computers is a
+                  fundamental component of online crime. Malware development
+                  thus plays an essential role in the underground economy of
+                  cyber-crime. Malware authors regularly update their software
+                  to defeat defenses or to support new or improved criminal
+                  business models. A large body of research has focused on
+                  detecting malware, defending against it and identifying its
+                  functionality. In addition to these goals, however, the
+                  analysis of malware can provide a glimpse into the software
+                  development industry that develops malicious code. In this
+                  work, we present techniques to observe the evolution of a
+                  malware family over time. First, we develop techniques to
+                  compare versions of malicious code and quantify their
+                  differences. Furthermore, we use behavior observed from
+                  dynamic analysis to assign semantics to binary code and to
+                  identify functional components within a malware binary. By
+                  combining these techniques, we are able to monitor the
+                  evolution of a malware's functional components. We implement
+                  these techniques in a system we call BEAGLE, and apply it to
+                  the observation of 16 malware strains over several months.
+                  The results of these experiments provide insight into the
+                  effort involved in updating malware code, and show that
+                  BEAGLE can identify changes to individual malware
+                  components.},
+  doi           = {10.1145/2420950.2421001},
+  isbn          = {978-1-4503-1312-4},
+  date          = {2012-12-03},
+  file          = {files/papers/conference-papers/lindorfer_beagle_2012.pdf}
 }
 
-@InProceedings{	  lindorfer_beagle_2012,
-  shorttitle	= {Beagle},
-  author	= {Lindorfer, Martina and Federico, Alessandro Di and Maggi,
-		  Federico and Comparetti, Paolo Milani and Zanero, Stefano},
-  title		= {Lines of {{Malicious Code}}: {{Insights Into}} the
-		  {{Malicious Software Industry}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the {{Annual Computer Security Applications
-		  Conference}} ({{ACSAC}})},
-  pages		= {349--358},
-  location	= {{New York, NY, USA}},
-  abstract	= {Malicious software installed on infected computers is a
-		  fundamental component of online crime. Malware development
-		  thus plays an essential role in the underground economy of
-		  cyber-crime. Malware authors regularly update their
-		  software to defeat defenses or to support new or improved
-		  criminal business models. A large body of research has
-		  focused on detecting malware, defending against it and
-		  identifying its functionality. In addition to these goals,
-		  however, the analysis of malware can provide a glimpse into
-		  the software development industry that develops malicious
-		  code. In this work, we present techniques to observe the
-		  evolution of a malware family over time. First, we develop
-		  techniques to compare versions of malicious code and
-		  quantify their differences. Furthermore, we use behavior
-		  observed from dynamic analysis to assign semantics to
-		  binary code and to identify functional components within a
-		  malware binary. By combining these techniques, we are able
-		  to monitor the evolution of a malware's functional
-		  components. We implement these techniques in a system we
-		  call BEAGLE, and apply it to the observation of 16 malware
-		  strains over several months. The results of these
-		  experiments provide insight into the effort involved in
-		  updating malware code, and show that BEAGLE can identify
-		  changes to individual malware components.},
-  doi		= {10.1145/2420950.2421001},
-  isbn		= {978-1-4503-1312-4},
-  date		= {2012-12-03},
-  file		= {files/papers/conference-papers/lindorfer_beagle_2012.pdf}
+@InProceedings{   polakis_soauth_2012,
+  shorttitle    = {SoAuth},
+  author        = {Polakis, Jason and Lancini, Marco and Kontaxis, Georgios and
+                  Maggi, Federico and Ioannidis, Sotiris and Keromytis, Angelos
+                  and Zanero, Stefano},
+  title         = {All {{Your Face Are Belong}} to {{Us}}: {{Breaking
+                  Facebook}}'s {{Social Authentication}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the {{Annual Computer Security Applications
+                  Conference}} ({{ACSAC}})},
+  pages         = {399--408},
+  location      = {{New York, NY, USA}},
+  abstract      = {Two-factor authentication is widely used by high-value
+                  services to prevent adversaries from compromising accounts
+                  using stolen credentials. Facebook has recently released a
+                  two-factor authentication mechanism, referred to as Social
+                  Authentication, which requires users to identify some of
+                  their friends in randomly selected photos. A recent study has
+                  provided a formal analysis of social authentication
+                  weaknesses against attackers inside the victim's social
+                  circles. In this paper, we extend the threat model and study
+                  the attack surface of social authentication in practice, and
+                  show how any attacker can obtain the information needed to
+                  solve the challenges presented by Facebook. We implement a
+                  proof-of-concept system that utilizes widely available face
+                  recognition software and cloud services, and evaluate it
+                  using real public data collected from Facebook. Under the
+                  assumptions of Facebook's threat model, our results show that
+                  an attacker can obtain access to (sensitive) information for
+                  at least 42\% of a user's friends that Facebook uses to
+                  generate social authentication challenges. By relying solely
+                  on publicly accessible information, a casual attacker can
+                  solve 22\% of the social authentication tests in an automated
+                  fashion, and gain a significant advantage for an additional
+                  56\% of the tests, as opposed to just guessing. Additionally,
+                  we simulate the scenario of a determined attacker placing
+                  himself inside the victim's social circle by employing dummy
+                  accounts. In this case, the accuracy of our attack greatly
+                  increases and reaches 100\% when 120 faces per friend are
+                  accessible by the attacker, even though it is very accurate
+                  with as little as 10 faces.},
+  doi           = {10.1145/2420950.2421008},
+  isbn          = {978-1-4503-1312-4},
+  date          = {2012-12-03},
+  file          = {files/papers/conference-papers/polakis_soauth_2012.pdf}
 }
 
-@InProceedings{	  polakis_soauth_2012,
-  shorttitle	= {SoAuth},
-  author	= {Polakis, Jason and Lancini, Marco and Kontaxis, Georgios
-		  and Maggi, Federico and Ioannidis, Sotiris and Keromytis,
-		  Angelos and Zanero, Stefano},
-  title		= {All {{Your Face Are Belong}} to {{Us}}: {{Breaking
-		  Facebook}}'s {{Social Authentication}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the {{Annual Computer Security Applications
-		  Conference}} ({{ACSAC}})},
-  pages		= {399--408},
-  location	= {{New York, NY, USA}},
-  abstract	= {Two-factor authentication is widely used by high-value
-		  services to prevent adversaries from compromising accounts
-		  using stolen credentials. Facebook has recently released a
-		  two-factor authentication mechanism, referred to as Social
-		  Authentication, which requires users to identify some of
-		  their friends in randomly selected photos. A recent study
-		  has provided a formal analysis of social authentication
-		  weaknesses against attackers inside the victim's social
-		  circles. In this paper, we extend the threat model and
-		  study the attack surface of social authentication in
-		  practice, and show how any attacker can obtain the
-		  information needed to solve the challenges presented by
-		  Facebook. We implement a proof-of-concept system that
-		  utilizes widely available face recognition software and
-		  cloud services, and evaluate it using real public data
-		  collected from Facebook. Under the assumptions of
-		  Facebook's threat model, our results show that an attacker
-		  can obtain access to (sensitive) information for at least
-		  42\% of a user's friends that Facebook uses to generate
-		  social authentication challenges. By relying solely on
-		  publicly accessible information, a casual attacker can
-		  solve 22\% of the social authentication tests in an
-		  automated fashion, and gain a significant advantage for an
-		  additional 56\% of the tests, as opposed to just guessing.
-		  Additionally, we simulate the scenario of a determined
-		  attacker placing himself inside the victim's social circle
-		  by employing dummy accounts. In this case, the accuracy of
-		  our attack greatly increases and reaches 100\% when 120
-		  faces per friend are accessible by the attacker, even
-		  though it is very accurate with as little as 10 faces.},
-  doi		= {10.1145/2420950.2421008},
-  isbn		= {978-1-4503-1312-4},
-  date		= {2012-12-03},
-  file		= {files/papers/conference-papers/polakis_soauth_2012.pdf}
+@InProceedings{   maggi_phdthesispaper_2012,
+  shorttitle    = {PhDThesisPaper},
+  author        = {Maggi, Federico and Zanero, Stefano},
+  title         = {Integrated {{Detection}} of {{Anomalous Behavior}} of
+                  {{Computer Infrastructures}}},
+  publisher     = {{IEEE}},
+  booktitle     = {Proceedings of the {{IEEE}}/{{IFIP Network Operations}} and
+                  {{Management Symposium}} ({{NOMS}})},
+  pages         = {866--871},
+  abstract      = {Our research concentrates on anomaly detection techniques,
+                  which have both industrial applications such as network
+                  monitoring and protection, as well as research applications
+                  such as software behavioral analysis or malware
+                  classification. During our doctoral research, we worked on
+                  anomaly detection from three different perspective, as a
+                  complex computer infrastructure has several weak spots that
+                  must be protected. We first focused on the operating system,
+                  central to any computer, to avoid malicious code to subvert
+                  its normal activity. Secondly, we concentrated on web
+                  applications, which are the main interface to modern
+                  computing: Because of their immense popularity, they have
+                  indeed become the most targeted entry point of intrusions.
+                  Last, we developed novel techniques with the aim of
+                  identifying related events (e.g., alerts reported by
+                  intrusion detection systems) to build new and more compact
+                  knowledge to detect malicious activity on large-scale
+                  systems. During our research we enhanced existing anomaly
+                  detection tools and also contributed with new ones. Such
+                  tools have been tested over different datasets, both
+                  synthetic data and real network traffic, and lead to
+                  interesting results that were accepted for publication at
+                  main security venues.},
+  doi           = {10.1109/NOMS.2012.6212001},
+  isbn          = {978-1-4673-0269-2},
+  date          = {2012-04-16},
+  file          = {files/papers/conference-papers/maggi_phdthesispaper_2012.pdf}
 }
 
-@InProceedings{	  maggi_phdthesispaper_2012,
-  shorttitle	= {PhDThesisPaper},
-  author	= {Maggi, Federico and Zanero, Stefano},
-  title		= {Integrated {{Detection}} of {{Anomalous Behavior}} of
-		  {{Computer Infrastructures}}},
-  publisher	= {{IEEE}},
-  booktitle	= {Proceedings of the {{IEEE}}/{{IFIP Network Operations}}
-		  and {{Management Symposium}} ({{NOMS}})},
-  pages		= {866--871},
-  abstract	= {Our research concentrates on anomaly detection techniques,
-		  which have both industrial applications such as network
-		  monitoring and protection, as well as research applications
-		  such as software behavioral analysis or malware
-		  classification. During our doctoral research, we worked on
-		  anomaly detection from three different perspective, as a
-		  complex computer infrastructure has several weak spots that
-		  must be protected. We first focused on the operating
-		  system, central to any computer, to avoid malicious code to
-		  subvert its normal activity. Secondly, we concentrated on
-		  web applications, which are the main interface to modern
-		  computing: Because of their immense popularity, they have
-		  indeed become the most targeted entry point of intrusions.
-		  Last, we developed novel techniques with the aim of
-		  identifying related events (e.g., alerts reported by
-		  intrusion detection systems) to build new and more compact
-		  knowledge to detect malicious activity on large-scale
-		  systems. During our research we enhanced existing anomaly
-		  detection tools and also contributed with new ones. Such
-		  tools have been tested over different datasets, both
-		  synthetic data and real network traffic, and lead to
-		  interesting results that were accepted for publication at
-		  main security venues.},
-  doi		= {10.1109/NOMS.2012.6212001},
-  isbn		= {978-1-4673-0269-2},
-  date		= {2012-04-16},
-  file		= {files/papers/conference-papers/maggi_phdthesispaper_2012.pdf}
+@InProceedings{   maggi_avlabelling_2011,
+  shorttitle    = {AVLabelling},
+  author        = {Maggi, Federico and Bellini, Andrea and Salvaneschi, Guido
+                  and Zanero, Stefano},
+  title         = {Finding {{Non}}-trivial {{Malware Naming Inconsistencies}}},
+  publisher     = {{Springer-Verlag}},
+  booktitle     = {Proceedings of the 7th {{International Conference}} on
+                  {{Information Systems Security}} ({{ICISS}})},
+  volume        = {7093},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {144--159},
+  abstract      = {Malware analysts, and in particular antivirus vendors, never
+                  agreed on a single naming convention for malware specimens.
+                  This leads to confusion and difficulty more for researchers
+                  than for practitioners for example, when comparing coverage
+                  of different antivirus engines, when integrating and
+                  systematizing known threats, or comparing the classifications
+                  given by different detectors. Clearly, solving naming
+                  inconsistencies is a very difficult task, as it requires that
+                  vendors agree on a unified naming convention. More
+                  importantly, solving inconsistencies is impossible without
+                  knowing exactly where they are. Therefore, in this paper we
+                  take a step back and concentrate on the problem of finding
+                  inconsistencies. To this end, we first represent each
+                  vendor's naming convention with a graph-based model. Second,
+                  we give a precise definition of inconsistency with respect to
+                  these models. Third, we define two quantitative measures to
+                  calculate the overall degree of inconsistency between
+                  vendors. In addition, we propose a fast algorithm that finds
+                  non-trivial (i.e., beyond syntactic differences)
+                  inconsistencies. Our experiments on four major antivirus
+                  vendors and 98,798 real-world malware samples confirm
+                  anecdotal observations that different vendors name viruses
+                  differently. More importantly, we were able to find
+                  inconsistencies that cannot be inferred at all by looking
+                  solely at the syntax.},
+  doi           = {10.1007/978-3-642-25560-1_10},
+  date          = {2011-12-15},
+  file          = {files/papers/conference-papers/maggi_avlabelling_2011.pdf}
 }
 
-@InProceedings{	  maggi_avlabelling_2011,
-  shorttitle	= {AVLabelling},
-  author	= {Maggi, Federico and Bellini, Andrea and Salvaneschi, Guido
-		  and Zanero, Stefano},
-  title		= {Finding {{Non}}-trivial {{Malware Naming
-		  Inconsistencies}}},
-  publisher	= {{Springer-Verlag}},
-  booktitle	= {Proceedings of the 7th {{International Conference}} on
-		  {{Information Systems Security}} ({{ICISS}})},
-  volume	= {7093},
-  series	= {Lecture Notes in Computer Science},
-  pages		= {144--159},
-  abstract	= {Malware analysts, and in particular antivirus vendors,
-		  never agreed on a single naming convention for malware
-		  specimens. This leads to confusion and difficulty more for
-		  researchers than for practitioners for example, when
-		  comparing coverage of different antivirus engines, when
-		  integrating and systematizing known threats, or comparing
-		  the classifications given by different detectors. Clearly,
-		  solving naming inconsistencies is a very difficult task, as
-		  it requires that vendors agree on a unified naming
-		  convention. More importantly, solving inconsistencies is
-		  impossible without knowing exactly where they are.
-		  Therefore, in this paper we take a step back and
-		  concentrate on the problem of finding inconsistencies. To
-		  this end, we first represent each vendor's naming
-		  convention with a graph-based model. Second, we give a
-		  precise definition of inconsistency with respect to these
-		  models. Third, we define two quantitative measures to
-		  calculate the overall degree of inconsistency between
-		  vendors. In addition, we propose a fast algorithm that
-		  finds non-trivial (i.e., beyond syntactic differences)
-		  inconsistencies. Our experiments on four major antivirus
-		  vendors and 98,798 real-world malware samples confirm
-		  anecdotal observations that different vendors name viruses
-		  differently. More importantly, we were able to find
-		  inconsistencies that cannot be inferred at all by looking
-		  solely at the syntax.},
-  doi		= {10.1007/978-3-642-25560-1_10},
-  date		= {2011-12-15},
-  file		= {files/papers/conference-papers/maggi_avlabelling_2011.pdf}
+@InProceedings{   maggi_iclearshot_2011,
+  shorttitle    = {iClearshot},
+  author        = {Maggi, Federico and Volpatto, Alberto and Gasparini, Simone
+                  and Boracchi, Giacomo and Zanero, Stefano},
+  title         = {A {{Fast Eavesdropping Attack Against Touchscreens}}},
+  booktitle     = {Proceedings of the 7th {{International Conference}} on
+                  {{Information Assurance}} and {{Security}} ({{IAS}})},
+  pages         = {320--325},
+  abstract      = {The pervasiveness of mobile devices increases the risk of
+                  exposing sensitive information on the go. In this paper, we
+                  arise this concern by presenting an automatic attack against
+                  modern touchscreen keyboards. We demonstrate the attack
+                  against the Apple iPhone 2010's most popular touchscreen
+                  device although it can be adapted to other devices (e.g.,
+                  Android) that employ similar key-magnifying keyboards. Our
+                  attack processes the stream of frames from a video camera
+                  (e.g., surveillance or portable camera) and recognizes
+                  keystrokes online, in a fraction of the time needed to
+                  perform the same task by direct observation or offline
+                  analysis of a recorded video, which can be unfeasible for
+                  large amount of data. Our attack detects, tracks, and
+                  rectifies the target touchscreen, thus following the device
+                  or camera's movements and eliminating possible perspective
+                  distortions and rotations In real-world settings, our attack
+                  can automatically recognize up to 97.07 percent of the
+                  keystrokes (91.03 on average), with 1.15 percent of errors
+                  (3.16 on average) at a speed ranging from 37 to 51 keystrokes
+                  per minute.},
+  doi           = {10.1109/ISIAS.2011.6122840},
+  isbn          = {978-1-4577-2154-0},
+  date          = {2011-12-05},
+  file          = {files/papers/conference-papers/maggi_iclearshot_2011.pdf}
 }
 
-@InProceedings{	  maggi_iclearshot_2011,
-  shorttitle	= {iClearshot},
-  author	= {Maggi, Federico and Volpatto, Alberto and Gasparini,
-		  Simone and Boracchi, Giacomo and Zanero, Stefano},
-  title		= {A {{Fast Eavesdropping Attack Against Touchscreens}}},
-  booktitle	= {Proceedings of the 7th {{International Conference}} on
-		  {{Information Assurance}} and {{Security}} ({{IAS}})},
-  pages		= {320--325},
-  abstract	= {The pervasiveness of mobile devices increases the risk of
-		  exposing sensitive information on the go. In this paper, we
-		  arise this concern by presenting an automatic attack
-		  against modern touchscreen keyboards. We demonstrate the
-		  attack against the Apple iPhone 2010's most popular
-		  touchscreen device although it can be adapted to other
-		  devices (e.g., Android) that employ similar key-magnifying
-		  keyboards. Our attack processes the stream of frames from a
-		  video camera (e.g., surveillance or portable camera) and
-		  recognizes keystrokes online, in a fraction of the time
-		  needed to perform the same task by direct observation or
-		  offline analysis of a recorded video, which can be
-		  unfeasible for large amount of data. Our attack detects,
-		  tracks, and rectifies the target touchscreen, thus
-		  following the device or camera's movements and eliminating
-		  possible perspective distortions and rotations In
-		  real-world settings, our attack can automatically recognize
-		  up to 97.07 percent of the keystrokes (91.03 on average),
-		  with 1.15 percent of errors (3.16 on average) at a speed
-		  ranging from 37 to 51 keystrokes per minute.},
-  doi		= {10.1109/ISIAS.2011.6122840},
-  isbn		= {978-1-4577-2154-0},
-  date		= {2011-12-05},
-  file		= {files/papers/conference-papers/maggi_iclearshot_2011.pdf}
+@InProceedings{   maggi_iclearshotposter_2011,
+  shorttitle    = {iClearshotPoster},
+  author        = {Maggi, Federico and Volpatto, Alberto and Gasparini, Simone
+                  and Boracchi, Giacomo and Zanero, Stefano},
+  title         = {{{POSTER}}: {{Fast}}, {{Automatic iPhone Shoulder
+                  Surfing}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the 18th {{Conference}} on {{Computer}} and
+                  {{Communication Security}} ({{CCS}})},
+  abstract      = {Touchscreen devices increase the risk of shoulder surfing to
+                  such an extent that attackers could steal sensitive
+                  information by simply following the victim and observe his or
+                  her portable device. We underline this concern by proposing
+                  an automatic shoulder surfing attack against modern
+                  touchscreen keyboards that display magnified keys in
+                  predictable positions. We demonstrate this attack against the
+                  Apple iPhone although it can work with other layouts and
+                  different devices and show that it recognizes up to 97.07\%
+                  (91.03\% on average) of the keystrokes, with only 1.15\% of
+                  errors, at 37 to 51 keystrokes per minute: About eight times
+                  faster than a human analyzing a recorded video. Our attack
+                  accurately recovers the sequence of keystrokes input by the
+                  user. A previous attack, which targeted desktop scenarios and
+                  thus worked with very restrictive settings, is similar in
+                  spirit to ours. However, as it assumes that camera and target
+                  keyboard are both in fixed, perpendicular position, it cannot
+                  suite mobile settings, characterized by moving target and
+                  skewed, rotated viewpoints. Our attack, instead, requires no
+                  particular settings and even allows for natural movements of
+                  both target device and shoulder surfer's camera. In addition,
+                  our attack yields accurate output without any grammar or
+                  syntax checks, so that it can detect large context-free text
+                  or non-dictionary words.},
+  doi           = {10.1145/2093476.2093498},
+  date          = {2011-10-01},
+  file          = {files/papers/conference-papers/maggi_iclearshotposter_2011.pdf}
 }
 
-@InProceedings{	  maggi_iclearshotposter_2011,
-  shorttitle	= {iClearshotPoster},
-  author	= {Maggi, Federico and Volpatto, Alberto and Gasparini,
-		  Simone and Boracchi, Giacomo and Zanero, Stefano},
-  title		= {{{POSTER}}: {{Fast}}, {{Automatic iPhone Shoulder
-		  Surfing}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the 18th {{Conference}} on {{Computer}} and
-		  {{Communication Security}} ({{CCS}})},
-  abstract	= {Touchscreen devices increase the risk of shoulder surfing
-		  to such an extent that attackers could steal sensitive
-		  information by simply following the victim and observe his
-		  or her portable device. We underline this concern by
-		  proposing an automatic shoulder surfing attack against
-		  modern touchscreen keyboards that display magnified keys in
-		  predictable positions. We demonstrate this attack against
-		  the Apple iPhone although it can work with other layouts
-		  and different devices and show that it recognizes up to
-		  97.07\% (91.03\% on average) of the keystrokes, with only
-		  1.15\% of errors, at 37 to 51 keystrokes per minute: About
-		  eight times faster than a human analyzing a recorded video.
-		  Our attack accurately recovers the sequence of keystrokes
-		  input by the user. A previous attack, which targeted
-		  desktop scenarios and thus worked with very restrictive
-		  settings, is similar in spirit to ours. However, as it
-		  assumes that camera and target keyboard are both in fixed,
-		  perpendicular position, it cannot suite mobile settings,
-		  characterized by moving target and skewed, rotated
-		  viewpoints. Our attack, instead, requires no particular
-		  settings and even allows for natural movements of both
-		  target device and shoulder surfer's camera. In addition,
-		  our attack yields accurate output without any grammar or
-		  syntax checks, so that it can detect large context-free
-		  text or non-dictionary words.},
-  doi		= {10.1145/2093476.2093498},
-  date		= {2011-10-01},
-  file		= {files/papers/conference-papers/maggi_iclearshotposter_2011.pdf}
+@InProceedings{   roveta_burn_2011,
+  shorttitle    = {BURN},
+  author        = {Roveta, Francesco and Di Mario, Luca and Maggi, Federico and
+                  Caviglia, Giorgio and Zanero, Stefano and Ciuccarelli,
+                  Paolo},
+  title         = {{{BURN}}: {{Baring Unknown Rogue Networks}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the 8th {{International Symposium}} on
+                  {{Visualization}} for {{Cyber Security}} ({{VizSec}})},
+  pages         = {6:1--6:10},
+  location      = {{New York, NY, USA}},
+  abstract      = {Manual analysis of security-related events is still a
+                  necessity to investigate non-trivial cyber attacks. This task
+                  is particularly hard when the events involve slow, stealthy
+                  and large-scale activities typical of the modern
+                  cybercriminals' strategy. In this regard, visualization tools
+                  can effectively help analysts in their investigations. In
+                  this paper, we present BURN, an interactive visualization
+                  tool for displaying autonomous systems exhibiting rogue
+                  activity that helps at finding misbehaving networks through
+                  visual and interactive exploration. Up to seven values are
+                  displayed in a single visual element, while avoiding
+                  cumbersome and confusing maps. To this end, animations and
+                  alpha channels are leveraged to create simple views that
+                  highlight relevant activity patterns. In addition, BURN
+                  incorporates a simple algorithm to identify migrations of
+                  nefarious services across autonomous systems, which can
+                  support, for instance, root-cause analysis and law
+                  enforcement investigations.},
+  doi           = {10.1145/2016904.2016910},
+  isbn          = {978-1-4503-0679-9},
+  date          = {2011-06-20},
+  file          = {files/papers/conference-papers/roveta_burn_2011.pdf}
 }
 
-@InProceedings{	  maggi_syssecpolimi_2011,
-  shorttitle	= {SysSecPOLIMI},
-  author	= {Maggi, Federico and Zanero, Stefano},
-  title		= {System {{Security}} research at {{Politecnico}} di
-		  {{Milano}}},
-  publisher	= {{IEEE Computer Society}},
-  booktitle	= {Proceedings of the 1st {{SysSec Workshop}} ({{SysSec}})},
-  abstract	= {This paper summarizes the past, present and future lines
-		  of research in the systems security area pursued by the
-		  Performance Evaluation Lab of Politecnico di Milano. We
-		  describe our past research in the area of learning
-		  algorithms applied to intrusion detection, our current work
-		  in the area of malware analysis, and our future research
-		  outlook, oriented to the cloud, to mobile device security,
-		  and to cyber-physical systems.},
-  doi		= {10.1109/SysSec.2011.30},
-  date		= {2011-07-06},
-  keywords	= {workshop},
-  file		= {files/papers/conference-papers/maggi_syssecpolimi_2011.pdf}
+@InProceedings{   maggi_cloudids_2011,
+  shorttitle    = {CloudIDS},
+  author        = {Maggi, Federico and Zanero, Stefano},
+  title         = {Is the future {{Web}} more insecure? {{Distractions}} and
+                  solutions of new-old security issues and measures},
+  publisher     = {{EWI}},
+  booktitle     = {Proceedings of the {{Worldwide Cybersecurity Summit}}},
+  pages         = {1--9},
+  abstract      = {The world of information and communication technology is
+                  experiencing changes that, regardless of some skepticism, are
+                  bringing to life the concept of ``utility computing''. The
+                  nostalgics observed a parallel between the emerging paradigm
+                  of cloud computing and the traditional time-sharing era,
+                  depicting clouds as the modern reincarnation of mainframes
+                  available on a pay-per-use basis, and equipped with virtual,
+                  elastic, disks-as-a-service that replace the old physical
+                  disks with quotas. This comparison is fascinating, but more
+                  importantly, in our opinion, it prepares the ground for
+                  constructive critiques regarding the security of such a
+                  computing paradigm and, especially, one of its key
+                  components: web services. In this paper we discuss our
+                  position about the current countermeasures (e.g., intrusion
+                  detection systems, anti-malware), developed to mitigate
+                  well-known web security threats. By reasoning on said
+                  affinities, we focus on the simple case study of
+                  anomaly-based approaches, which are employed in many modern
+                  protection tools, not just in intrusion detectors. We
+                  illustrate our position by the means of a simple running
+                  example and show that attacks against injection
+                  vulnerabilities, a widespread menace that is easily
+                  recognizable with ordinary anomaly-based checks, can be
+                  difficult to detect if web services are protected as they
+                  were regular web applications. Along this line, we
+                  concentrate on a few, critical hypotheses that demand
+                  particular attention. Although in this emerging landscape
+                  only a minority of threats qualify as novel, they could be
+                  difficult to recognize with the current countermeasures and
+                  thus can expose web services to new attacks. We conclude by
+                  proposing simple modifications to the current countermeasures
+                  to cope with the aforesaid security issues.},
+  isbn          = {978-1-4577-1449-8},
+  date          = {2011-06-01},
+  file          = {files/papers/conference-papers/maggi_cloudids_2011.pdf}
 }
 
-@InProceedings{	  roveta_burn_2011,
-  shorttitle	= {BURN},
-  author	= {Roveta, Francesco and Di Mario, Luca and Maggi, Federico
-		  and Caviglia, Giorgio and Zanero, Stefano and Ciuccarelli,
-		  Paolo},
-  title		= {{{BURN}}: {{Baring Unknown Rogue Networks}}},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the 8th {{International Symposium}} on
-		  {{Visualization}} for {{Cyber Security}} ({{VizSec}})},
-  pages		= {6:1--6:10},
-  location	= {{New York, NY, USA}},
-  abstract	= {Manual analysis of security-related events is still a
-		  necessity to investigate non-trivial cyber attacks. This
-		  task is particularly hard when the events involve slow,
-		  stealthy and large-scale activities typical of the modern
-		  cybercriminals' strategy. In this regard, visualization
-		  tools can effectively help analysts in their
-		  investigations. In this paper, we present BURN, an
-		  interactive visualization tool for displaying autonomous
-		  systems exhibiting rogue activity that helps at finding
-		  misbehaving networks through visual and interactive
-		  exploration. Up to seven values are displayed in a single
-		  visual element, while avoiding cumbersome and confusing
-		  maps. To this end, animations and alpha channels are
-		  leveraged to create simple views that highlight relevant
-		  activity patterns. In addition, BURN incorporates a simple
-		  algorithm to identify migrations of nefarious services
-		  across autonomous systems, which can support, for instance,
-		  root-cause analysis and law enforcement investigations.},
-  doi		= {10.1145/2016904.2016910},
-  isbn		= {978-1-4503-0679-9},
-  date		= {2011-06-20},
-  file		= {files/papers/conference-papers/roveta_burn_2011.pdf}
+@InProceedings{   volpatto_cooperativeids_2010,
+  shorttitle    = {CooperativeIDS},
+  author        = {Volpatto, Alberto and Maggi, Federico and Zanero, Stefano},
+  title         = {Effective {{Multimodel Anomaly Detection Using Cooperative
+                  Negotiation}}},
+  publisher     = {{Springer Berlin/Heidelberg}},
+  booktitle     = {Proceedings of the {{Decision}} and {{Game Theory}} for
+                  {{Security}} ({{GameSec}})},
+  volume        = {6442},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {180--191},
+  doi           = {10.1007/978-3-642-17197-0_12},
+  isbn          = {978-3-642-17196-3},
+  date          = {2010-11-22},
+  file          = {files/papers/conference-papers/volpatto_cooperativeids_2010.pdf}
 }
 
-@InProceedings{	  maggi_cloudids_2011,
-  shorttitle	= {CloudIDS},
-  author	= {Maggi, Federico and Zanero, Stefano},
-  title		= {Is the future {{Web}} more insecure? {{Distractions}} and
-		  solutions of new-old security issues and measures},
-  publisher	= {{EWI}},
-  booktitle	= {Proceedings of the {{Worldwide Cybersecurity Summit}}},
-  pages		= {1--9},
-  abstract	= {The world of information and communication technology is
-		  experiencing changes that, regardless of some skepticism,
-		  are bringing to life the concept of ``utility computing''.
-		  The nostalgics observed a parallel between the emerging
-		  paradigm of cloud computing and the traditional
-		  time-sharing era, depicting clouds as the modern
-		  reincarnation of mainframes available on a pay-per-use
-		  basis, and equipped with virtual, elastic,
-		  disks-as-a-service that replace the old physical disks with
-		  quotas. This comparison is fascinating, but more
-		  importantly, in our opinion, it prepares the ground for
-		  constructive critiques regarding the security of such a
-		  computing paradigm and, especially, one of its key
-		  components: web services. In this paper we discuss our
-		  position about the current countermeasures (e.g., intrusion
-		  detection systems, anti-malware), developed to mitigate
-		  well-known web security threats. By reasoning on said
-		  affinities, we focus on the simple case study of
-		  anomaly-based approaches, which are employed in many modern
-		  protection tools, not just in intrusion detectors. We
-		  illustrate our position by the means of a simple running
-		  example and show that attacks against injection
-		  vulnerabilities, a widespread menace that is easily
-		  recognizable with ordinary anomaly-based checks, can be
-		  difficult to detect if web services are protected as they
-		  were regular web applications. Along this line, we
-		  concentrate on a few, critical hypotheses that demand
-		  particular attention. Although in this emerging landscape
-		  only a minority of threats qualify as novel, they could be
-		  difficult to recognize with the current countermeasures and
-		  thus can expose web services to new attacks. We conclude by
-		  proposing simple modifications to the current
-		  countermeasures to cope with the aforesaid security
-		  issues.},
-  isbn		= {978-1-4577-1449-8},
-  date		= {2011-06-01},
-  file		= {files/papers/conference-papers/maggi_cloudids_2011.pdf}
+@InProceedings{   maggi_phonephishing_2010,
+  shorttitle    = {PhonePhishing},
+  author        = {Maggi, Federico},
+  title         = {Are the {{Con Artists Back}}? {{A Preliminary Analysis}} of
+                  {{Modern Phone Frauds}}},
+  publisher     = {{IEEE Computer Society}},
+  booktitle     = {Proceedings of the {{International Conference}} on
+                  {{Computer}} and {{Information Technology}} ({{CIT}})},
+  pages         = {824--831},
+  abstract      = {Phishing is the practice of eliciting a person's
+                  confidential information such as name, date of birth or
+                  credit card details. Typically, the phishers use simple
+                  technologies (e.g., e-mailing) to spread social engineering
+                  attacks with the goal of persuading a large amount of victims
+                  into voluntarily disclose sensitive data. Phishing based on
+                  e-mail and web technologies is certainly the most popular
+                  form. It has indeed received ample attention and some
+                  mitigation measures have been implemented. In this paper we
+                  describe our study on vishing (voice phishing), a form of
+                  phishing where the scammers exploit the phone channel to ask
+                  for sensitive information, rather than sending e-mails and
+                  cloning trustworthy websites. In some sense, the traditional
+                  ala-Mitnick phone scams are streamlined by attackers using
+                  techniques that are typical of modern, e-mail-based phishing.
+                  We detail our analysis of an embryonic, real-world database
+                  of vishing attacks reported by victims through a
+                  publicly-available web application that we build for this
+                  purpose. The vishing activity that we registered in our
+                  preliminary analysis is targeted against the U.S. customers.
+                  According to our samples, we analyzed to what extent the
+                  criminals rely on automated responders to streamline the
+                  vishing campaigns. In addition, we analyzed the content of
+                  the conversations and found that words such as ``credit'',
+                  ``press'' (a key) or ``account'' are fairly popular. In
+                  addition, we describe the data collection infrastructure and
+                  motivate why gathering data about vishing is more difficult
+                  than for regular e-mail phishing.},
+  doi           = {10.1109/CIT.2010.156},
+  isbn          = {978-0-7695-4108-2},
+  date          = {2010-06-29},
+  file          = {files/papers/conference-papers/maggi_phonephishing_2010.pdf}
 }
 
-@InProceedings{	  maggi_phonephishinghoneypot_2011,
-  shorttitle	= {PhonePhishingHoneypot},
-  author	= {Maggi, Federico and Sisto, Alessandro and Zanero,
-		  Stefano},
-  title		= {A social-engineering-centric data collection initiative to
-		  study phishing},
-  publisher	= {{ACM}},
-  booktitle	= {Proceedings of the {{First Workshop}} on {{Building
-		  Analysis Datasets}} and {{Gathering Experience Returns}}
-		  for {{Security}} ({{BADGERS}})},
-  pages		= {107--108},
-  location	= {{New York, NY, USA}},
-  abstract	= {Phishers nowadays rely on a variety of channels, ranging
-		  from old-fashioned emails to instant messages, social
-		  networks, and the phone system (with both calls and text
-		  messages), with the goal of reaching more victims. As a
-		  consequence, modern phishing became a multi-faceted, even
-		  more pervasive threat that is inherently more difficult to
-		  study than traditional, email-based phishing. This short
-		  paper describes the status of a data collection system we
-		  are developing to capture different aspects of phishing
-		  campaigns, with a particular focus on the emerging use of
-		  the voice channel. The general approach is to record
-		  inbound calls received on decoy phone lines, place outbound
-		  calls to the same caller identifiers (when available) and
-		  also to telephone numbers obtained from different sources.
-		  Specifically, our system analyzes instant messages (e.g.,
-		  automated social engineering attempts) and suspicious
-		  emails (e.g., spam, phishing), and extracts telephone
-		  numbers, URLs and popular words from the content. In
-		  addition, users can voluntarily submit voice phishing
-		  (vishing) attempts through a public website. Extracted
-		  telephone numbers, URLs and popular words will be
-		  correlated to recognize campaigns by means of cross-channel
-		  relationships between messages.},
-  doi		= {10.1145/1978672.1978687},
-  isbn		= {978-1-4503-0768-0},
-  date		= {2011-04-10},
-  keywords	= {workshop},
-  file		= {files/papers/conference-papers/maggi_phonephishinghoneypot_2011.pdf}
+@InProceedings{   maggi_traces_2010,
+  shorttitle    = {Traces},
+  author        = {Maggi, Federico},
+  title         = {A {{Recognizer}} of {{Rational Trace Languages}}},
+  publisher     = {{IEEE Computer Society}},
+  booktitle     = {Proceedings of the {{International Conference}} on
+                  {{Computer}} and {{Information Technology}} ({{CIT}})},
+  pages         = {257--264},
+  abstract      = {A one-pass recognition algorithm is presented to solve the
+                  membership problem for rational trace languages. The
+                  algorithm is detailed through the formal specification of the
+                  Buffer Machine, a non-deterministic, finite-state automaton
+                  with multiple buffers that can solve the membership problem
+                  in polynomial time. The performances and characteristics of
+                  the proposed solution are evaluated on a testbed
+                  implementation using pseudo-random traces, strings, languages
+                  and dependency relations.},
+  doi           = {10.1109/CIT.2010.77},
+  isbn          = {978-0-7695-4108-2},
+  date          = {2010-06},
+  file          = {files/papers/conference-papers/maggi_traces_2010.pdf}
 }
 
-@InProceedings{	  volpatto_cooperativeids_2010,
-  shorttitle	= {CooperativeIDS},
-  author	= {Volpatto, Alberto and Maggi, Federico and Zanero,
-		  Stefano},
-  title		= {Effective {{Multimodel Anomaly Detection Using Cooperative
-		  Negotiation}}},
-  publisher	= {{Springer Berlin/Heidelberg}},
-  booktitle	= {Proceedings of the {{Decision}} and {{Game Theory}} for
-		  {{Security}} ({{GameSec}})},
-  volume	= {6442},
-  series	= {Lecture Notes in Computer Science},
-  pages		= {180--191},
-  doi		= {10.1007/978-3-642-17197-0_12},
-  isbn		= {978-3-642-17196-3},
-  date		= {2010-11-22},
-  file		= {files/papers/conference-papers/volpatto_cooperativeids_2010.pdf}
+@InProceedings{   robertson_longtail_2010,
+  shorttitle    = {LongTail},
+  author        = {Robertson, William and Maggi, Federico and Kruegel,
+                  Christopher and Vigna, Giovanni},
+  title         = {Effective {{Anomaly Detection}} with {{Scarce Training
+                  Data}}},
+  publisher     = {{The Internet Society}},
+  booktitle     = {Proceedings of the {{Network}} and {{Distributed System
+                  Security Symposium}} ({{NDSS}})},
+  abstract      = {Learning-based anomaly detection has proven to be an
+                  effective black-box technique for detecting unknown attacks.
+                  However, the effectiveness of this technique crucially
+                  depends upon both the quality and the completeness of the
+                  training data. Unfortunately, in most cases, the traffic to
+                  the system (e.g., a web application or daemon process)
+                  protected by an anomaly detector is not uniformly
+                  distributed. Therefore, some components (e.g.,
+                  authentication, payments, or content publishing) might not be
+                  exercised enough to train an anomaly detection system in a
+                  reasonable time frame. This is of particular importance in
+                  real-world settings, where anomaly detection systems are
+                  deployed with little or no manual configuration, and they are
+                  expected to automatically learn the normal behavior of a
+                  system to detect or block attacks. In this work, we first
+                  demonstrate that the features utilized to train a
+                  learning-based detector can be semantically grouped, and that
+                  features of the same group tend to induce similar models.
+                  Therefore, we propose addressing local training data
+                  deficiencies by exploiting clustering techniques to construct
+                  a knowledge base of well-trained models that can be utilized
+                  in case of undertraining. Our approach, which is independent
+                  of the particular type of anomaly detector employed, is
+                  validated using the realistic case of a learning-based system
+                  protecting a pool of web servers running several web
+                  applications such as blogs, forums, or Web services. We run
+                  our experiments on a real-world data set containing over 58
+                  million HTTP requests to more than 36,000 distinct web
+                  application components. The results show that by using the
+                  proposed solution, it is possible to achieve effective attack
+                  detection even with scarce training data.},
+  doi           = {10.1.1.183.3323},
+  date          = {2010-03-01},
+  file          = {files/papers/conference-papers/robertson_longtail_2010.pdf}
 }
 
-@InProceedings{	  maggi_phonephishing_2010,
-  shorttitle	= {PhonePhishing},
-  author	= {Maggi, Federico},
-  title		= {Are the {{Con Artists Back}}? {{A Preliminary Analysis}}
-		  of {{Modern Phone Frauds}}},
-  publisher	= {{IEEE Computer Society}},
-  booktitle	= {Proceedings of the {{International Conference}} on
-		  {{Computer}} and {{Information Technology}} ({{CIT}})},
-  pages		= {824--831},
-  abstract	= {Phishing is the practice of eliciting a person's
-		  confidential information such as name, date of birth or
-		  credit card details. Typically, the phishers use simple
-		  technologies (e.g., e-mailing) to spread social engineering
-		  attacks with the goal of persuading a large amount of
-		  victims into voluntarily disclose sensitive data. Phishing
-		  based on e-mail and web technologies is certainly the most
-		  popular form. It has indeed received ample attention and
-		  some mitigation measures have been implemented. In this
-		  paper we describe our study on vishing (voice phishing), a
-		  form of phishing where the scammers exploit the phone
-		  channel to ask for sensitive information, rather than
-		  sending e-mails and cloning trustworthy websites. In some
-		  sense, the traditional ala-Mitnick phone scams are
-		  streamlined by attackers using techniques that are typical
-		  of modern, e-mail-based phishing. We detail our analysis of
-		  an embryonic, real-world database of vishing attacks
-		  reported by victims through a publicly-available web
-		  application that we build for this purpose. The vishing
-		  activity that we registered in our preliminary analysis is
-		  targeted against the U.S. customers. According to our
-		  samples, we analyzed to what extent the criminals rely on
-		  automated responders to streamline the vishing campaigns.
-		  In addition, we analyzed the content of the conversations
-		  and found that words such as ``credit'', ``press'' (a key)
-		  or ``account'' are fairly popular. In addition, we describe
-		  the data collection infrastructure and motivate why
-		  gathering data about vishing is more difficult than for
-		  regular e-mail phishing.},
-  doi		= {10.1109/CIT.2010.156},
-  isbn		= {978-0-7695-4108-2},
-  date		= {2010-06-29},
-  file		= {files/papers/conference-papers/maggi_phonephishing_2010.pdf}
+@InProceedings{   criscione_masibty_2009,
+  shorttitle    = {Masibty},
+  author        = {Criscione, Claudio and Maggi, Federico and Salvaneschi,
+                  Guido and Zanero, Stefano},
+  title         = {Integrated {{Detection}} of {{Attacks Against Browsers}},
+                  {{Web Applications}} and {{Databases}}},
+  publisher     = {{IEEE Computer Society}},
+  booktitle     = {Proceedings of the {{European Conference}} on {{Network
+                  Defense}} ({{EC2ND}})},
+  abstract      = {Anomaly-based techniques were exploited successfully to
+                  implement protection mechanisms for various systems.
+                  Recently, these approaches have been ported to the web domain
+                  under the name of ``web application anomaly detectors'' (or
+                  firewalls) with promising results. In particular, those
+                  capable of automatically building specifications, or models,
+                  of the protected application by observing its traffic (e.g.,
+                  network packets, system calls, or HTTP requests and
+                  responses) are particularly interesting, since they can be
+                  deployed with little effort. Typically, the detection
+                  accuracy of these systems is significantly influenced by the
+                  model building phase (often called training), which clearly
+                  depends upon the quality of the observed traffic, which
+                  should resemble the normal activity of the protected
+                  application and must be also free from attacks. Otherwise,
+                  detection may result in significant amounts of false
+                  positives (i.e., benign events flagged as anomalous) and
+                  negatives (i.e., undetected threats). In this work we
+                  describe Masibty, a web application anomaly detector that
+                  have some interesting properties. First, it requires the
+                  training data not to be attack-free. Secondly, not only it
+                  protects the monitored application, it also detects and
+                  blocks malicious client-side threats before they are sent to
+                  the browser. Third, Masibty intercepts the queries before
+                  they are sent to the database, correlates them with the
+                  corresponding HTTP requests and blocks those deemed
+                  anomalous. Both the accuracy and the performance have been
+                  evaluated on real-world web applications with interesting
+                  results. The system is almost not influenced by the presence
+                  of attacks in the training data and shows only a negligible
+                  amount of false positives, although this is paid in terms of
+                  a slight performance overhead.},
+  doi           = {10.1109/EC2ND.2009.13},
+  isbn          = {978-0-7695-3983-6},
+  date          = {2009-11-09},
+  file          = {files/papers/conference-papers/criscione_masibty_2009.pdf}
 }
 
-@InProceedings{	  maggi_traces_2010,
-  shorttitle	= {Traces},
-  author	= {Maggi, Federico},
-  title		= {A {{Recognizer}} of {{Rational Trace Languages}}},
-  publisher	= {{IEEE Computer Society}},
-  booktitle	= {Proceedings of the {{International Conference}} on
-		  {{Computer}} and {{Information Technology}} ({{CIT}})},
-  pages		= {257--264},
-  abstract	= {A one-pass recognition algorithm is presented to solve the
-		  membership problem for rational trace languages. The
-		  algorithm is detailed through the formal specification of
-		  the Buffer Machine, a non-deterministic, finite-state
-		  automaton with multiple buffers that can solve the
-		  membership problem in polynomial time. The performances and
-		  characteristics of the proposed solution are evaluated on a
-		  testbed implementation using pseudo-random traces, strings,
-		  languages and dependency relations.},
-  doi		= {10.1109/CIT.2010.77},
-  isbn		= {978-0-7695-4108-2},
-  date		= {2010-06},
-  file		= {files/papers/conference-papers/maggi_traces_2010.pdf}
+@InProceedings{   maggi_conceptdrift_2009,
+  shorttitle    = {ConceptDrift},
+  author        = {Maggi, Federico and Robertson, William and Kruegel,
+                  Christopher and Vigna, Giovanni},
+  title         = {Protecting a {{Moving Target}}: {{Addressing Web Application
+                  Concept Drift}}},
+  booktitle     = {Proceedings of the {{International Symposium}} on {{Recent
+                  Advances}} in {{Intrusion Detection}} ({{RAID}})},
+  abstract      = {Because of the ad hoc nature of web applications, intrusion
+                  detection systems that leverage machine learning techniques
+                  are particularly well-suited for protecting websites. The
+                  reason is that these systems are able to characterize the
+                  applications' normal behavior in an automated fashion.
+                  However, anomaly-based detectors for web applications suffer
+                  from false positives that are generated whenever the
+                  applications being protected change. These false positives
+                  need to be analyzed by the security officer who then has to
+                  interact with the web application developers to confirm that
+                  the reported alerts were indeed erroneous detections. In this
+                  paper, we propose a novel technique for the automatic
+                  detection of changes in web applications, which allows for
+                  the selective retraining of the affected anomaly detection
+                  models. We demonstrate that, by correctly identifying
+                  legitimate changes in web applications, we can reduce false
+                  positives and allow for the automated retraining of the
+                  anomaly models. We have evaluated our approach by analyzing a
+                  number of real-world applications. Our analysis shows that
+                  web applications indeed change substantially over time, and
+                  that our technique is able to effectively detect changes and
+                  automatically adapt the anomaly detection models to the new
+                  structure of the changed web applications.},
+  doi           = {10.1007/978-3-642-04342-0_2},
+  date          = {2009-09-23},
+  file          = {files/papers/conference-papers/maggi_conceptdrift_2009.pdf}
 }
 
-@InProceedings{	  robertson_longtail_2010,
-  shorttitle	= {LongTail},
-  author	= {Robertson, William and Maggi, Federico and Kruegel,
-		  Christopher and Vigna, Giovanni},
-  title		= {Effective {{Anomaly Detection}} with {{Scarce Training
-		  Data}}},
-  publisher	= {{The Internet Society}},
-  booktitle	= {Proceedings of the {{Network}} and {{Distributed System
-		  Security Symposium}} ({{NDSS}})},
-  abstract	= {Learning-based anomaly detection has proven to be an
-		  effective black-box technique for detecting unknown
-		  attacks. However, the effectiveness of this technique
-		  crucially depends upon both the quality and the
-		  completeness of the training data. Unfortunately, in most
-		  cases, the traffic to the system (e.g., a web application
-		  or daemon process) protected by an anomaly detector is not
-		  uniformly distributed. Therefore, some components (e.g.,
-		  authentication, payments, or content publishing) might not
-		  be exercised enough to train an anomaly detection system in
-		  a reasonable time frame. This is of particular importance
-		  in real-world settings, where anomaly detection systems are
-		  deployed with little or no manual configuration, and they
-		  are expected to automatically learn the normal behavior of
-		  a system to detect or block attacks. In this work, we first
-		  demonstrate that the features utilized to train a
-		  learning-based detector can be semantically grouped, and
-		  that features of the same group tend to induce similar
-		  models. Therefore, we propose addressing local training
-		  data deficiencies by exploiting clustering techniques to
-		  construct a knowledge base of well-trained models that can
-		  be utilized in case of undertraining. Our approach, which
-		  is independent of the particular type of anomaly detector
-		  employed, is validated using the realistic case of a
-		  learning-based system protecting a pool of web servers
-		  running several web applications such as blogs, forums, or
-		  Web services. We run our experiments on a real-world data
-		  set containing over 58 million HTTP requests to more than
-		  36,000 distinct web application components. The results
-		  show that by using the proposed solution, it is possible to
-		  achieve effective attack detection even with scarce
-		  training data.},
-  doi		= {10.1.1.183.3323},
-  date		= {2010-03-01},
-  file		= {files/papers/conference-papers/robertson_longtail_2010.pdf}
+@InProceedings{   frossi_hybridsyscalls_2009,
+  shorttitle    = {HybridSyscalls},
+  author        = {Frossi, Alessandro and Maggi, Federico and Rizzo, Gian Luigi
+                  and Zanero, Stefano},
+  title         = {Selecting and {{Improving System Call Models}} for {{Anomaly
+                  Detection}}},
+  booktitle     = {Proceedings of the {{International Conference}} on
+                  {{Detection}} of {{Intrusions}} and {{Malware}}, and
+                  {{Vulnerability Assessment}} ({{DIMVA}})},
+  abstract      = {We propose a syscall-based anomaly detection system that
+                  incorporates both deterministic and stochastic models. We
+                  analyze in detail two alternative approaches for anomaly
+                  detection over system call sequences and arguments, and
+                  propose a number of modifications that significantly improve
+                  their performance. We begin by comparing them and analyzing
+                  their respective performance in terms of detection accuracy.
+                  Then, we outline their major shortcomings, and propose
+                  various changes in the models that can address them: we show
+                  how targeted modifications of their anomaly models, as
+                  opposed to the redesign of the global system, can noticeably
+                  improve the overall detection accuracy. Finally, the impact
+                  of these modifications are discussed by comparing the
+                  performance of the two original implementations with two
+                  modified versions complemented with our models.},
+  doi           = {10.1007/978-3-642-02918-9_13},
+  date          = {2009-07-09},
+  file          = {files/papers/conference-papers/frossi_hybridsyscalls_2009.pdf}
 }
 
-@InProceedings{	  criscione_masibty_2009,
-  shorttitle	= {Masibty},
-  author	= {Criscione, Claudio and Maggi, Federico and Salvaneschi,
-		  Guido and Zanero, Stefano},
-  title		= {Integrated {{Detection}} of {{Attacks Against Browsers}},
-		  {{Web Applications}} and {{Databases}}},
-  publisher	= {{IEEE Computer Society}},
-  booktitle	= {Proceedings of the {{European Conference}} on {{Network
-		  Defense}} ({{EC2ND}})},
-  abstract	= {Anomaly-based techniques were exploited successfully to
-		  implement protection mechanisms for various systems.
-		  Recently, these approaches have been ported to the web
-		  domain under the name of ``web application anomaly
-		  detectors'' (or firewalls) with promising results. In
-		  particular, those capable of automatically building
-		  specifications, or models, of the protected application by
-		  observing its traffic (e.g., network packets, system calls,
-		  or HTTP requests and responses) are particularly
-		  interesting, since they can be deployed with little effort.
-		  Typically, the detection accuracy of these systems is
-		  significantly influenced by the model building phase (often
-		  called training), which clearly depends upon the quality of
-		  the observed traffic, which should resemble the normal
-		  activity of the protected application and must be also free
-		  from attacks. Otherwise, detection may result in
-		  significant amounts of false positives (i.e., benign events
-		  flagged as anomalous) and negatives (i.e., undetected
-		  threats). In this work we describe Masibty, a web
-		  application anomaly detector that have some interesting
-		  properties. First, it requires the training data not to be
-		  attack-free. Secondly, not only it protects the monitored
-		  application, it also detects and blocks malicious
-		  client-side threats before they are sent to the browser.
-		  Third, Masibty intercepts the queries before they are sent
-		  to the database, correlates them with the corresponding
-		  HTTP requests and blocks those deemed anomalous. Both the
-		  accuracy and the performance have been evaluated on
-		  real-world web applications with interesting results. The
-		  system is almost not influenced by the presence of attacks
-		  in the training data and shows only a negligible amount of
-		  false positives, although this is paid in terms of a slight
-		  performance overhead.},
-  doi		= {10.1109/EC2ND.2009.13},
-  isbn		= {978-0-7695-3983-6},
-  date		= {2009-11-09},
-  file		= {files/papers/conference-papers/criscione_masibty_2009.pdf}
-}
-
-@InProceedings{	  maggi_conceptdrift_2009,
-  shorttitle	= {ConceptDrift},
-  author	= {Maggi, Federico and Robertson, William and Kruegel,
-		  Christopher and Vigna, Giovanni},
-  title		= {Protecting a {{Moving Target}}: {{Addressing Web
-		  Application Concept Drift}}},
-  booktitle	= {Proceedings of the {{International Symposium}} on {{Recent
-		  Advances}} in {{Intrusion Detection}} ({{RAID}})},
-  abstract	= {Because of the ad hoc nature of web applications,
-		  intrusion detection systems that leverage machine learning
-		  techniques are particularly well-suited for protecting
-		  websites. The reason is that these systems are able to
-		  characterize the applications' normal behavior in an
-		  automated fashion. However, anomaly-based detectors for web
-		  applications suffer from false positives that are generated
-		  whenever the applications being protected change. These
-		  false positives need to be analyzed by the security officer
-		  who then has to interact with the web application
-		  developers to confirm that the reported alerts were indeed
-		  erroneous detections. In this paper, we propose a novel
-		  technique for the automatic detection of changes in web
-		  applications, which allows for the selective retraining of
-		  the affected anomaly detection models. We demonstrate that,
-		  by correctly identifying legitimate changes in web
-		  applications, we can reduce false positives and allow for
-		  the automated retraining of the anomaly models. We have
-		  evaluated our approach by analyzing a number of real-world
-		  applications. Our analysis shows that web applications
-		  indeed change substantially over time, and that our
-		  technique is able to effectively detect changes and
-		  automatically adapt the anomaly detection models to the new
-		  structure of the changed web applications.},
-  doi		= {10.1007/978-3-642-04342-0_2},
-  date		= {2009-09-23},
-  file		= {files/papers/conference-papers/maggi_conceptdrift_2009.pdf}
-}
-
-@InProceedings{	  frossi_hybridsyscalls_2009,
-  shorttitle	= {HybridSyscalls},
-  author	= {Frossi, Alessandro and Maggi, Federico and Rizzo, Gian
-		  Luigi and Zanero, Stefano},
-  title		= {Selecting and {{Improving System Call Models}} for
-		  {{Anomaly Detection}}},
-  booktitle	= {Proceedings of the {{International Conference}} on
-		  {{Detection}} of {{Intrusions}} and {{Malware}}, and
-		  {{Vulnerability Assessment}} ({{DIMVA}})},
-  abstract	= {We propose a syscall-based anomaly detection system that
-		  incorporates both deterministic and stochastic models. We
-		  analyze in detail two alternative approaches for anomaly
-		  detection over system call sequences and arguments, and
-		  propose a number of modifications that significantly
-		  improve their performance. We begin by comparing them and
-		  analyzing their respective performance in terms of
-		  detection accuracy. Then, we outline their major
-		  shortcomings, and propose various changes in the models
-		  that can address them: we show how targeted modifications
-		  of their anomaly models, as opposed to the redesign of the
-		  global system, can noticeably improve the overall detection
-		  accuracy. Finally, the impact of these modifications are
-		  discussed by comparing the performance of the two original
-		  implementations with two modified versions complemented
-		  with our models.},
-  doi		= {10.1007/978-3-642-02918-9_13},
-  date		= {2009-07-09},
-  file		= {files/papers/conference-papers/frossi_hybridsyscalls_2009.pdf}
-}
-
-@InProceedings{	  maggi_alertcorrelation_2007,
-  shorttitle	= {AlertCorrelation},
-  author	= {Maggi, Federico and Zanero, Stefano},
-  title		= {On the {{Use}} of {{Different Statistical Tests}} for
-		  {{Alert Correlation}} - {{Short Paper}}},
-  booktitle	= {Proceedings of the {{International Symposium}} on {{Recent
-		  Advances}} in {{Intrusion Detection}} ({{RAID}})},
-  pages		= {167--177},
-  abstract	= {In this paper we analyze the use of different types of
-		  statistical tests for the correlation of anomaly detection
-		  alerts. We show that the Granger Causality Test, one of the
-		  few proposals that can be extended to the anomaly detection
-		  domain, strongly depends on good choices of a parameter
-		  which proves to be both sensitive and difficult to
-		  estimate. We propose a different approach based on a set of
-		  simpler statistical tests, and we prove that our criteria
-		  work well on a simplified correlation task, without
-		  requiring complex configuration parameters.},
-  doi		= {10.1007/978-3-540-74320-0_9},
-  date		= {2007-09-05},
-  file		= {files/papers/conference-papers/maggi_alertcorrelation_2007.pdf}
+@InProceedings{   maggi_alertcorrelation_2007,
+  shorttitle    = {AlertCorrelation},
+  author        = {Maggi, Federico and Zanero, Stefano},
+  title         = {On the {{Use}} of {{Different Statistical Tests}} for
+                  {{Alert Correlation}} - {{Short Paper}}},
+  booktitle     = {Proceedings of the {{International Symposium}} on {{Recent
+                  Advances}} in {{Intrusion Detection}} ({{RAID}})},
+  pages         = {167--177},
+  abstract      = {In this paper we analyze the use of different types of
+                  statistical tests for the correlation of anomaly detection
+                  alerts. We show that the Granger Causality Test, one of the
+                  few proposals that can be extended to the anomaly detection
+                  domain, strongly depends on good choices of a parameter which
+                  proves to be both sensitive and difficult to estimate. We
+                  propose a different approach based on a set of simpler
+                  statistical tests, and we prove that our criteria work well
+                  on a simplified correlation task, without requiring complex
+                  configuration parameters.},
+  doi           = {10.1007/978-3-540-74320-0_9},
+  date          = {2007-09-05},
+  file          = {files/papers/conference-papers/maggi_alertcorrelation_2007.pdf}
 }

@@ -1,4 +1,7 @@
 check.double = {off}
+print.line.length = 79
+print.use.tab = {off}
+suppress.initial.newline = {on}
 
 sort = {on}
 sort.reverse = {on}

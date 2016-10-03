@@ -1,4 +1,4 @@
 add.field {
-  file = "files/papers/talks/%s($key).pdf"
+  file = "files/talks/%s($key).pdf"
 }
 
