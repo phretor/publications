@@ -38,3 +38,6 @@ rm .talks
 
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/dissertations.rsc .dissertations > dissertations.bib
 rm .dissertations
+
+# check files
+cat *.bib | grep file | grep -oE '\{[^}]+\}' | tr -d '[{}]' | while read f; do if [[ ! -x $f ]]; then echo '[ERROR] File not found:' $f; fi; done
