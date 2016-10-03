@@ -9,13 +9,17 @@ bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@TechReport}' $MAI
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@Unpublished}' $MAIN > .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@PhdThesis}' $MAIN > .dissertations
 
-echo '# Publications'
-echo "  * $(grep '^@' .papers | wc -l | tr -d '[:space:]') conference papers"
-echo "  * $(grep '^@' .workshops | wc -l | tr -d '[:space:]') workshop papers"
-echo "  * $(grep '^@' .journals | wc -l | tr -d '[:space:]') journal papers"
-echo "  * $(grep '^@' .reports | wc -l | tr -d '[:space:]') technical reports"
-echo "  * $(grep '^@' .talks | wc -l | tr -d '[:space:]') talks"
-echo "  * $(grep '^@' .dissertations | wc -l | tr -d '[:space:]') dissertations"
+rm README.md
+
+echo '# Publications' >> README.md
+echo "  * $(grep '^@' .papers | wc -l | tr -d '[:space:]') conference papers" >> README.md
+echo "  * $(grep '^@' .workshops | wc -l | tr -d '[:space:]') workshop papers" >> README.md
+echo "  * $(grep '^@' .journals | wc -l | tr -d '[:space:]') journal papers" >> README.md
+echo "  * $(grep '^@' .reports | wc -l | tr -d '[:space:]') technical reports" >> README.md
+echo "  * $(grep '^@' .talks | wc -l | tr -d '[:space:]') talks" >> README.md
+echo "  * $(grep '^@' .dissertations | wc -l | tr -d '[:space:]') dissertations" >> README.md
+echo "" >> README.md
+echo "Updated on $(date)" >> README.md
 
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/papers.rsc .papers > papers.bib
 rm .papers
