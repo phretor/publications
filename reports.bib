@@ -1,0 +1,318 @@
+
+@TechReport{	  maggi_eusyssec_tr_2015,
+  shorttitle	= {EUSysSec},
+  author	= {Maggi, Federico and Zanero, Stefano and Markatos,
+		  Evangelos},
+  title		= {European {{Cyber-Security Research}} and {{Innovation}}},
+  number	= {43},
+  abstract	= {Looking back at the evolution of cyber criminal
+		  activities, from the nineties to the present day, we
+		  observe interesting trends coming together in what may seem
+		  a perfectly orchestrated scene. In parallel with the
+		  `security by design', we recall the importance of reactive
+		  security in a field of ever-changing arms races.},
+  date		= {2015-01},
+  url		= {http://ercim-news.ercim.eu/en100/r-i/european-cyber-security-research-and-innovation},
+  series	= {ERCIM News},
+  pages		= {43},
+  file		= {files/papers/reports/maggi_eusyssec_tr_2015.pdf}
+}
+
+@TechReport{	  bazzoli_xsspeeker_tr_2014,
+  shorttitle	= {XSSPeeker},
+  author	= {Bazzoli, Enrico and Criscione, Claudio and Maggi, Federico
+		  and Zanero, Stefano},
+  title		= {{{XSS Peeker}}: {{A Systematic Analysis}} of
+		  {{Cross}}-site {{Scripting Vulnerability Scanners}}},
+  institution	= {{arXiv}},
+  abstract	= {Since the first publication of the "OWASP Top 10" (2004),
+		  cross-site scripting (XSS) vulnerabilities have always been
+		  among the top 5 web application security bugs. Black-box
+		  vulnerability scanners are widely used in the industry to
+		  reproduce (XSS) attacks automatically. In spite of the
+		  technical sophistication and advancement, previous work
+		  showed that black-box scanners miss a non-negligible
+		  portion of vulnerabilities, and report non-existing,
+		  non-exploitable or uninteresting vulnerabilities.
+		  Unfortunately, these results hold true even for XSS
+		  vulnerabilities, which are relatively simple to trigger if
+		  compared, for instance, to logic flaws. Black-box scanners
+		  have not been studied in depth on this vertical: knowing
+		  precisely how scanners try to detect XSS can provide useful
+		  insights to understand their limitations, to design better
+		  detection methods. In this paper, we present and discuss
+		  the results of a detailed and systematic study on 6
+		  black-box web scanners (both proprietary and open source)
+		  that we conducted in coordination with the respective
+		  vendors. To this end, we developed an automated tool to (1)
+		  extract the payloads used by each scanner, (2) distill the
+		  "templates" that have originated each payload, (3) evaluate
+		  them according to quality indicators, and (4) perform a
+		  cross-scanner analysis. Unlike previous work, our testbed
+		  application, which contains a large set of XSS
+		  vulnerabilities, including DOM XSS, was gradually
+		  retrofitted to accomodate for the payloads that triggered
+		  no vulnerabilities. Our analysis reveals a highly
+		  fragmented scenario. Scanners exhibit a wide variety of
+		  distinct payloads, a non-uniform approach to fuzzing and
+		  mutating the payloads, and a very diverse detection
+		  effectiveness.},
+  date		= {2014-10-15},
+  url		= {http://arxiv.org/abs/1410.4207},
+  archiveprefix	= {arXiv},
+  eprinttype	= {arxiv},
+  eprint	= {1410.4207},
+  file		= {files/papers/reports/bazzoli_xsspeeker_tr_2014.pdf}
+}
+
+@TechReport{	  gianazza_puppetdroid_tr_2014,
+  shorttitle	= {PuppetDroid},
+  author	= {Gianazza, Andrea and Maggi, Federico and Fattori, Aristide
+		  and Cavallaro, Lorenzo and Zanero, Stefano},
+  title		= {{{PuppetDroid}}: {{A User-Centric UI Exerciser}} for
+		  {{Automatic Dynamic Analysis}} of {{Similar Android
+		  Applications}}},
+  institution	= {{arXiv}},
+  abstract	= {Popularity and complexity of malicious mobile applications
+		  are rising, making their analysis difficult and labor
+		  intensive. Mobile application analysis is indeed inherently
+		  different from desktop application analysis: In the latter,
+		  the interaction of the user (i.e., victim) is crucial for
+		  the malware to correctly expose all its malicious
+		  behaviors. We propose a novel approach to analyze
+		  (malicious) mobile applications. The goal is to exercise
+		  the user interface (UI) of an Android application to
+		  effectively trigger malicious behaviors, automatically. Our
+		  key intuition is to record and reproduce the UI
+		  interactions of a potential victim of the malware, so as to
+		  stimulate the relevant behaviors during dynamic analysis.
+		  To make our approach scale, we automatically re-execute the
+		  recorded UI interactions on apps that are similar to the
+		  original ones. These characteristics make our system
+		  orthogonal and complementary to current dynamic analysis
+		  and UI-exercising approaches. We developed our approach and
+		  experimentally shown that our stimulation allows to reach a
+		  higher code coverage than automatic UI exercisers, so to
+		  unveil interesting malicious behaviors that are not exposed
+		  when using other approaches. Our approach is also suitable
+		  for crowdsourcing scenarios, which would push further the
+		  collection of new stimulation traces. This can potentially
+		  change the way we conduct dynamic analysis of (mobile)
+		  applications, from fully automatic only, to user-centric
+		  and collaborative too.},
+  date		= {2014},
+  url		= {http://arxiv.org/abs/1402.4826},
+  file		= {files/papers/reports/gianazza_puppetdroid_tr_2014.pdf}
+}
+
+@TechReport{	  schiavoni_phoenix_tr_2013,
+  shorttitle	= {Phoenix},
+  author	= {Schiavoni, Stefano and Maggi, Federico and Cavallaro,
+		  Lorenzo and Zanero, Stefano},
+  title		= {Tracking and {{Characterizing Botnets Using Automatically
+		  Generated Domains}}},
+  institution	= {{arXiv}},
+  abstract	= {Modern botnets rely on domain-generation algorithms (DGAs)
+		  to build resilient command-and-control infrastructures.
+		  Recent works focus on recognizing automatically generated
+		  domains (AGDs) from DNS traffic, which potentially allows
+		  to identify previously unknown AGDs to hinder or disrupt
+		  botnets' communication capabilities. The state-of-the-art
+		  approaches require to deploy low-level DNS sensors to
+		  access data whose collection poses practical and privacy
+		  issues, making their adoption problematic. We propose a
+		  mechanism that overcomes the above limitations by analyzing
+		  DNS traffic data through a combination of linguistic and
+		  IP-based features of suspicious domains. In this way, we
+		  are able to identify AGD names, characterize their DGAs and
+		  isolate logical groups of domains that represent the
+		  respective botnets. Moreover, our system enriches these
+		  groups with new, previously unknown AGD names, and produce
+		  novel knowledge about the evolving behavior of each tracked
+		  botnet. We used our system in real-world settings, to help
+		  researchers that requested intelligence on suspicious
+		  domains and were able to label them as belonging to the
+		  correct botnet automatically. Additionally, we ran an
+		  evaluation on 1,153,516 domains, including AGDs from both
+		  modern (e.g., Bamital) and traditional (e.g., Conficker,
+		  Torpig) botnets. Our approach correctly isolated families
+		  of AGDs that belonged to distinct DGAs, and set
+		  automatically generated from non-automatically generated
+		  domains apart in 94.8 percent of the cases.},
+  date		= {2013-11-21},
+  url		= {http://arxiv.org/abs/1311.5612},
+  file		= {files/papers/reports/schiavoni_phoenix_tr_2013.pdf}
+}
+
+@TechReport{	  kochanek_cartox_tr_2012,
+  shorttitle	= {CarToX},
+  author	= {Kochanek, Roman and Dardanelli, Andrea and Maggi, Federico
+		  and Zanero, Stefano and Tanelli, Mara and Savaresi, Sergio
+		  and Holz, Thorsten},
+  title		= {Secure {{Integration}} of {{Mobile Devices}} for
+		  {{Automotive Services}}},
+  institution	= {{Politecnico di Milano}},
+  number	= {2012-09},
+  abstract	= {Modern vehicles, and in particular electric vehicles, are
+		  increasingly being equipped with interconnected computer
+		  systems, which collect information through vehicular
+		  sources and remote, Internet-connected services.
+		  Unfortunately, this creates a non-negligible attack
+		  surface, which extends even more when vehicles are
+		  integrated with smartphones to offer advanced services. In
+		  fact, embedded systems on vehicles have been developed to
+		  address safety, not security requirements. Furthermore,
+		  vehicles have real-time constraints, and the typical
+		  embedded architectures used on board significantly
+		  complicate security designs. In this paper, we introduce a
+		  communication framework that addresses these challenges and
+		  we demonstrate how a smartphone can interact with a vehicle
+		  in a secure and safe manner. To this end, we design a
+		  security session layer that ensures end-to-end security
+		  transparently. We conduct an experimental evaluation on a
+		  real implementation of our security layer, which shows that
+		  our solution is practical and easy to use, satisfies
+		  performance constraints, and meets real-time requirements
+		  by taking into account the limited capabilities of our
+		  target architecture. More precisely, we implement our
+		  approach for an electrically-powered two-wheeler
+		  manufactured by Piaggio, and show how a smartphone can
+		  interact via a wireless link with the battery-life
+		  controller in a secure manner. Interestingly, our approach
+		  is not limited to vehicles, but can be used in other
+		  application domains where a smartphone needs to securely
+		  interact with an embedded device.},
+  date		= {2012-06-01},
+  file		= {files/papers/reports/kochanek_cartox_tr_2012.pdf}
+}
+
+@TechReport{	  maggi_cloudids_tr_2010,
+  shorttitle	= {CloudIDS},
+  author	= {Maggi, Federico and Zanero, Stefano},
+  title		= {Rethinking security in a cloudy world},
+  institution	= {{Politecnico di Milano}},
+  number	= {2010-11},
+  abstract	= {The world of information and communication technology is
+		  experiencing changes that, regardless of some skepticism,
+		  are bringing to life the concept of ``utility computing''.
+		  The nostalgics observed a parallel between the emerging
+		  paradigm of cloud computing and the traditional
+		  time-sharing era, depicting clouds as the modern
+		  reincarnation of mainframes available on a pay-per-use
+		  basis, and equipped with virtual, elastic, paid
+		  disks-as-a-service that replace the old physical disks with
+		  quotas. This comparison is fascinating, but more
+		  importantly, in our opinion, it prepares the ground for
+		  constructive critiques regarding the security of such
+		  computing paradigm. In this paper we explore similar
+		  analogies to discuss our position about the current
+		  countermeasures (e.g., intrusion detection systems,
+		  anti-viruses), developed to mitigate well-known security
+		  threats. By reasoning on said affinities, we focus on the
+		  simple case of anomaly-based approaches, which are employed
+		  in many modern protection tools, not just in intrusion
+		  detectors. We illustrate our position by the means of a
+		  simple running example and show that attacks against
+		  injection vulnerabilities, a current menace that is easily
+		  recognizable with ordinary anomaly-based checks, can be
+		  difficult to detect if web services are assumed to be
+		  regular web applications. Along this line, we concentrate
+		  on a few, critical hypotheses that demand particular
+		  attention. We conclude that, although only a minority of
+		  threats qualify as novel, they are well camouflaged and can
+		  be difficult to recognize behind the confusion caused by
+		  the cloud computing excitement.},
+  date		= {2010-11-11},
+  file		= {files/papers/reports/maggi_cloudids_tr_2010.pdf}
+}
+
+@TechReport{	  maggi_iclearshot_tr_2010,
+  shorttitle	= {iClearshot},
+  author	= {Maggi, Federico and Volpatto, Alberto and Gasparini,
+		  Simone and Boracchi, Giacomo and Zanero, Stefano},
+  title		= {Don't touch a word! {{A}} practical input eavesdropping
+		  attack against mobile touchscreen devices},
+  institution	= {{Politecnico di Milano}},
+  number	= {2010-59},
+  abstract	= {Spying on a person is a subtle, yet easy and reliable
+		  method to obtain sensitive information. Even if the victim
+		  is well protected from digital attacks, spying may be a
+		  viable option. In addition, the pervasiveness of mobile
+		  devices increases an attacker's opportunities to observe
+		  the victims while they are accessing or entering sensitive
+		  information. This risk is exacerbated by the remarkable
+		  user-friendliness of modern, mobile graphical interfaces,
+		  which, for example, display visual feedback to improve the
+		  user experience and make common tasks,
+		  \$\ensuremath{\backslash}backslash\$eg, typing, more
+		  natural. Unfortunately, this turns into the well-known
+		  trade-off between usability and security. In this work, we
+		  focus on how usability of modern mobile interfaces may
+		  affect the users' privacy. In particular, we describe a
+		  practical eavesdropping attack, able to recognize the
+		  sequence of keystrokes from a low-resolution video,
+		  recorded while the victim is typing on a touchscreen. Our
+		  attack exploits the fact that modern virtual keyboards, as
+		  opposed to mechanical ones, often display magnified,
+		  virtual keys in predictable positions. To demonstrate the
+		  feasibility of this attack we implemented it against 2010's
+		  most popular smart-phone (i.e., Apple's iPhone). Our
+		  approach works under realistic conditions, because it
+		  tracks and rectifies the target screen according to the
+		  victim's natural movements, before performing the keystroke
+		  recognition. On real-world settings, our attack can
+		  automatically recognize up to 97.07\% (91.03\% on average)
+		  of the keystrokes, with a 1.15\% error rate and a speed
+		  between 37 and 51 keystrokes per minute. This work confirms
+		  that touchscreen keyboards that magnify keys make automatic
+		  eavesdropping attacks easier than in classic mobile keyboards.},
+  date		= {2010-11-01},
+  file		= {files/papers/reports/maggi_iclearshot_tr_2010.pdf}
+}
+
+@TechReport{	  maggi_traces_tr_2008,
+  shorttitle	= {Traces},
+  author	= {Maggi, Federico},
+  title		= {Specification and {{Evaluation}} of an {{Efficient
+		  Recognizer}} for {{Rational Trace Languages}}},
+  institution	= {{Politecnico di Milano}},
+  number	= {2008-23},
+  abstract	= {An improved, one-pass version of a two-pass, Earley-like
+		  recognition algorithm is here proposed to solve the
+		  Membership Problem for rational trace languages in
+		  polynomial time. The algorithm is first described through
+		  the formal specification of what we called a Non
+		  Deterministic Buffer Machine (NDBM); secondly, the
+		  recognition is detailed through a deterministic algorithm
+		  along with some running examples. In addition, we describe
+		  our prototype implementation of the algorithm used to
+		  empirically evaluate the performances and the
+		  characteristics of the proposed solution. To this end, we
+		  designed pseudo-random testing data generators that are
+		  here described as well.},
+  date		= {2008-06-01},
+  file		= {files/papers/reports/maggi_traces_tr_2008.pdf}
+}
+
+@TechReport{	  maggi_recordmatching_tr_2008,
+  shorttitle	= {RecordMatching},
+  author	= {Maggi, Federico},
+  title		= {A {{Survey}} of {{Probabilistic Record Matching Models}},
+		  {{Techniques}} and {{Tools}}},
+  institution	= {{Politecnico di Milano}},
+  number	= {2008-22},
+  abstract	= {Probabilistic record linkage regards the use of stochastic
+		  decision models to solve the problem of record linkage
+		  (also known as record matching). Data quality has became a
+		  key aspect in many institutions and the demand for novel,
+		  effective techniques is increasing. Record linkage in
+		  general has been studied in the last three decades and a
+		  solid probabilistic decision framework has been proposed
+		  along with several extensions and specific estimation
+		  methods. This paper is a survey work narrowed to the most
+		  recent and promising approaches also including a selection
+		  of data cleansing tools based on probabilistic decision
+		  models.},
+  date		= {2008-04-01},
+  file		= {files/papers/reports/maggi_recordmatching_tr_2008.pdf}
+}
