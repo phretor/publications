@@ -1,10 +1,13 @@
-! /bin/bash
+#! /bin/bash
 
+ALL="publications.bib"
 MAIN="src/main.bib"
 CLEANED="src/.main.bib"
 
-bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@InProceedings}' $MAIN > $CLEANED
+echo "[INFO] Cleaning $MAIN -> $CLEANED"
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $MAIN > $CLEANED
 
+echo "[INFO] Splitting $MAIN into files"
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@InProceedings}' $MAIN > .papers
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{keywords "workshop"}' .papers > .workshops
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@Article}' $MAIN > .journals
@@ -12,6 +15,7 @@ bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@TechReport}' $MAI
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@Unpublished}' $MAIN > .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@PhdThesis}' $MAIN > .dissertations
 
+echo "[INFO] Generating README.md file"
 rm README.md
 
 echo '# Publications' >> README.md
@@ -24,6 +28,7 @@ echo "  * $(grep '^@' .dissertations | wc -l | tr -d '[:space:]') dissertations"
 echo "" >> README.md
 echo "Updated on $(date)" >> README.md
 
+echo "[INFO] Updating individual files"
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/papers.rsc '--select.non{keywords "workshop"}' .papers > papers.bib
 rm .papers
 
@@ -42,4 +47,8 @@ rm .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/dissertations.rsc .dissertations > dissertations.bib
 rm .dissertations
 
-./ck.sh
+echo "[INFO] Re-generating $ALL"
+rm -f $ALL
+cat {papers,journals,reports,workshops,talks,dissertations}.bib > $ALL
+
+source ck.sh
