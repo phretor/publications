@@ -6,6 +6,7 @@ CLEANED="src/.main.bib"
 
 echo "[INFO] Cleaning $MAIN -> $CLEANED"
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $MAIN > $CLEANED
+mv $CLEANED $MAIN
 
 echo "[INFO] Splitting $MAIN into files"
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@InProceedings}' $MAIN > .papers
