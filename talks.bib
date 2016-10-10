@@ -1,3 +1,79 @@
+@Unpublished{     maggi_greateatlonbheu_talk_2016,
+  shorttitle    = {GreatEatlonBHEU},
+  author        = {Maggi, Federico and Zanero, Stefano},
+  title         = {{Pocket-sized Badness: Why Ransomware Comes as a Plot Twist
+                  in the Cat-Mouse Game}},
+  eventtitle    = {{Blackhat Europe}},
+  abstract      = {While we have grown accustomed to stealthy malware,
+                  specifically written to gain and maintain control of the
+                  victim machines to abuse their resources, ransomware really
+                  comes as a "plot twist"! After 10+ years of stealthy malware,
+                  spread mainly for building botnets and steal information, for
+                  the second time we're witnessing a growth of disruptive
+                  malware, and an interest for direct and fast profit.
+                  Ransomware is a particularly striking example of disruptive
+                  malware, both on mobile and desktop targets: While
+                  traditional mass malware must fly under the radar to fulfill
+                  its goals, a ransomware attack that remains unaccountable has
+                  failed miserably. It must show up to inform and frighten the
+                  victim! As a result, the human psychological response to the
+                  attack plays a significant role in the success of ransomware
+                  schemes. And, given the remarkable revenue, the scheme seems
+                  to be working fairly well.
+                  
+                  This talk will describe the technical impact of disruptive
+                  malware and its game-changing approach, which made us (at
+                  least) rethink our incident-response plans. We will focus on
+                  mobile ransomware as a representative, extreme case study.
+                  Albeit not very studied, we are currently tracking 10
+                  distinct families, and collected tenths of thousands distinct
+                  samples in three months. In this talk, we will go through the
+                  most notorious families such as Koler, SLocker, Svpeng (and
+                  mention the other notable ones), overviewing their
+                  social-engineering tricks and how they are technically
+                  implemented. This will include, for instance, how an app can
+                  effectively lock a device to forcefully display the typical
+                  threatening message that informs the victim of what just
+                  happened, or how crypto and file-system APIs are (ab)used to
+                  surreptitiously encrypt the valuable data.
+                  
+                  After having overviewed these aspects, we will describe how
+                  they can be effectively detected with specific static
+                  features. We will present a lightweight Smali emulator to
+                  track the instruction sequences that implement device-locking
+                  mechanisms. To detect malicious encryption attempts, we will
+                  present a static, dataflow-based program-analysis technique
+                  and tool that track file-system operations (e.g., file
+                  listing, file reading) to determine if they are "connected"
+                  to encryption flows. Since the most recent families have
+                  started to abuse the device-administration API (e.g., to lock
+                  the device), obfuscated method names and reflection to hinder
+                  automatic static analysis, we will show a couple of
+                  counter-tricks. Last, we will show how the threatening
+                  messages can be recognized from normal text using a
+                  language-analysis technique, which classifies text based on
+                  the appearance of key terms frequently found in ransomware
+                  samples but not in benign sources. Since static
+                  program-analysis approaches like ours can be time and
+                  resource consuming, we describe a fast triaging pre-filtering
+                  technique to quickly discard strikingly benign applications.
+                  This filter is generic and ransomware-agnostic. Thus, in
+                  principle, it could be applied to any app-vetting pipeline.
+                  
+                  With this talk we will release the source code of a prototype
+                  that implements (part of) the described techniques, and a
+                  dataset comprising tenths of thousands of ransomware
+                  applications targeting the Android platform, each labeled
+                  with the set of features that characterize their
+                  statically-extracted behavior.},
+  location      = {London, UK},
+  url           = {https://www.blackhat.com/eu-16/briefings.html},
+  date          = {2016-11-03},
+  howpublished  = {Peer-reviewed Talk},
+  note          = {https://github.com/phretor/publications/raw/master/files/talks/maggi_greateatlonbheu_talk_2016.pdf},
+  file          = {files/talks/maggi_greateatlonbheu_talk_2016.pdf}
+}
+
 @Unpublished{     maggi_banksealer_talk_2016,
   shorttitle    = {BankSealer},
   author        = {Maggi, Federico},
@@ -16,7 +92,7 @@
   author        = {Maggi, Federico and Fratantonio, Yanick},
   title         = {Malware on {{Mobile}}: {{The What}}, {{The Why}}, and {{The
                   How}}},
-  eventtitle    = {Science and Engineering Council of Santa Barbara},
+  eventtitle    = {{Science and Engineering Council of Santa Barbara}},
   location      = {{Santa Barbara, CA}},
   date          = {2015-11-11},
   howpublished  = {Invited Talk},
@@ -29,7 +105,7 @@
   author        = {Maggi, Federico},
   title         = {A walk through the construction of the first mobile malware
                   tracker},
-  eventtitle    = {Android Security Symposium},
+  eventtitle    = {{Android Security Symposium}},
   location      = {{Vienna, Austria}},
   date          = {2015-09-11},
   url           = {https://usmile.at/symposium/program},
@@ -41,8 +117,8 @@
 @Unpublished{     maggi_mobileransomware_talk_2015,
   shorttitle    = {MobileRansomware},
   author        = {Maggi, Federico},
-  title         = {Mobile {{Ransomware}}},
-  eventtitle    = {6th National Conference on Cyber Warfare},
+  title         = {{Mobile Ransomware}},
+  eventtitle    = {{6th National Conference on Cyber Warfare}},
   location      = {{Milano, Italy}},
   date          = {2015-06-03},
   url           = {http://www.infowar.it/},
@@ -66,7 +142,7 @@
   shorttitle    = {ThreatAnalysis},
   author        = {Maggi, Federico},
   title         = {From {{Cybercrime}} to {{Threat Analysis}}},
-  eventtitle    = {Catedra Europa},
+  eventtitle    = {{Catedra Europa}},
   date          = {2015-03-18},
   url           = {http://www.uninorte.edu.co/web/catedra-europa},
   howpublished  = {Invited Talk},
@@ -78,7 +154,7 @@
   shorttitle    = {Cybercrime},
   author        = {Maggi, Federico},
   title         = {Current and {{Future Cybercrime Tactics}}},
-  eventtitle    = {5th National Conference on Cyber Warfare},
+  eventtitle    = {{5th National Conference on Cyber Warfare}},
   location      = {{Milano, Italy}},
   date          = {2014-10-13},
   url           = {http://www.infowar.it/past/2014_october/index.php},
@@ -91,7 +167,7 @@
   shorttitle    = {AndRadar},
   author        = {Maggi, Federico},
   title         = {Come to the {{Dark Side}}: {{We}} have {{Apps}}!},
-  eventtitle    = {HackInBo},
+  eventtitle    = {{HackInBo}},
   location      = {{Bologna, Italy}},
   date          = {2014-10-11},
   url           = {http://www.hackinbo.it/},
@@ -104,7 +180,7 @@
   shorttitle    = {AndroidRe},
   author        = {Maggi, Federico},
   title         = {Static {{Analysis}} of {{Android Applications}}},
-  eventtitle    = {2nd SysSec Summer School},
+  eventtitle    = {{2nd SysSec Summer School}},
   location      = {{Amsterdam, The Netherlands}},
   date          = {2014-09-25},
   url           = {http://www.syssec-project.eu/events/summer-school-2014/program/},
@@ -117,8 +193,8 @@
   shorttitle    = {Virtualization},
   author        = {Maggi, Federico},
   title         = {Virtualization},
-  eventtitle    = {5th Int. Summer School on Information Security and
-                  Protection},
+  eventtitle    = {{5th Int. Summer School on Information Security and
+                  Protection}},
   location      = {{Verona, Italy}},
   date          = {2014-07-27},
   url           = {http://issisp2014.di.univr.it/},
@@ -132,7 +208,7 @@
   author        = {Maggi, Federico},
   title         = {Tracking and {{Characterizing Botnets Using Automatically
                   Generated Domains}}},
-  eventtitle    = {Honeynet Workshop},
+  eventtitle    = {{Honeynet Workshop}},
   abstract      = {Modern botnets rely on domain-generation algorithms (DGAs)
                   to build resilient command-and-control infrastructures.
                   Recent works focus on recognizing automatically generated
@@ -171,7 +247,7 @@
   author        = {Maggi, Federico},
   title         = {Phoenix \& {{Cerberus}}: {{Botnet}} Tracking via Precise
                   {{DGA}} Characterization},
-  eventtitle    = {Google Tech Talk},
+  eventtitle    = {{Google Tech Talk}},
   location      = {{Google, Mountain View, CA, USA}},
   date          = {2014-05},
   howpublished  = {Invited Talk},
@@ -197,7 +273,7 @@
   author        = {Maggi, Federico},
   title         = {Modern {{Botnets}} and the {{Rise}} of {{Automatically
                   Generated Domains}}},
-  eventtitle    = {InfoSek},
+  eventtitle    = {{InfoSek}},
   location      = {{Nova Gorica, Slovenia}},
   date          = {2013-11-20},
   howpublished  = {Invited Talk},
@@ -210,7 +286,7 @@
   author        = {Maggi, Federico},
   title         = {{{AndroTotal}}: {{A Scalable Framework}} for {{Android
                   Antivirus Testing}}},
-  eventtitle    = {InfoSek},
+  eventtitle    = {{InfoSek}},
   location      = {{Nova Gorica, Slovenia}},
   date          = {2013-11-20},
   howpublished  = {Invited Talk},
@@ -223,7 +299,7 @@
   author        = {Maggi, Federico},
   title         = {{{AndroTotal}}: {{A Scalable Framework}} for {{Android
                   Antimalware Testing}}},
-  eventtitle    = {Secure},
+  eventtitle    = {{Secure}},
   abstract      = {Although there are controversial opinions regarding how
                   large the mobile malware phenomenon is in terms of absolute
                   numbers, hype aside, the amount of new Android malware
@@ -256,7 +332,7 @@
   author        = {Maggi, Federico},
   title         = {{{AndroTotal}}: {{A Scalable Framework}} for {{Android
                   Antimalware Testing}}},
-  eventtitle    = {MIT CSAIL-POLIMI Workshop},
+  eventtitle    = {{MIT CSAIL-POLIMI Workshop}},
   abstract      = {Although there are controversial opinions regarding how
                   large the mobile malware phenomenon is in terms of absolute
                   numbers, hype aside, the amount of new Android malware
@@ -289,7 +365,7 @@
   author        = {Maggi, Federico},
   title         = {Our {{Face}} are {{Belong}} to us: {{Breaking Facebook}}'s
                   {{Social Authentication}}},
-  eventtitle    = {Hek.si},
+  eventtitle    = {{Hek.si}},
   abstract      = {Two-factor authentication is widely used by high-value
                   services to prevent adversaries from compromising accounts
                   using stolen credentials. Facebook has recently released a
@@ -330,7 +406,7 @@
   shorttitle    = {LongShore},
   author        = {Maggi, Federico},
   title         = {The {{Long Story}} of {{Short URLs}}},
-  eventtitle    = {ISG Research Seminars},
+  eventtitle    = {{ISG Research Seminars}},
   abstract      = {I gave a talk based on these slides for the first time at
                   Royal Holloway University of London, in April 2012. This talk
                   discusses the results of a research that we have conducted
@@ -363,11 +439,11 @@
   shorttitle    = {iSnoop},
   author        = {Maggi, Federico and Volpatto, Alberto and Zanero, Stefano},
   title         = {{iSnoop}: How to Steal Secrets From Touchscreen Devices},
-  eventtitle    = {Black Hat Abu Dhabi},
+  eventtitle    = {{Black Hat Abu Dhabi}},
   location      = {Abu Dhabi},
   date          = {2011-12},
   url           = {https://www.blackhat.com/html/bh-ad-11/bh-ad-11-archives.html},
-  howpublished  = {Talk},
+  howpublished  = {Peer-reviewed Talk},
   note          = {https://github.com/phretor/publications/raw/master/files/talks/maggi_isnoop_talk_2011.pdf},
   file          = {files/talks/maggi_isnoop_talk_2011.pdf}
 }
@@ -388,7 +464,7 @@
   shorttitle    = {JustInTime},
   author        = {Maggi, Federico},
   title         = {Just-in-{{Time Training}} of {{Anomaly Detectors}}},
-  eventtitle    = {Computer Systems Seminar},
+  eventtitle    = {{Computer Systems Seminar}},
   location      = {{Vrije Universiteit, Amsterdam}},
   date          = {2010-01-21},
   howpublished  = {Invited Talk},
