@@ -342,6 +342,57 @@
   date          = {2015-10}
 }
 
+@InProceedings{   ilia_faceoff_2015,
+  shorttitle    = {FaceOff},
+  author        = {Ilia, Panagiotis and Polakis, Iasonas and Athanasopoulos,
+                  Elias and Maggi, Federico and Ioannidis, Sotiris},
+  title         = {Face/{{Off}}: {{Preventing Privacy Leakage From Photos}} in
+                  {{Social Networks}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the {{22Nd ACM SIGSAC Conference}} on
+                  {{Computer}} and {{Communications Security}}},
+  series        = {CCS '15},
+  pages         = {781--792},
+  location      = {{New York, NY, USA}},
+  abstract      = {The capabilities of modern devices, coupled with the almost
+                  ubiquitous availability of Internet connectivity, have
+                  resulted in photos being shared online at an unprecedented
+                  scale. This is further amplified by the popularity of social
+                  networks and the immediacy they offer in content sharing.
+                  Existing access control mechanisms are too coarse-grained to
+                  handle cases of conflicting interests between the users
+                  associated with a photo; stories of embarrassing or
+                  inappropriate photos being widely accessible have become
+                  quite common. In this paper, we propose to rethink access
+                  control when applied to photos, in a way that allows us to
+                  effectively prevent unwanted individuals from recognizing
+                  users in a photo. The core concept behind our approach is to
+                  change the granularity of access control from the level of
+                  the photo to that of a user's personally identifiable
+                  information (PII). In this work, we consider the face as the
+                  PII. When another user attempts to access a photo, the system
+                  determines which faces the user does not have the permission
+                  to view, and presents the photo with the restricted faces
+                  blurred out. Our system takes advantage of the existing face
+                  recognition functionality of social networks, and can
+                  interoperate with the current photo-level access control
+                  mechanisms. We implement a proof-of-concept application for
+                  Facebook, and demonstrate that the performance overhead of
+                  our approach is minimal. We also conduct a user study to
+                  evaluate the privacy offered by our approach, and find that
+                  it effectively prevents users from identifying their contacts
+                  in 87.35\% of the restricted photos. Finally, our study
+                  reveals the misconceptions about the privacy offered by
+                  existing mechanisms, and demonstrates that users are positive
+                  towards the adoption of an intuitive, straightforward access
+                  control mechanism that allows them to manage the visibility
+                  of their face in published photos.},
+  doi           = {10.1145/2810103.2813603},
+  isbn          = {978-1-4503-3832-5},
+  date          = {2015-10},
+  url           = {http://doi.acm.org/10.1145/2810103.2813603}
+}
+
 @Unpublished{     maggi_droydseuss_talk_2015,
   shorttitle    = {DroydSeuss},
   author        = {Maggi, Federico},
@@ -501,57 +552,6 @@
   url           = {http://ercim-news.ercim.eu/en100/r-i/european-cyber-security-research-and-innovation},
   series        = {ERCIM News},
   pages         = {43}
-}
-
-@InProceedings{   ilia_faceoff_2015,
-  shorttitle    = {FaceOff},
-  author        = {Ilia, Panagiotis and Polakis, Iasonas and Athanasopoulos,
-                  Elias and Maggi, Federico and Ioannidis, Sotiris},
-  title         = {Face/{{Off}}: {{Preventing Privacy Leakage From Photos}} in
-                  {{Social Networks}}},
-  publisher     = {{ACM}},
-  booktitle     = {Proceedings of the {{22Nd ACM SIGSAC Conference}} on
-                  {{Computer}} and {{Communications Security}}},
-  series        = {CCS '15},
-  pages         = {781--792},
-  location      = {{New York, NY, USA}},
-  abstract      = {The capabilities of modern devices, coupled with the almost
-                  ubiquitous availability of Internet connectivity, have
-                  resulted in photos being shared online at an unprecedented
-                  scale. This is further amplified by the popularity of social
-                  networks and the immediacy they offer in content sharing.
-                  Existing access control mechanisms are too coarse-grained to
-                  handle cases of conflicting interests between the users
-                  associated with a photo; stories of embarrassing or
-                  inappropriate photos being widely accessible have become
-                  quite common. In this paper, we propose to rethink access
-                  control when applied to photos, in a way that allows us to
-                  effectively prevent unwanted individuals from recognizing
-                  users in a photo. The core concept behind our approach is to
-                  change the granularity of access control from the level of
-                  the photo to that of a user's personally identifiable
-                  information (PII). In this work, we consider the face as the
-                  PII. When another user attempts to access a photo, the system
-                  determines which faces the user does not have the permission
-                  to view, and presents the photo with the restricted faces
-                  blurred out. Our system takes advantage of the existing face
-                  recognition functionality of social networks, and can
-                  interoperate with the current photo-level access control
-                  mechanisms. We implement a proof-of-concept application for
-                  Facebook, and demonstrate that the performance overhead of
-                  our approach is minimal. We also conduct a user study to
-                  evaluate the privacy offered by our approach, and find that
-                  it effectively prevents users from identifying their contacts
-                  in 87.35\% of the restricted photos. Finally, our study
-                  reveals the misconceptions about the privacy offered by
-                  existing mechanisms, and demonstrates that users are positive
-                  towards the adoption of an intuitive, straightforward access
-                  control mechanism that allows them to manage the visibility
-                  of their face in published photos.},
-  doi           = {10.1145/2810103.2813603},
-  isbn          = {978-1-4503-3832-5},
-  date          = {2015},
-  url           = {http://doi.acm.org/10.1145/2810103.2813603}
 }
 
 @InProceedings{   polakis_resoauth_2014,
@@ -1094,17 +1094,6 @@
   date          = {2014-03-03}
 }
 
-@Unpublished{     maggi_androidmalware_talk_2014,
-  shorttitle    = {AndroidMalware},
-  author        = {Maggi, Federico},
-  title         = {Malicious {{Android Apps}}: {{Overview}}, {{Status}} and
-                  {{Dilemmas}}},
-  location      = {{Qualcomm, San Diego, USA}},
-  date          = {2014-01-03},
-  url           = {http://s.maggi.cc/android-malware-2013},
-  howpublished  = {Invited Talk}
-}
-
 @TechReport{      gianazza_puppetdroid_tr_2014,
   shorttitle    = {PuppetDroid},
   author        = {Gianazza, Andrea and Maggi, Federico and Fattori, Aristide
@@ -1139,8 +1128,19 @@
                   potentially change the way we conduct dynamic analysis of
                   (mobile) applications, from fully automatic only, to
                   user-centric and collaborative too.},
-  date          = {2014},
+  date          = {2014-02-19},
   url           = {http://arxiv.org/abs/1402.4826}
+}
+
+@Unpublished{     maggi_androidmalware_talk_2014,
+  shorttitle    = {AndroidMalware},
+  author        = {Maggi, Federico},
+  title         = {Malicious {{Android Apps}}: {{Overview}}, {{Status}} and
+                  {{Dilemmas}}},
+  location      = {{Qualcomm, San Diego, USA}},
+  date          = {2014-01-03},
+  url           = {http://s.maggi.cc/android-malware-2013},
+  howpublished  = {Invited Talk}
 }
 
 @InProceedings{   bonetti_ssdforensics_2013,
@@ -1327,6 +1327,44 @@
   date          = {2013-10-01}
 }
 
+@InProceedings{   maggi_andrototal_2013,
+  shorttitle    = {AndroTotal},
+  author        = {Maggi, Federico and Valdi, Andrea and Zanero, Stefano},
+  title         = {{{AndroTotal}}: {{A Flexible}}, {{Scalable Toolbox}} and
+                  {{Service}} for {{Testing Mobile Malware Detectors}}},
+  publisher     = {{ACM}},
+  booktitle     = {Proceedings of the {{Third ACM Workshop}} on {{Security}}
+                  and {{Privacy}} in {{Smartphones}} \& {{Mobile Devices}}},
+  series        = {SPSM '13},
+  pages         = {49--54},
+  location      = {{New York, NY, USA}},
+  abstract      = {Although there are controversial opinions regarding how
+                  large the mobile malware phenomenon is in terms of absolute
+                  numbers, hype aside, the amount of new Android malware
+                  variants is increasing. This trend is mainly due to the fact
+                  that, as it happened with traditional malware, the authors
+                  are striving to repackage, obfuscate, or otherwise transform
+                  the executable code of their malicious apps in order to evade
+                  mobile security apps. There are about 85 of these apps only
+                  on the official marketplace. However, it is not clear how
+                  effective they are. Indeed, the sandboxing mechanism of
+                  Android does not allow (security) apps to audit other apps.
+                  We present AndroTotal, a publicly available tool, malware
+                  repository and research framework that aims at mitigating the
+                  above challenges, and allow researchers to automatically scan
+                  Android apps against an arbitrary set of malware detectors.
+                  We implemented AndroTotal and released it to the research
+                  community in April 2013. So far, we collected 18,758 distinct
+                  submitted samples and received the attention of several
+                  research groups (1,000 distinct accounts), who integrated
+                  their malware-analysis services with ours.},
+  doi           = {10.1145/2516760.2516768},
+  isbn          = {978-1-4503-2491-5},
+  date          = {2013-10},
+  url           = {http://doi.acm.org/10.1145/2516760.2516768},
+  keywords      = {workshop}
+}
+
 @Article{         dardanelli_cartox_article_2013,
   shorttitle    = {CarToX},
   author        = {Dardanelli, Andrea and Maggi, Federico and Tanelli, Mara and
@@ -1468,44 +1506,6 @@
   location      = {{Ljubljana, Slovenia}},
   date          = {2013-04},
   howpublished  = {Invited Talk}
-}
-
-@InProceedings{   maggi_andrototal_2013,
-  shorttitle    = {AndroTotal},
-  author        = {Maggi, Federico and Valdi, Andrea and Zanero, Stefano},
-  title         = {{{AndroTotal}}: {{A Flexible}}, {{Scalable Toolbox}} and
-                  {{Service}} for {{Testing Mobile Malware Detectors}}},
-  publisher     = {{ACM}},
-  booktitle     = {Proceedings of the {{Third ACM Workshop}} on {{Security}}
-                  and {{Privacy}} in {{Smartphones}} \& {{Mobile Devices}}},
-  series        = {SPSM '13},
-  pages         = {49--54},
-  location      = {{New York, NY, USA}},
-  abstract      = {Although there are controversial opinions regarding how
-                  large the mobile malware phenomenon is in terms of absolute
-                  numbers, hype aside, the amount of new Android malware
-                  variants is increasing. This trend is mainly due to the fact
-                  that, as it happened with traditional malware, the authors
-                  are striving to repackage, obfuscate, or otherwise transform
-                  the executable code of their malicious apps in order to evade
-                  mobile security apps. There are about 85 of these apps only
-                  on the official marketplace. However, it is not clear how
-                  effective they are. Indeed, the sandboxing mechanism of
-                  Android does not allow (security) apps to audit other apps.
-                  We present AndroTotal, a publicly available tool, malware
-                  repository and research framework that aims at mitigating the
-                  above challenges, and allow researchers to automatically scan
-                  Android apps against an arbitrary set of malware detectors.
-                  We implemented AndroTotal and released it to the research
-                  community in April 2013. So far, we collected 18,758 distinct
-                  submitted samples and received the attention of several
-                  research groups (1,000 distinct accounts), who integrated
-                  their malware-analysis services with ours.},
-  doi           = {10.1145/2516760.2516768},
-  isbn          = {978-1-4503-2491-5},
-  date          = {2013},
-  url           = {http://doi.acm.org/10.1145/2516760.2516768},
-  keywords      = {workshop}
 }
 
 @InProceedings{   lindorfer_beagle_2012,
