@@ -3,7 +3,7 @@
   * 4 workshop papers
   * 8 journal papers
   * 9 technical reports
-  * 23 talks
+  * 24 talks
   * 1 dissertations
 
-Updated on Tue Oct 11 00:54:57 CEST 2016
+Updated on Mon Oct 31 16:28:23 CET 2016
