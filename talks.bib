@@ -1,3 +1,158 @@
+@Unpublished{     balduzzi_defplorexbhus_talk_2017,
+  shorttitle    = {DefPloreXBHUS},
+  author        = {{Balduzzi, Marco and Maggi, Federico and Ciancaglini,
+                  Vincenzo and Flores, Ryan and Gu, Lion}},
+  title         = {DefPloreX: A Machine Learning Toolkit for Large-scale
+                  e-Crime Forensics},
+  eventtitle    = {{Black Hat Arsenal USA}},
+  abstract      = {The security industry as a whole---including operation
+                  centers, providers and telcos---loves collecting data.
+                  Researchers are not different! A sort of common feeling is
+                  that the more data someone collects, the more self-confident
+                  he becomes about, say, a threat or another phenomenon.
+                  However, large volumes of data imply more processing
+                  resources needed, especially in extracting meaningful and
+                  useful information if the data is highly unstructured. As a
+                  result, manual data analysis is often the only choice, with
+                  security professionals like pen-testers, reversers and
+                  analysts processing data through tedious repetitive
+                  operations.
+                  
+                  Given this situation, and our research lab suffering from
+                  similar problems, we have spent the first half of 2017
+                  implementing a flexible toolkit based on open-source
+                  libraries for efficiently analyzing millions of deface pages
+                  and web incidents. Our tool, DefPloreX, uses a combination of
+                  machine-learning and visualization techniques to practically
+                  turn original unstructured data into meaningful high-level
+                  descriptions. Real-time information on incidents, breaches,
+                  attacks and vulnerabilities, for example, are efficiently
+                  processed and condensed into objects that are easily
+                  browsable -- making them suitable for efficient large-scale
+                  eCrime forensics and investigations.
+                  
+                  DefPloreX ingests plain CSV inputs about web incidents to
+                  analyze, explores their resources with headless browsers,
+                  extracts features from deface pages, and uploads the
+                  resulting data to an Elastic index. Distributed headless
+                  browsers are coordinated via Celery. Using Python Panda,
+                  NumPy and PyTables, DefPloreX provides offline "views" of the
+                  data, allowing easy pivoting and exploration. Our toolkit
+                  automatically groups similar deface pages in clusters and
+                  organizes web incidents in campaigns. Requiring only one
+                  pass, clustering is intrinsically parallel and not memory
+                  bound. DefPloreX offers text- and web-based UIs, which can be
+                  queried using a simple language for investigations and
+                  forensics.},
+  location      = {Las Vegas, US},
+  url           = {https://www.blackhat.com/us-17/arsenal.html#defplorex-a-machine-learning-toolkit-for-large-scale-ecrime-forensics},
+  date          = {2017-07-27},
+  howpublished  = {Peer-reviewed Demo},
+  note          = {https://github.com/phretor/publications/raw/master/files/talks/balduzzi_defplorexbhus_talk_2017.pdf},
+  file          = {files/talks/balduzzi_defplorexbhus_talk_2017.pdf}
+}
+
+@Unpublished{     continella_shieldfsbhus_talk_2017,
+  shorttitle    = {ShieldFSBHUS},
+  author        = {{Continella, Andrea and Guagnelli, Alessandro and Zingaro,
+                  Giovanni and De Pasquale, Giulio and Barenghi, Alessandro and
+                  Zanero, Stefano and Maggi, Federico}},
+  title         = {ShieldFS: The Last Word in Ransomware-resilient File
+                  Systems},
+  eventtitle    = {{Black Hat Briefings USA}},
+  abstract      = {Preventive and reactive security measures can only partially
+                  mitigate the damage caused by modern ransomware attacks. The
+                  remarkable amount of illicit profit and the cybercriminals'
+                  increasing interest in ransomware schemes demonstrate that
+                  current defense solutions are failing, and a large number of
+                  users are actually paying the ransoms. In fact,
+                  pure-detection approaches (e.g., based on analysis sandboxes
+                  or pipelines) are not sufficient, because, when luck allows a
+                  sample to be isolated and analyzed, it is already too late
+                  for several users! Moreover, modern ransomware implements
+                  several techniques to prevent detection by common AV.
+                  Similarly, for performance reasons, backups leave a
+                  small-but-important window of recent files unprotected.
+                  
+                  We believe that a forward-looking solution is to equip modern
+                  operating systems with generic, practical self-healing
+                  capabilities against this serious threat.
+                  
+                  In this talk, we will present ShieldFS, a drop-in driver that
+                  makes the Windows native filesystem immune to ransomware
+                  attacks, even when detection fails ShieldFS dynamically
+                  toggles a protection layer that acts as a copy-on-write
+                  mechanism whenever its detection component reveals suspicious
+                  activity. For this, ShieldFS monitors the filesystem's
+                  internals to update a set of adaptive models that profile the
+                  system activity over time. This detection is based on a study
+                  of the filesystem activity of over 2,245 applications, and
+                  takes into account the entropy of write operations, frequency
+                  of read, write, and folder-listing operations, fraction of
+                  files renamed, and the file-type usage statistics.
+                  Additionally, ShieldFS monitors the memory pages of each
+                  "potentially malicious" process, searching for traces of the
+                  typical block cipher key schedules.
+                  
+                  We will show how ShieldFS can shadow the write operations.
+                  Whenever one or more processes violate our detection
+                  component, their operations are deemed malicious and the side
+                  effects on the filesystem are transparently rolled back.
+                  
+                  Last, we will demo how effective ShieldFS is against samples
+                  from state of the art ransomware families, showing that it is
+                  able to detect the malicious activity at runtime and
+                  transparently recover all the original files.},
+  location      = {Las Vegas, US},
+  url           = {https://www.blackhat.com/us-17/briefings.html#shieldfs-the-last-word-in-ransomware-resilient-file-systems},
+  date          = {2017-07-27},
+  howpublished  = {Peer-reviewed Talk},
+  note          = {https://github.com/phretor/publications/raw/master/files/talks/continella_shieldfsbhus_talk_2017.pdf},
+  file          = {files/talks/continella_shieldfsbhus_talk_2017.pdf}
+}
+
+@Unpublished{     quarta_robosecbhus_talk_2017,
+  shorttitle    = {RoboSecBHUS},
+  author        = {{Quarta, Davide and Pogliani, Marcello and Polino, Mario and
+                  Maggi, Federico and Zanero Stefano}},
+  title         = {Breaking the Laws of Robotics: Attacking Industrial Robots},
+  eventtitle    = {{Black Hat Briefings USA}},
+  abstract      = {Industrial robots are complex cyber-physical systems used
+                  for manufacturing, and a critical component of any modern
+                  factory. These robots aren't just electromechanical devices
+                  but include complex embedded controllers, which are often
+                  interconnected with other computers in the factory network,
+                  safety systems, and to the Internet for remote monitoring and
+                  maintenance. In this scenario, industrial routers also play a
+                  key role, because they directly expose the robot's
+                  controller. Therefore, the impact of a single, simple
+                  vulnerability can grant attackers an easy entry point.
+                  
+                  Industrial robots must follow three fundamental laws:
+                  accurately "read" from the physical world through sensors and
+                  "write" (i.e. perform actions) through actuators, refuse to
+                  execute self-damaging control logic, and most importantly,
+                  echoing Asimov, never harm humans. By combining a set of
+                  vulnerabilities we discovered on a real robot, we will
+                  demonstrate how remote attackers are able to violate such
+                  fundamental laws up to the point where they can alter the
+                  manufactured product, physically damage the robot, steal
+                  industry secrets, or injure humans.
+                  
+                  We will cover in-depth technical aspects (e.g., reverse
+                  engineering and vulnerability details, and attack PoCs),
+                  alongside a broader discussion on the security posture of
+                  industrial routers and robots: Why these devices are
+                  attractive for attackers? What could they achieve? Are they
+                  hard to compromise? How can their security be improved?},
+  location      = {Las Vegas, US},
+  url           = {https://www.blackhat.com/us-17/briefings.html#breaking-the-laws-of-robotics-attacking-industrial-robots},
+  date          = {2017-07-27},
+  howpublished  = {Peer-reviewed Talk},
+  note          = {https://github.com/phretor/publications/raw/master/files/talks/quarta_robosecbhus_talk_2017.pdf},
+  file          = {files/talks/quarta_robosecbhus_talk_2017.pdf}
+}
+
 @Unpublished{     mavroudis_silverdogbh_talk_2016,
   shorttitle    = {SilverDogBH},
   author        = {{Mavroudis, Vasilios and Hao, Shuang and Fratantonio, Yanick
@@ -5,7 +160,7 @@
                   Christopher}},
   title         = {Talking Behind Your Back: Attacks and Countermeasures of
                   Ultrasonic Cross-Device Tracking},
-  eventtitle    = {{Blackhat Europe}},
+  eventtitle    = {{Black Hat Briefings Europe}},
   abstract      = {Cross-device tracking (XDT) technologies are currently the
                   ``Holy Grail'' for marketers because they allow to track the
                   user's visited content across different devices to then push
@@ -85,7 +240,7 @@
   author        = {Maggi, Federico and Zanero, Stefano},
   title         = {{Pocket-sized Badness: Why Ransomware Comes as a Plot Twist
                   in the Cat-Mouse Game}},
-  eventtitle    = {{Blackhat Europe}},
+  eventtitle    = {{Black Hat Briefings Europe}},
   abstract      = {While we have grown accustomed to stealthy malware,
                   specifically written to gain and maintain control of the
                   victim machines to abuse their resources, ransomware really
@@ -521,7 +676,39 @@
   shorttitle    = {iSnoop},
   author        = {Maggi, Federico and Volpatto, Alberto and Zanero, Stefano},
   title         = {{iSnoop}: How to Steal Secrets From Touchscreen Devices},
-  eventtitle    = {{Black Hat Abu Dhabi}},
+  eventtitle    = {{Black Hat Briefings Abu Dhabi}},
+  abstract      = {Spying on a person is an easy and effective method to obtain
+                  sensitive informations, even when the victim is well
+                  protected against common digital attacks. Modern mobile
+                  devices allow people to perform some information sensitive
+                  actions in unsafe places, where anyone could easily observe
+                  the victim while typing. What if your mobile phone has a cool
+                  touchscreen interface that gives you graphical feedback as
+                  you type (iPhone, Android, BlackBerry Torch)? Does it make
+                  shoulder surfing easier or, worse, automatable?
+                  
+                  We believe so, and to demonstrate it, we developed a
+                  practical shoulder surfing attack that automatically
+                  reconstructs the sequence of keystrokes by aiming a camera at
+                  the target touchscreen while the victim is typing. Our attack
+                  exploits feedback such as magnified keys, often appearing in
+                  predictable positions. This feedback mechanism has been
+                  adopted by the top three touchscreen vendors (Apple iOS,
+                  Google Android, RIM BlackBerry); in newer version of these
+                  mobile OSs, the user has no way to disable it. To demonstrate
+                  the effectiveness of our approach, we implemented it against
+                  the iPhone (the most popular one), but it can be easily
+                  adapted to similar devices with minor modifications.
+                  
+                  Our attack takes into account that, in real-world scenarios,
+                  both the victim's device and attacker's spying camera are not
+                  standing in fixed positions. To compensate their movements
+                  and misalignments, our system detects and rectifies the
+                  target screen before identifying keystokes. By doing that, we
+                  are able to automatically recognize up to 97.07\% of the
+                  keystrokes, with as low as 1.15\% errors and an average
+                  processing speed that makes it a fast and quasi-real-time
+                  alternative to shoulder surfing.},
   location      = {Abu Dhabi},
   date          = {2011-12},
   url           = {https://www.blackhat.com/html/bh-ad-11/bh-ad-11-archives.html},
