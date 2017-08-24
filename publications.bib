@@ -153,7 +153,7 @@
                   {{Open Prototype}}},
   booktitle     = {{{IEEE Conference}} on {{Communications}} and {{Network
                   Security}} ({{CNS}})},
-  volume        = {(to appear)},
+  pages         = {73-81},
   location      = {{Philadelphia, US}},
   abstract      = {Several tools for program tracing and introspection exist.
                   These tools can be used to analyze potentially malicious or
@@ -195,6 +195,7 @@
                   cost model, we show that OpenST scales better than the state
                   of the art, bare-metal-based approach, while remaining
                   equally stealthy to evasive malware.},
+  doi           = {10.1109/CNS.2016.7860472},
   date          = {2016-10},
   file          = {files/papers/conference-papers/zheng_openst_2016.pdf},
   note          = {https://github.com/phretor/publications/raw/master/files/papers/conference-papers/zheng_openst_2016.pdf}
@@ -2112,6 +2113,93 @@
   note          = {https://github.com/phretor/publications/raw/master/files/papers/reports/maggi_recordmatching_tr_2008.pdf},
   file          = {files/papers/reports/maggi_recordmatching_tr_2008.pdf}
 }
+@InProceedings{   unruh_joernphp_2017,
+  shorttitle    = {JoernPHP},
+  author        = {Unruh, Tommi and Shastry, Bhargava and Skoruppa, Malte and
+                  Maggi, Federico and Rieck, Konrad and Seifert, Jean-Pierre
+                  and Yamaguchi, Fabian},
+  title         = {Leveraging Flawed Tutorials for Seeding Large-Scale Web
+                  Vulnerability Discovery},
+  publisher     = {{USENIX} Association},
+  booktitle     = {Proceedings of the 11th {USENIX} Workshop on Offensive
+                  Technologies ({WOOT} 17)},
+  location      = {Vancouver, BC},
+  abstract      = {The Web is replete with tutorial-style content on how to
+                  accomplish programming tasks. Unfortunately, even top-ranked
+                  tutorials suffer from severe security vulnerabilities, such
+                  as cross-site scripting (XSS), and SQL injection (SQLi).
+                  Assuming that these tutorials influence real-world software
+                  development, we hypothesize that code snippets from popular
+                  tutorials can be used to bootstrap vulnerability discovery at
+                  scale. To validate our hypothesis, we propose a
+                  semi-automated approach to find recurring vulnerabilities
+                  starting from a handful of top-ranked tutorials that contain
+                  vulnerable code snippets. We evaluate our approach by
+                  performing an analysis of tens of thousands of open-source
+                  web applications to check if vulnerabilities originating in
+                  the selected tutorials recur. Our analysis framework has been
+                  running on a standard PC, analyzed 64,415 PHP codebases
+                  hosted on GitHub thus far, and found a total of 117
+                  vulnerabilities that have a strong syntactic similarity to
+                  vulnerable code snippets present in popular tutorials. In
+                  addition to shedding light on the anecdotal belief that
+                  programmers reuse web tutorial code in an ad hoc manner, our
+                  study finds disconcerting evidence of insufficiently reviewed
+                  tutorials compromising the security of open-source projects.
+                  Moreover, our findings testify to the feasibility of
+                  large-scale vulnerability discovery using poorly written
+                  tutorials as a starting point.},
+  date          = {2017-08},
+  url           = {https://www.usenix.org/conference/woot17/workshop-program/presentation/unruh},
+  keywords      = {workshop},
+  note          = {https://github.com/phretor/publications/raw/master/files/papers/workshop-papers/unruh_joernphp_2017.pdf},
+  file          = {files/papers/workshop-papers/unruh_joernphp_2017.pdf}
+}
+
+@InProceedings{   shastry_hybridstaticfuzzing_2017,
+  shorttitle    = {HybridStaticFuzzing},
+  author        = {Shastry, Bhargava and Maggi, Federico and Yamaguchi, Fabian
+                  and Rieck, Konrad and Seifert, Jean-Pierre},
+  title         = {Static Exploration of Taint-Style Vulnerabilities Found by
+                  Fuzzing},
+  publisher     = {{USENIX} Association},
+  booktitle     = {11th {USENIX} Workshop on Offensive Technologies ({WOOT}
+                  17)},
+  location      = {Vancouver, BC},
+  abstract      = {Taint-style vulnerabilities comprise a majority of fuzzer
+                  discovered program faults. These vulnerabilities usually
+                  manifest as memory access violations caused by tainted
+                  program input. Although fuzzers have helped uncover a
+                  majority of taint-style vulnerabilities in software to date,
+                  they are limited by (i) extent of test coverage; and (ii) the
+                  availability of fuzzable test cases. Therefore, fuzzing alone
+                  cannot provide a high assurance that all taint-style
+                  vulnerabilities have been uncovered.
+                  
+                  In this paper, we use static template matching to find
+                  recurrences of fuzzer-discovered vulnerabilities. To
+                  compensate for the inherent incompleteness of template
+                  matching, we implement a simple yet effective match-ranking
+                  algorithm that uses test coverage data to focus attention on
+                  matches comprising untested code. We prototype our approach
+                  using the Clang/LLVM compiler toolchain and use it in
+                  conjunction with afl-fuzz, a modern coverage-guided fuzzer.
+                  Using a case study carried out on the Open vSwitch codebase,
+                  we show that our prototype uncovers corner cases in modules
+                  that lack a fuzzable test harness. Our work demonstrates that
+                  static analysis can effectively complement fuzz testing, and
+                  is a useful addition to the security assessment tool-set.
+                  Furthermore, our techniques hold promise for increasing the
+                  effectiveness of program analysis and testing, and serve as a
+                  building block for a hybrid vulnerability discovery
+                  framework.},
+  date          = {2017-08},
+  url           = {https://www.usenix.org/conference/woot17/workshop-program/presentation/shastry},
+  keywords      = {workshop},
+  note          = {https://github.com/phretor/publications/raw/master/files/papers/workshop-papers/shastry_hybridstaticfuzzing_2017.pdf},
+  file          = {files/papers/workshop-papers/shastry_hybridstaticfuzzing_2017.pdf}
+}
+
 @InProceedings{   polakis_osnresearch_2014,
   shorttitle    = {OSNResearch},
   author        = {Polakis, Iasonas and Maggi, Federico and Zanero, Stefano and
