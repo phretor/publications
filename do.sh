@@ -51,7 +51,7 @@ rm .dissertations
 echo "[INFO] Re-generating $ALL"
 rm -f $ALL $ALL.tmp
 cat {papers,journals,reports,workshops,talks,dissertations}.bib > $ALL.tmp
-
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $ALL.tmp > $ALL
+rm $ALL.tmp
 
 source ck.sh
