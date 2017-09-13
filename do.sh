@@ -49,7 +49,9 @@ bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/dissertations.rsc
 rm .dissertations
 
 echo "[INFO] Re-generating $ALL"
-rm -f $ALL
-cat {papers,journals,reports,workshops,talks,dissertations}.bib > $ALL
+rm -f $ALL $ALL.tmp
+cat {papers,journals,reports,workshops,talks,dissertations}.bib > $ALL.tmp
+
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $ALL.tmp > $ALL
 
 source ck.sh
