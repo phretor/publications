@@ -5,7 +5,7 @@ MAIN="src/main.bib"
 CLEANED="src/.main.bib"
 
 echo "[INFO] Cleaning $MAIN -> $CLEANED"
-bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $MAIN > $CLEANED
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r biblatex $MAIN > $CLEANED
 mv $CLEANED $MAIN
 
 echo "[INFO] Splitting $MAIN into files"
@@ -15,6 +15,7 @@ bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@Article}' $MAIN >
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@TechReport}' $MAIN > .reports
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@Unpublished}' $MAIN > .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc '--select{@PhdThesis}' $MAIN > .dissertations
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r biblatex '--select{@Thesis}' $MAIN > .theses
 
 echo "[INFO] Generating README.md file"
 rm README.md
@@ -26,6 +27,7 @@ echo "  * $(grep '^@' .journals | wc -l | tr -d '[:space:]') journal papers" >> 
 echo "  * $(grep '^@' .reports | wc -l | tr -d '[:space:]') technical reports" >> README.md
 echo "  * $(grep '^@' .talks | wc -l | tr -d '[:space:]') talks" >> README.md
 echo "  * $(grep '^@' .dissertations | wc -l | tr -d '[:space:]') dissertations" >> README.md
+echo "  * $(grep '^@' .theses | wc -l | tr -d '[:space:]') theses" >> README.md
 echo "" >> README.md
 echo "Updated on $(date)" >> README.md
 
@@ -48,10 +50,13 @@ rm .talks
 bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r bibtool/dissertations.rsc .dissertations > dissertations.bib
 rm .dissertations
 
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r biblatex .theses > theses.bib
+rm .theses
+
 echo "[INFO] Re-generating $ALL"
 rm -f $ALL $ALL.tmp
-cat {papers,journals,reports,workshops,talks,dissertations}.bib > $ALL.tmp
-bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc $ALL.tmp > $ALL
+cat {papers,journals,reports,workshops,talks,dissertations,theses}.bib > $ALL.tmp
+bibtool -r bibtool/sort_fld.rsc -r bibtool/main.rsc -r biblatex $ALL.tmp > $ALL
 rm $ALL.tmp
 
 source ck.sh

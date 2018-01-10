@@ -5,5 +5,6 @@
   * 9 technical reports
   * 27 talks
   * 1 dissertations
+  * 44 theses
 
-Updated on Wed Sep 13 16:09:42 CEST 2017
+Updated on Wed Jan 10 13:18:44 CET 2018
