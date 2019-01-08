@@ -1,3 +1,65 @@
+@Unpublished{     maggi_mqttbheu_talk_2018,
+  shorttitle    = {MQTTBHEU},
+  author        = {{Maggi, Federico and Quarta, Davide}},
+  title         = {When Machines Can't Talk: Security and Privacy Issues of
+                  Machine-to-Machine Data Protocols},
+  eventtitle    = {{Black Hat Briefings Europe}},
+  abstract      = {Two popular machine-to-machine (M2M) protocols—MQTT \&
+                  CoAP—are slowly forming the backbone of many IoT
+                  infrastructures, including critical industry environments.
+                  They are used to provide data connectivity for practically
+                  any kind of "machines". We found out that these protocols are
+                  affected by security and privacy issues that impact several
+                  market verticals, applications, products, and brands.
+                  
+                  This talk provides a security analysis of MQTT \& CoAP at the
+                  design, implementation, and deployment level. We found issues
+                  in the design specifications, vulnerable product
+                  implementations, and hundreds of thousands unsecured,
+                  open-to-the-world deployments. These issues show the risk
+                  that endpoints could be open to denial-of-service attacks
+                  and, in some cases, full control by an adversary. Despite the
+                  fixes in the design specifications, it is hard for developers
+                  to keep up with a changing standard when a technology becomes
+                  pervasive. Also, the market of this technology is very wide
+                  because the barrier to entry is fairly low. This led to a
+                  multitude of fragmented implementations.
+                  
+                  We analyzed the source code of the most common MQTT
+                  implementations, and discovered common flaws—mostly
+                  originating from misinterpretation of the standard. In
+                  particular, we found issues in how multibyte strings, UTF-8
+                  characters, and regular-expressions are parsed. Combined with
+                  standard features that force servers to retain messages and
+                  clients to request acknowledgement the delivery of every
+                  message, such bugs can lead to persistent denial of service.
+                  Our findings have been acknowledged by the MQTT Technical
+                  Committee, which released a note to help identify the risks.
+                  
+                  Alongside this, we've analyzed hundreds of millions MQTT \&
+                  CoAP messages obtained from hundreds of thousands server.
+                  Despite previous efforts that tried to raise awareness, we
+                  still found exposed data related to various industry sectors
+                  and sensitive information, including credentials and network
+                  infrastructure details. Moreover, we found out that MQTT is
+                  being used beyond messaging, to transport binary data, most
+                  likely for OTA update purposes, which certainly raises a red
+                  flag.
+                  
+                  Using MQTT \& CoAP as a concrete example of modern M2M
+                  technology, we will provide recommendations at various levels
+                  (standardization bodies, vendors, developers, and users) in
+                  the hope to see a significant reduction in the number of
+                  insecure deployments in the future, and a more responsible
+                  position by standardization bodies.},
+  location      = {London, UK},
+  url           = {https://www.blackhat.com/eu-18/briefings/schedule/#when-machines-cant-talk-security-and-privacy-issues-of-machine-to-machine-data-protocols-12722},
+  date          = {2018-12-06},
+  howpublished  = {Peer-reviewed Talk},
+  note          = {https://github.com/phretor/publications/raw/master/files/talks/maggi_mqttbheu_talk_2018.pdf},
+  file          = {files/talks/maggi_mqttbheu_talk_2018.pdf}
+}
+
 @Unpublished{     maggi_iiothmi_talk_2018,
   shorttitle    = {IIoTHMI},
   author        = {Maggi, Federico},
@@ -31,8 +93,8 @@
 
 @Unpublished{     balduzzi_defplorexbhus_talk_2017,
   shorttitle    = {DefPloreXBHUS},
-  author        = {{Balduzzi, Marco and Maggi, Federico and Ciancaglini,
-                  Vincenzo and Flores, Ryan and Gu, Lion}},
+  author        = {Balduzzi, Marco and Maggi, Federico and Ciancaglini,
+                  Vincenzo and Flores, Ryan and Gu, Lion},
   title         = {DefPloreX: A Machine Learning Toolkit for Large-scale
                   e-Crime Forensics},
   eventtitle    = {{Black Hat Arsenal USA}},
@@ -259,7 +321,7 @@
                   details and provide remediation advice useful both for the
                   users and developers.},
   location      = {London, UK},
-  url           = {https://www.blackhat.com/eu-16/briefings.html},
+  url           = {https://blackhat.com/eu-16/briefings/schedule/#talking-behind-your-back-attacks-and-countermeasures-of-ultrasonic-cross-device-tracking-4864},
   date          = {2016-11-03},
   howpublished  = {Peer-reviewed Talk},
   note          = {https://github.com/phretor/publications/raw/master/files/talks/mavroudis_silverdogbh_talk_2016.pdf},
