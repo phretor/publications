@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo '[INFO] Checking for missing files'
-cat publications.bib | grep 'file' | grep -v 'note' | grep -oE '\{[^}]+\}' | tr -d '[{}]' | \
+cat publications.bib | grep -E 'File[^=]+=' | grep -oE '\{[^}]+\}' | tr -d '[{}]' | \
   while read f
   do
     if [[ ! -e "$f" ]]
