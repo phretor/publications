@@ -1,6 +1,6 @@
 add.field {
-  file = "files/papers/reports/%s($key).pdf"
+  file = "files/papers/reports/%-1n(author)\_%-s(shorttitle)\_%d(date).pdf"
 }
 add.field {
-  note = "https://github.com/phretor/publications/raw/master/files/papers/reports/%s($key).pdf"
+  note = "\href{https://github.com/phretor/publications/raw/master/files/papers/reports/%s($key).pdf}{PDF}"
 }
