@@ -1,3 +1,155 @@
+@Unpublished{     maggi_smscs3sthlm_talk_2020,
+  shorttitle    = {SMSCS3STHLM},
+  author        = {Maggi, Federico},
+  title         = {Hidden Attack Surfaces of Modern Industrial Automation
+                  Systems},
+  eventtitle    = {CS3STHLM},
+  abstract      = {Last year we performed a security analysis on a testbed
+                  smart manufacturing system using a variety of
+                  "unconventional" attack vectors. Striving to think very much
+                  outside the box, we wanted to understand which overlooked
+                  conditions and attacker capabilities make certain attacks
+                  possible, and their consequences.
+                  
+                  Through concrete PoCs, we'll describe what unconventional
+                  attack vectors and very creative attackers can achieve, as
+                  well as how they can be stopped by current security
+                  solutions.
+                  
+                  We'll first show how a remote attacker can indirectly
+                  compromise an engineering workstation to backdoor the
+                  automation logic of an industrial robot. Then, we'll reveal
+                  how the attack has been carried out via a malicious software
+                  extension that targets the simulation and offline programming
+                  (OLP) platform. The attendees will learn that such malicious
+                  extensions have full capabilities on the target system, but
+                  we'll explain what they are and how they can be stopped.
+                  
+                  Our second entry point is an industry-grade embedded device.
+                  These devices, often dubbed as "IIoT devices" offer great
+                  programming flexibility—compared to, say, PLCs—at the
+                  price of more responsibility for the programmers. The
+                  proliferation of customizable IIoT devices along with the
+                  many 3rd-party development libraries are the perfect target
+                  for software supply-chain attacks. We'll show how we
+                  trojanized a simple temperature-measurement library to
+                  implement an ARP-based DoS attack, along with inaccurate
+                  temperature data-points, which can cause cascade effects down
+                  the data-processing pipeline. We'll argue that detecting
+                  violations in the software supply-chain is hard in large,
+                  distributed enterprises, but their effects can be mitigated
+                  with proper network partitioning.
+                  
+                  The last step of our security analysis focused on lateral
+                  movements to complex, programmable machines such as
+                  industrial robots. We observe that, movement-instructions
+                  aside, industrial robot programming languages have
+                  statements, loops, conditions, network sockets, serial
+                  communication, etc. With access to low-level system resources
+                  like files, network, memory, and peripherals, task programs
+                  are a powerful, overlooked payload. Not only we show that
+                  task programs are susceptible to input-validation
+                  vulnerabilities, we also show that they're rich enough to
+                  implement malware-like functionalities, given that the
+                  runtime environment provides no resource isolation. As a
+                  result, task programs have unmediated access to the entire
+                  system.
+                  
+                  We'll share cases of vulnerable and malicious task programs,
+                  and how to discover such patterns, including some
+                  vulnerabilities we found in real-world code.
+                  
+                  We conclude by discussing the remediation steps that can be
+                  adopted by developers and vendors to mitigate our findings in
+                  the medium and long term.},
+  location      = {Stocholm, Sweden},
+  url           = {https://cs3sthlm.se/agenda/},
+  date          = {2020-10-21},
+  howpublished  = {Peer-reviewed Talk},
+  file          = {files/talks/maggi_smscs3sthlm_talk_2020.pdf}
+}
+
+@Unpublished{     maggi_otrazorhitcon_talk_2020,
+  shorttitle    = {OTRazorHITCON},
+  author        = {Maggi, Federico and Pogliani, Marcello and Quarta, Davide
+                  and Zanero, Stefano and Balduzzi, Marco},
+  title         = {Guarding the Factory Floor: Catching Insecure Industrial
+                  Robot Programs},
+  eventtitle    = {HITCON},
+  abstract      = {What if a perfectly patched industrial manufacturing machine
+                  can still harbor for vulnerabilities where no one is looking?
+                  What if the powerful programming languages used to program
+                  these machines can go beyond simple movement instructions,
+                  and actually allow threat actors to hide malware into the
+                  logic?
+                  
+                  Industrial robot OEMs provide proprietary, legacy programming
+                  languages to automate these complex machines. Mostly offering
+                  movement primitives, theseprogramming languages also give
+                  access to low-level system resources like files, network
+                  sockets, and some even allow memory and program pointer.
+                  While useful, these features may lead to insecure programming
+                  patterns such as input-validation vulnerabilities. Also,
+                  they’re powerful enough to allow the implementation of
+                  advanced malware functionalities, with an underlying runtime
+                  environment that provides no resource isolation.
+                  
+                  After going through the technical features of the languages
+                  by eight leading OEMs, we'll share cases of vulnerable and
+                  malicious usage. We'll then present a static code analyzer
+                  that we created and patented, to scan robotic programs and
+                  discover unsafe code patterns. Our evaluation on 100
+                  automation task program files show that insecure patterns are
+                  indeed found in real-world code, and that static source code
+                  analysis is an effective defense tool in the short term.},
+  location      = {Taiwan},
+  url           = {https://hitcon.org/2020/agenda/93ba0758-bd84-43ae-9da0-b389fde2803b/},
+  date          = {2020-09-12},
+  howpublished  = {Peer-reviewed Talk},
+  file          = {files/talks/maggi_otrazorhitcon_talk_2020.pdf}
+}
+
+@Unpublished{     maggi_otrazorbhus_talk_2020,
+  shorttitle    = {OTRazorBHUS},
+  author        = {Maggi, Federico and Pogliani, Marcello and Quarta, Davide
+                  and Zanero, Stefano and Balduzzi, Marco},
+  title         = {OTRazor: Static Code Analysis for Vulnerability Discovery in
+                  Industrial Automation Scripts},
+  eventtitle    = {Black Hat Briefings USA},
+  abstract      = {In this talk, we delve into industrial robot programming,
+                  focusing on the security issues arising from the design and
+                  implementation choices of these platforms.
+                  
+                  Industrial robot manufacturers provide proprietary,
+                  domain-specific programming languages to operate these
+                  complex machines. Mostly focused on movement instructions,
+                  such programming languages also provide access to low-level
+                  system resources like files and network access, and some even
+                  allow dynamic code loading. While useful, these features can
+                  lead to unsafe programming patterns such as input-validation
+                  vulnerabilities or malware-like functionalities, especially
+                  if the underlying environment provides no resource isolation
+                  like those found in modern operating systems.
+                  
+                  After describing the technical features of the languages by
+                  eight leading manufacturers, we'll share several cases of
+                  vulnerable and malicious usage. We'll then present a static
+                  code analyzer that we created and patented, to scan robotic
+                  programs and discover unsafe code patterns. Our evaluation on
+                  50 automation programs show that unsafe patterns are indeed
+                  found in real-world code, and that static source code
+                  analysis is an effective defense tool in the short term.
+                  
+                  We conclude by discussing the remediation steps that can be
+                  adopted by developers and vendors to mitigate such issues in
+                  the medium and long term.},
+  location      = {Las Vegas, US},
+  url           = {https://www.blackhat.com/us-20/briefings/schedule/index.html#otrazor-static-code-analysis-for-vulnerability-discovery-in-industrial-automation-scripts-19523},
+  date          = {2020-08-05},
+  howpublished  = {Peer-reviewed Talk},
+  file          = {files/talks/maggi_otrazorbhus_talk_2020.pdf}
+}
+
 @Unpublished{     balduzzi_industrialradioshitb_talk_2019,
   shorttitle    = {IndustrialRadiosHITB},
   author        = {Balduzzi, Marco and Maggi, Federico},

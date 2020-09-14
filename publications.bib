@@ -138,6 +138,268 @@
   Institution   = {Politecnico di Milano}
 }
 
+@InProceedings{   pogliani_otrazor_2020,
+  ShortTitle    = {OTRazor},
+  Author        = {Pogliani, Marcello and Maggi, Federico and Balduzzi, Marco
+                  and Quarta, Davide and Zanero, Stefano},
+  Title         = {Detecting Unsafe Code Patterns in Industrial Robot
+                  Programs},
+  Publisher     = {ACM},
+  BookTitle     = {Proceedings of the 2020 on Asia Conference on Computer and
+                  Communications Security},
+  Series        = {AsiaCCS '20},
+  Pages         = {(to appear)},
+  Address       = {New York, NY, USA},
+  Location      = {Taipei, Taiwan},
+  Abstract      = {To appear},
+  Date          = {2020-10-5},
+  File          = {files/papers/conference-papers/pogliani_otrazor_2020.pdf}
+}
+
+@Unpublished{     maggi_smscs3sthlm_talk_2020,
+  ShortTitle    = {SMSCS3STHLM},
+  Author        = {Maggi, Federico},
+  Title         = {Hidden Attack Surfaces of Modern Industrial Automation
+                  Systems},
+  EventTitle    = {CS3STHLM},
+  Abstract      = {Last year we performed a security analysis on a testbed
+                  smart manufacturing system using a variety of
+                  "unconventional" attack vectors. Striving to think very much
+                  outside the box, we wanted to understand which overlooked
+                  conditions and attacker capabilities make certain attacks
+                  possible, and their consequences.
+                  
+                  Through concrete PoCs, we'll describe what unconventional
+                  attack vectors and very creative attackers can achieve, as
+                  well as how they can be stopped by current security
+                  solutions.
+                  
+                  We'll first show how a remote attacker can indirectly
+                  compromise an engineering workstation to backdoor the
+                  automation logic of an industrial robot. Then, we'll reveal
+                  how the attack has been carried out via a malicious software
+                  extension that targets the simulation and offline programming
+                  (OLP) platform. The attendees will learn that such malicious
+                  extensions have full capabilities on the target system, but
+                  we'll explain what they are and how they can be stopped.
+                  
+                  Our second entry point is an industry-grade embedded device.
+                  These devices, often dubbed as "IIoT devices" offer great
+                  programming flexibility—compared to, say, PLCs—at the
+                  price of more responsibility for the programmers. The
+                  proliferation of customizable IIoT devices along with the
+                  many 3rd-party development libraries are the perfect target
+                  for software supply-chain attacks. We'll show how we
+                  trojanized a simple temperature-measurement library to
+                  implement an ARP-based DoS attack, along with inaccurate
+                  temperature data-points, which can cause cascade effects down
+                  the data-processing pipeline. We'll argue that detecting
+                  violations in the software supply-chain is hard in large,
+                  distributed enterprises, but their effects can be mitigated
+                  with proper network partitioning.
+                  
+                  The last step of our security analysis focused on lateral
+                  movements to complex, programmable machines such as
+                  industrial robots. We observe that, movement-instructions
+                  aside, industrial robot programming languages have
+                  statements, loops, conditions, network sockets, serial
+                  communication, etc. With access to low-level system resources
+                  like files, network, memory, and peripherals, task programs
+                  are a powerful, overlooked payload. Not only we show that
+                  task programs are susceptible to input-validation
+                  vulnerabilities, we also show that they're rich enough to
+                  implement malware-like functionalities, given that the
+                  runtime environment provides no resource isolation. As a
+                  result, task programs have unmediated access to the entire
+                  system.
+                  
+                  We'll share cases of vulnerable and malicious task programs,
+                  and how to discover such patterns, including some
+                  vulnerabilities we found in real-world code.
+                  
+                  We conclude by discussing the remediation steps that can be
+                  adopted by developers and vendors to mitigate our findings in
+                  the medium and long term.},
+  Location      = {Stocholm, Sweden},
+  URL           = {https://cs3sthlm.se/agenda/},
+  Date          = {2020-10-21},
+  HowPublished  = {Peer-reviewed Talk},
+  File          = {files/talks/maggi_smscs3sthlm_talk_2020.pdf}
+}
+
+@Unpublished{     maggi_otrazorhitcon_talk_2020,
+  ShortTitle    = {OTRazorHITCON},
+  Author        = {Maggi, Federico and Pogliani, Marcello and Quarta, Davide
+                  and Zanero, Stefano and Balduzzi, Marco},
+  Title         = {Guarding the Factory Floor: Catching Insecure Industrial
+                  Robot Programs},
+  EventTitle    = {HITCON},
+  Abstract      = {What if a perfectly patched industrial manufacturing machine
+                  can still harbor for vulnerabilities where no one is looking?
+                  What if the powerful programming languages used to program
+                  these machines can go beyond simple movement instructions,
+                  and actually allow threat actors to hide malware into the
+                  logic?
+                  
+                  Industrial robot OEMs provide proprietary, legacy programming
+                  languages to automate these complex machines. Mostly offering
+                  movement primitives, theseprogramming languages also give
+                  access to low-level system resources like files, network
+                  sockets, and some even allow memory and program pointer.
+                  While useful, these features may lead to insecure programming
+                  patterns such as input-validation vulnerabilities. Also,
+                  they’re powerful enough to allow the implementation of
+                  advanced malware functionalities, with an underlying runtime
+                  environment that provides no resource isolation.
+                  
+                  After going through the technical features of the languages
+                  by eight leading OEMs, we'll share cases of vulnerable and
+                  malicious usage. We'll then present a static code analyzer
+                  that we created and patented, to scan robotic programs and
+                  discover unsafe code patterns. Our evaluation on 100
+                  automation task program files show that insecure patterns are
+                  indeed found in real-world code, and that static source code
+                  analysis is an effective defense tool in the short term.},
+  Location      = {Taiwan},
+  URL           = {https://hitcon.org/2020/agenda/93ba0758-bd84-43ae-9da0-b389fde2803b/},
+  Date          = {2020-09-12},
+  HowPublished  = {Peer-reviewed Talk},
+  File          = {files/talks/maggi_otrazorhitcon_talk_2020.pdf}
+}
+
+@Unpublished{     maggi_otrazorbhus_talk_2020,
+  ShortTitle    = {OTRazorBHUS},
+  Author        = {Maggi, Federico and Pogliani, Marcello and Quarta, Davide
+                  and Zanero, Stefano and Balduzzi, Marco},
+  Title         = {OTRazor: Static Code Analysis for Vulnerability Discovery in
+                  Industrial Automation Scripts},
+  EventTitle    = {Black Hat Briefings USA},
+  Abstract      = {In this talk, we delve into industrial robot programming,
+                  focusing on the security issues arising from the design and
+                  implementation choices of these platforms.
+                  
+                  Industrial robot manufacturers provide proprietary,
+                  domain-specific programming languages to operate these
+                  complex machines. Mostly focused on movement instructions,
+                  such programming languages also provide access to low-level
+                  system resources like files and network access, and some even
+                  allow dynamic code loading. While useful, these features can
+                  lead to unsafe programming patterns such as input-validation
+                  vulnerabilities or malware-like functionalities, especially
+                  if the underlying environment provides no resource isolation
+                  like those found in modern operating systems.
+                  
+                  After describing the technical features of the languages by
+                  eight leading manufacturers, we'll share several cases of
+                  vulnerable and malicious usage. We'll then present a static
+                  code analyzer that we created and patented, to scan robotic
+                  programs and discover unsafe code patterns. Our evaluation on
+                  50 automation programs show that unsafe patterns are indeed
+                  found in real-world code, and that static source code
+                  analysis is an effective defense tool in the short term.
+                  
+                  We conclude by discussing the remediation steps that can be
+                  adopted by developers and vendors to mitigate such issues in
+                  the medium and long term.},
+  Location      = {Las Vegas, US},
+  URL           = {https://www.blackhat.com/us-20/briefings/schedule/index.html#otrazor-static-code-analysis-for-vulnerability-discovery-in-industrial-automation-scripts-19523},
+  Date          = {2020-08-05},
+  HowPublished  = {Peer-reviewed Talk},
+  File          = {files/talks/maggi_otrazorbhus_talk_2020.pdf}
+}
+
+@TechReport{      maggi_rogueautomationwp_tr_2020,
+  ShortTitle    = {RogueAutomationWP},
+  Author        = {Maggi, Federico and Pogliani, Marcello and Vittone, Martino,
+                  and Quarta, Davide and Zanero, Stefano and Balduzzi, Marco
+                  and Vosseler, Rainer and Rösler, Martin},
+  Title         = {Rogue Automation: Vulnerable and Malicious Code in
+                  Industrial Programming},
+  Institution   = {Trend Micro, Inc.},
+  Abstract      = {In this research paper, we reveal previously unknown design
+                  flaws that malicious actors could exploit to hide malicious
+                  functionalities in industrial robots and other automated,
+                  programmable manufacturing machines. Since these flaws are
+                  difficult to fix, enterprises that deploy vulnerable machines
+                  could face serious consequences. An attacker could exploit
+                  them to become persistent within a smart factory, silently
+                  alter the quality of products, halt a manufacturing line, or
+                  perform some other malicious activity.},
+  Date          = {2020-08-04},
+  URL           = {https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/unveiling-the-hidden-risks-of-industrial-automation-programming},
+  Series        = {Research Papers},
+  Publisher     = {Trend Micro Research},
+  File          = {files/papers/reports/maggi_rogueautomationwp_tr_2020.pdf}
+}
+
+@TechReport{      maggi_smartfactorywp_tr_2020,
+  ShortTitle    = {SmartFactoryWP},
+  Author        = {Maggi, Federico and Pogliani, Marcello},
+  Title         = {Attacks on Smart Manufactururing Systems: A Forward-looking
+                  Security Analysis},
+  Institution   = {Trend Micro, Inc.},
+  Abstract      = {This research presents a systematic security analysis that
+                  we performed to explore a variety of attack vectors on a real
+                  smart manufacturing system and to assess the attacks that
+                  could be feasibly launched on a complex smart manufacturing
+                  system. The main, two-pronged question we want to answer is:
+                  Under which threat conditions and attacker capabilities are
+                  certain attacks possible, and what are the consequences?},
+  Date          = {2020-05-11},
+  URL           = {https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/threats-and-consequences-a-security-analysis-of-smart-manufacturing-systems},
+  Series        = {Research Papers},
+  Publisher     = {Trend Micro Research},
+  File          = {files/papers/reports/maggi_smartfactorywp_tr_2020.pdf}
+}
+
+@TechReport{      hilt_factoryhoneypotwp_tr_2020,
+  ShortTitle    = {FactoryHoneypotWP},
+  Author        = {Hilt, Stephen and Maggi, Federico and Perine, Charles and
+                  Remorin, Lord and Rösler, Martin and Vosseler, Rainer},
+  Title         = {Caught in the Act: Running a Realistic Factory Honeypot to
+                  Capture Real Threats},
+  Institution   = {Trend Micro, Inc.},
+  Abstract      = {Different critical infrastructures have been hit with
+                  attacks such as those that involved the infamous Stuxnet
+                  malware1 and the more recent Triton malware. These incidents
+                  — attacks on manufacturing and other sectors that use
+                  industrial control systems (ICSs) — continue to be heard of
+                  through the years. In 2017, for instance, the notorious
+                  WannaCry ransomware shut down a car manufacturing factory in
+                  Japan, and another ransomware attack took down a factory in
+                  North Carolina, U.S. Smart factories attract the interest of
+                  threat actors for the critical and sensitive infrastructures
+                  they usually handle. A successful attack, no matter how
+                  difficult the execution, can yield high-impact results that
+                  can corner an organization into giving in to
+                  cybercriminals’ demands or, at the very least, cost it
+                  considerable losses.Prompted by our desire to determine how
+                  knowledgeable and imaginative attackers could be in
+                  compromising a manufacturing facility, we built the most
+                  realistic factory honeypot we had ever created. And in doing
+                  so, we also created an ideal environment where we could
+                  monitor and learn about the attacks that the honeypot came to
+                  attract. From conceptualization to actual execution, our
+                  factory honeypot was designed to be an attractive target for
+                  potential cybercriminals.Our factory honeypot took on the
+                  ruse of a small fictitious company that apparently handled
+                  clients from critical industries yet possessed inadequate
+                  security defenses. Our ruse proved successful as our honeypot
+                  saw several attacks, which we had the freedom and resources
+                  to monitor. These attacks included a malicious cryptocurrency
+                  mining campaign, two ransomware attacks, another that posed
+                  as a ransomware attack, and several scanners.In this research
+                  paper, we detail the conceptualization and creation of our
+                  most elaborate honeypot to date, and discuss the result of
+                  our monitoring and tracking of the incidents that occurred on
+                  the honeypot.},
+  Date          = {2020-01-21},
+  URL           = {https://www.trendmicro.com/vinfo/us/security/news/internet-of-things/fake-company-real-threats-logs-from-a-smart-factory-honeypot},
+  Series        = {Research Papers},
+  Publisher     = {Trend Micro Research},
+  File          = {files/papers/reports/hilt_factoryhoneypotwp_tr_2020.pdf}
+}
+
 @InProceedings{   maggi_industrialradios_2019,
   ShortTitle    = {IndustrialRadios},
   Author        = {Maggi, Federico and Balduzzi, Marco and Andersson, Jonathan
@@ -970,6 +1232,40 @@
   ISBN          = {978-3-319-60876-1},
   Date          = {2017-07-06},
   File          = {files/papers/conference-papers/palanca_candos_2017.pdf}
+}
+
+@Article{         continella_prometheus_article_2017,
+  ShortTitle    = {Prometheus},
+  Author        = {Continella, Andrea and Carminati, Michele and Polino, Mario
+                  and Lanzi, Andrea and Zanero, Stefano and Maggi, Federico},
+  Title         = {Prometheus: Analyzing WebInject-based information stealers},
+  Journal       = {Journal of Computer Security},
+  Number        = {Preprint},
+  Pages         = {1--21},
+  Abstract      = {Nowadays Information stealers are reaching high levels of
+                  sophistication. The number of families and variants observed
+                  increased exponentially in the last years. Furthermore, these
+                  trojans are sold on underground markets along with automatic
+                  frameworks that include web-based administration panels,
+                  builders and customization procedures. From a technical point
+                  of view such malware is equipped with a functionality, called
+                  WebInject, that exploits API hooking techniques to intercept
+                  all sensitive data in a browser context and modify web pages
+                  on infected hosts. In this paper we propose Prometheus, an
+                  automatic system that is able to analyze trojans that base
+                  their attack technique on DOM modifications. Prometheus is
+                  able to identify the injection operations performed by
+                  malware, and generate signatures based on the injection
+                  behavior. Furthermore, it is able to extract the WebInject
+                  targets by using memory forensic techniques. We evaluated
+                  Prometheus against real-world, online websites and a dataset
+                  of distinct variants of financial trojans. In our experiments
+                  we show that our approach correctly recognizes known variants
+                  of WebInject-based malware and successfully extracts the
+                  WebInject targets. },
+  Publisher     = {IOS Press},
+  Date          = {2017-05-02},
+  File          = {files/papers/journal-papers/continella_prometheus_article_2017.pdf}
 }
 
 @InProceedings{   quarta_robosec_2017,
