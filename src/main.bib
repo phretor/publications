@@ -137,6 +137,51 @@
   Institution   = {Politecnico di Milano}
 }
 
+@InProceedings{   maggi_smsec_2020,
+  ShortTitle    = {SMSec},
+  Author        = {Maggi, Federico and Pogliani, Marcello and Balduzzi, Marco
+                  and Quarta, Davide and Zanero, Stefano},
+  Title         = {Smart Factory Security: A Case Study on a Modular
+                  SmartManufacturing System},
+  Publisher     = {Elsevier Procedia Computer Science},
+  BookTitle     = {International Conference on Industry 4.0 and Smart
+                  Manufacturing},
+  Volume        = {42},
+  Series        = {ISM '20},
+  Location      = {Linz, Austria},
+  Abstract      = {Smart manufacturing systems are an attractive target for
+                  cyber attacks, because they embed valuable data andcritical
+                  equipment. Despite the market is driving towards integrated
+                  and interconnected factories, current smartmanufacturing
+                  systems are still designed under the assumption that they
+                  will stay isolated from the corporatenetwork and the outside
+                  world. This choice may result in an internal architecture
+                  with insufficient network andsystem compartmentalization. As
+                  a result, once an attacker has gained access, they have full
+                  control of the entireproduction plant because of the lack of
+                  network segmentation.With the goal of raising cybersecurity
+                  awareness, in this paper we describe a practical case study
+                  showing attackscenarios that we have validated on a real
+                  modular smart manufacturing system, and suggest practical
+                  securitycountermeasures. The testbed smart manufacturing
+                  system is part of the Industry 4.0 research laboratory hosted
+                  byPolitecnico di Milano, and comprises seven assembly
+                  stations, each with their programmable logic controllers
+                  andhuman-computer interfaces, as well as an industrial
+                  robotic arm that performs pick-and-place tasks.On this
+                  testbed we show two indirect attacks to gain initial access,
+                  even under the best-case scenario of a system notdirectly
+                  connected to any public network. We conclude by showing two
+                  post-exploitation scenarios that an adversarycan use to cause
+                  physical impact on the production, or keep persistent access
+                  to the plant.We are unaware of a similar security analysis
+                  performed within the premises of a research facility,
+                  following ascientific methodology, so we believe that this
+                  work can represent a good first step to inspire follow up
+                  research onthe many verticals that we touch.},
+  Date          = {2020-11-23}
+}
+
 @InProceedings{   pogliani_otrazor_2020,
   ShortTitle    = {OTRazor},
   Author        = {Pogliani, Marcello and Maggi, Federico and Balduzzi, Marco
@@ -144,13 +189,28 @@
   Title         = {Detecting Unsafe Code Patterns in Industrial Robot
                   Programs},
   Publisher     = {ACM},
-  BookTitle     = {Proceedings of the 2020 on Asia Conference on Computer and
-                  Communications Security},
+  BookTitle     = {Proceedings of the 15th ACM Asia Conference on Computer and
+                  Communications SecurityOctober 2020},
   Series        = {AsiaCCS '20},
-  Pages         = {(to appear)},
+  Pages         = {759--771},
   Address       = {New York, NY, USA},
   Location      = {Taipei, Taiwan},
-  Abstract      = {To appear},
+  Abstract      = {In this paper, we analyze the languages of $8$ leading
+                  industrial robot vendors, systematize their technical
+                  features, and discuss cases of vulnerable and malicious uses.
+                  We then describe a static source-code analyzer that we
+                  created to analyze robotic programs and discover insecure or
+                  potentially malicious code paths. We focused our
+                  proof-of-concept implementation on two popular languages,
+                  namely ABB's RAPID and KUKA's KRL. By evaluating our tool on
+                  a set of publicly available programs, we show that insecure
+                  patterns are found in real-world code; therefore, static
+                  source-code analysis is an effective security screening
+                  mechanism, for example to prevent commissioning insecure or
+                  malicious industrial task programs. Finally, we discuss
+                  remediation steps that developers and vendors can adopt to
+                  mitigate such issues.},
+  DOI           = {https://doi.org/10.1145/3320269.3384735},
   Date          = {2020-10-5}
 }
 
