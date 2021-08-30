@@ -138,6 +138,149 @@
   Institution   = {Politecnico di Milano}
 }
 
+@Unpublished{     yen_ddsbheu_talk_2021,
+  ShortTitle    = {DDSBHEU},
+  Author        = {Yen, Ta-Lun and Maggi, Federico and Boasson, Erik},
+  Title         = {The Data Distribution Service (DDS) Protocol is Critical:
+                  Let's Use it Securely!},
+  EventTitle    = {Black Hat Briefings Europe},
+  Abstract      = {We discovered and disclosed vulnerabilities in most of the
+                  OMG Data Distribution Service (DDS) implementations. DDS
+                  enables crucial technologies like autonomous driving,
+                  healthcare machinery, military tactical systems, or missile
+                  launch stations. Notably, DDS is used by NASA at the KSC, by
+                  SIEMENS for smart grid applications, by Volkswagen and Bosch
+                  for autonomous valet parking systems, by NAV CANADA for ATC,
+                  and by the Robot Operating System 2 (ROS2) to control
+                  industrial and consumer robots.
+                  
+                  Designed around industrial-level requirements, DDS sits deep
+                  in the control network, allowing an arbitrary number of
+                  endpoints like sensors or actuators to communicate
+                  transparently, with an abstract API based on familiar data
+                  type specifications (e.g., C structs) and simple function
+                  calls, regardless of the complexity of the data.
+                  
+                  We approached DDS from the bottom up, and we will show you
+                  how we wrote a Scapy layer to guide you through the packet
+                  structure. Although network fuzzing wasn't directly
+                  effective, it greatly helped us to master the tiny details of
+                  DDS. This led us to find an amplification vulnerability in
+                  the standard, which allows an attacker to redirect flood an
+                  arbitrary host. DDS configuration is highly dependent on XML,
+                  JSON, YAML, or similar formats, which make them another
+                  attack vector. By writing a Radamsa-based file fuzzer we
+                  found a parsing vulnerability in RTI DDS Connector, so an
+                  attacker can use a malicious configuration file to gain
+                  initial access. We then focus on fuzzing the message
+                  interpretation routines in all implementations. Using
+                  concrete examples, we explain how to pick good fuzz targets
+                  and prepare them for popular frameworks like OSS-Fuzz and
+                  UnicornAFL.
+                  
+                  We take you from knowing nothing about DDS to efficiently
+                  researching new vulnerabilities, which we encourage other
+                  researchers, DDS users and implementors to do. We report on
+                  our interactions with some of the DDS implementors, which we
+                  believe is the first concrete step towards securing this
+                  critical protocol in the long run. We release fuzzing
+                  harnesses and a Scapy layer to decode the DDS RTPS layer.},
+  Location      = {London, UK},
+  URL           = {https://www.blackhat.com/eu-21/briefings/schedule/index.html#the-data-distribution-service-dds-protocol-is-critical-lets-use-it-securely-24934},
+  Date          = {2021-11-08},
+  HowPublished  = {Peer-reviewed Talk},
+  File          = {files/talks/yen_ddsbheu_talk_2021.pdf}
+}
+
+@Unpublished{     mayoral-vilches_smallwonderbhus_talk_2021,
+  ShortTitle    = {SmallWonderBHUS},
+  Author        = {Mayoral-Vilches, Víctor and Maggi, Federico},
+  Title         = {Small Wonder: Uncovering Planned Obsolescence Practices in
+                  Robotics and What This Means for Cybersecurity},
+  EventTitle    = {Black Hat Briefings USA},
+  Abstract      = {Security in robotics is nothing really new if one considers
+                  modern OT and IT approaches, and most security practices
+                  translate directly to robots. However, there's almost no
+                  security culture amongst robot makers.
+                  
+                  Building a robot requires careful selection of components
+                  that interact across networks while meeting timing deadlines.
+                  It isn't uncommon for robot components to be compromised or
+                  fail over time, leading to complete system malfunction. Given
+                  the expensive prices of these machines (we focus on robots in
+                  the 25K-70K USD range), it's only reasonable to consider the
+                  need for securing and repairing robots.
+                  
+                  We introduce and promote systematic "robot teardown" as an
+                  approach to repair robots by understanding their internals
+                  (still obscure). Needless to say, robot teardown is an
+                  essential practice in robot security. We show several "tricks
+                  from the trade" and the legal implications learned by porting
+                  reverse-engineering practices into the less-explored field of
+                  robotics. We explain how we a) discovered more than 90
+                  security vulnerabilities in robots from Teradyne (MiR and UR)
+                  over a period of two years (never discussed publicly before),
+                  b) gained repairing capabilities on these robots, c) show
+                  evidence of planned obsolescence by comparing two
+                  sequentially released robot controllers, and d) demonstrate
+                  how robot hacking leads us to repurpose an older controller
+                  (previous version) from Universal Robots with their newer
+                  robots (arms) maintaining full capabilities and demonstrating
+                  that there's no need to re-spend thousands of dollars again.
+                  
+                  Similar to Ford in the 1920s with cars, most robot
+                  manufacturers nowadays employ planned obsolescence practices
+                  and organize dealers and system integrators into "private
+                  networks", providing repair parts only to "certified"
+                  companies to make repairs more difficult and evade
+                  competition. We wrap up by advocating for a "Right to
+                  Repair'' in robotics to reduce robot e-waste and promote
+                  systematic teardowns for the benefit of security research.},
+  Location      = {Las Vegas, US},
+  URL           = {https://www.blackhat.com/us-20/briefings/schedule/index.html#otrazor-static-code-analysis-for-vulnerability-discovery-in-industrial-automation-scripts-19523},
+  Date          = {2021-07-31},
+  HowPublished  = {Peer-reviewed Talk},
+  File          = {files/talks/mayoral-vilches_smallwonderbhus_talk_2021.pdf}
+}
+
+@TechReport{      maggi_rfquack_tr_2021,
+  ShortTitle    = {RFQuack},
+  Author        = {Maggi, Federico and Guglielmini, Andrea},
+  Title         = {RFQuack: A Universal Hardware-Software Toolkit for Wireless
+                  Protocol (Security) Analysis and Research},
+  Institution   = {arXiv},
+  Abstract      = {Software-defined radios (SDRs) are indispensable for signal
+                  reconnaissance and physical-layer dissection, but despite we
+                  have advanced tools like Universal Radio Hacker, SDR-based
+                  approaches require substantial effort. Contrarily, RF dongles
+                  such as the popular Yard Stick One are easy to use and
+                  guarantee a deterministic physical-layer implementation.
+                  However, they're not very flexible, as each dongle is a
+                  static hardware system with a monolithic firmware. We present
+                  RFquack, an open-source tool and library firmware that
+                  combines the flexibility of a software-based approach with
+                  the determinism and performance of embedded RF frontends.
+                  RFquack is based on a multi-radio hardware system with
+                  swappable RF frontends, and a firmware that exposes a
+                  uniform, hardware-agnostic API. RFquack focuses on a
+                  structured firmware architecture that allows high- and
+                  low-level interaction with the RF frontends. It facilitates
+                  the development of host-side scripts and firmware plug-ins,
+                  to implement efficient data-processing pipelines or
+                  interactive protocols, thanks to the multi-radio support.
+                  RFquack has an IPython shell and 9 firmware modules for:
+                  spectrum scanning, automatic carrier detection and bitrate
+                  estimation, headless operation with remote management,
+                  in-flight packet filtering and manipulation, MouseJack, and
+                  RollJam (as examples). We used RFquack to setup RF hacking
+                  contests, analyze industrial-grade devices and key fobs, on
+                  which we found and reported 11 vulnerabilities in their RF
+                  protocols. },
+  Date          = {2021-04-06},
+  URL           = {https://arxiv.org/abs/2104.02551},
+  File          = {files/papers/reports/maggi_rfquack_tr_2021.pdf}
+}
+
 @InProceedings{   maggi_smsec_2020,
   ShortTitle    = {SMSec},
   Author        = {Maggi, Federico and Balduzzi, Marco and Vosseler, Rainer and
